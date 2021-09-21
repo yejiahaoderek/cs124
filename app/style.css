@@ -1,15 +1,58 @@
+input {
+    border-radius: 20px;
+    background-color: white;
+    border-style: none;
+    border-bottom: 0.3rem solid transparent;
+    transition: all 0.3s;
+}
+
+button {
+    border-radius: 20px;
+    background: #F1F6F9;
+    border-color: #14274E;
+}
+
+.warning{
+    background-color: #F5C0C0;
+    border-color: #F5C0C0;
+}
+
+.confirm{
+    background-color: #91C788;
+    border-color: #91C788;
+}
+
+h1{
+    font-family: ".SF NS";
+}
+
+body{
+    font-family: ".SF NS";
+    color: #14274E;
+}
+
+ul {
+    list-style: none;
+}
+
+
 #container{
     width: 340px;
-    /*height: 640px;*/
-    /*border-style: solid;*/
-    /*border-color: lightblue;*/
+    height: 640px;
     display: grid;
-    grid-template-rows: 1fr 1fr 20px;
+    grid-template-rows: 1fr 20px 1fr 20px;
+    border-radius: 25px;
+    background: #F1F6F9;
+    padding: 20px;
 }
 
 .taskList {
 
 }
+
+.completedTaskList{
+}
+
 
 #hide{
     width: 100%;
@@ -19,10 +62,13 @@
 .item{
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
+
 }
 
 .taskItems {
-
+    /*border-radius: 25px;*/
+    /*background: #9BA4B4;*/
 }
 
 #headerButton {
