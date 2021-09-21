@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="container">
+    <div class="taskList">
+        <h1>To-Dos</h1>
+        <ul class="taskItems">
+            <span class="item"> <li>Uncompleted Task 1</li>  <button>rename</button> </span>
+            <span class="item"> <li>Uncompleted Task 2</li>  <button>rename</button> </span>
+        </ul>
+    </div>
+
+
+    <div class="completedTaskList">
+        <button id="hide">Hide Completed</button>
+        <div id="headerButton"> <h1>Completed Tasks </h1> <button>Delete All</button> </div>
+        <ul class="completedTaskItems">
+            <span class="item"> <li>Completed Task 1 </li> <button> Delete </button> </span>
+            <span class="item"> <li>Completed Task 2 </li> <button> Delete </button> </span>
+        </ul>
+    </div>
+
+    <form class="addList">
+        <label >
+            <input type="text" name="task" placeholder="Enter new task"/>
+        </label>
+        <button>
+            Add
+        </button>
+    </form>
+</div>
+</body>
+</html>

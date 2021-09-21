@@ -1,0 +1,43 @@
+#container{
+    width: 340px;
+    /*height: 640px;*/
+    /*border-style: solid;*/
+    /*border-color: lightblue;*/
+    display: grid;
+    grid-template-rows: 1fr 1fr 20px;
+}
+
+.taskList {
+
+}
+
+#hide{
+    width: 100%;
+}
+
+
+.item{
+    display: flex;
+    justify-content: space-between;
+}
+
+.taskItems {
+
+}
+
+#headerButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.addList{
+}
+
+input {
+    width: 84%;
+}
+
+
+
+
