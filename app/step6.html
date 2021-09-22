@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="outlier">
+    <div class="taskList">
+        <h1>To-Do</h1>
+
+        <div class="taskItems">
+
+            <div class="listItem">
+                <div class="item"> Buy new John Grisham book </div>
+                <div class="buttonGroup">
+                    <button>Rename</button>
+                    <button class="confirm">Done</button>
+                </div>
+            </div>
+
+            <div class="listItem">
+                <div class="item"> Eat lunch </div>
+                <div class="buttonGroup">
+                    <button>Rename</button>
+                    <button class="confirm">Done</button>
+                </div>
+            </div>
+
+
+            <div class="listItem">
+            <form class="rename">
+                <input type="text" name="task" placeholder="Text John"/>
+                <div class="buttonGroup">
+                    <button>Cancel</button>
+                    <button>Confirm</button>
+                </div>
+            </form>
+            </div>
+
+
+        </div>
+    </div>
+
+    <button id="hide">Hide Completed</button>
+
+    <div class="completeList">
+        <div id="headerButton">
+            <h1>Completed </h1>
+            <button class="warning">Delete All</button>
+        </div>
+
+        <div class="completedTaskItems">
+
+            <div class="completeItem">
+                <div class="item">
+                    Buy new John Grisham book
+                </div>
+                <div class="buttonGroup">
+                    <button class="warning"> Delete </button>
+                </div>
+            </div>
+
+            <div class="completeItem">
+                <div class="item">
+                    Call Mom
+                </div>
+                <div class="buttonGroup">
+                    <button class="warning"> Delete </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <form class="addList">
+        <input type="text" name="task" placeholder="Enter new task here"/>
+        <button>
+            Add
+        </button>
+    </form>
+</div>
+</body>
+</html>

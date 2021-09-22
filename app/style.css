@@ -5,16 +5,26 @@ input {
     height: 25px;
 }
 
+form, .form-fields{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-basis: 100%;
+}
+
 button {
-    border-radius: 20px;
+    border-radius: 15px;
     background: #F7F6F2;
     border-color: #14274E;
-
+    border-width: 1px;
+    margin-left: auto;
 }
+
 
 .warning{
     background-color: #F5C0C0;
     border-color: #F5C0C0;
+    margin-left: auto;
 }
 
 .confirm{
@@ -35,12 +45,16 @@ ul {
     list-style: none;
 }
 
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
 
-#container{
+#outlier{
     width: 340px;
     height: 640px;
     display: grid;
-    grid-template-rows: 1fr 20px 1fr 20px;
+    grid-template-rows: 1fr 25px 1fr 20px;
     border-radius: 25px;
     background: #F1F6F9;
     padding: 20px;
@@ -50,40 +64,81 @@ ul {
 
 }
 
-.completedTaskList{
+.taskItems {
+    display: flex;
+    flex-wrap: wrap;
+    /*padding: 8px;*/
+    border-style: none;
+    border-radius: 10px;
+    border-width: 2px;
 }
 
+.taskItems>div{
+    margin: 4px;
+}
+
+.listItem {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 12px;
+    border-width: 1px;
+    background: rgba(1, 50, 67, 0.08);
+    border-style: none;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 8px;
+    color: #14274E;
+    flex-basis: 100%
+}
+
+.completeList {
+}
+
+.completedTaskItems{
+    display: flex;
+    flex-wrap: wrap;
+    /*padding: 8px;*/
+    border-style: none;
+    border-radius: 10px;
+    border-width: 2px;
+    /*background-color: rgba(1, 50, 67, 0.02);*/
+}
+
+.completedTaskItems>div{
+    margin: 4px;
+
+}
+
+.completeItem{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 12px;
+    border-width: 1px;
+    background: rgba(1, 50, 67, 0.02);
+    border-style: none;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 8px;
+    color: #14274E;
+    flex-basis: 100%
+}
+
+
+.buttonGroup {
+    margin-left: auto;
+}
 
 #hide{
     width: 100%;
 }
 
 
-.item{
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-
-}
-
-.taskItems {
-    /*border-radius: 25px;*/
-    /*background: #9BA4B4;*/
-}
-
 #headerButton {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
 }
-
-.addList{
-}
-
-input {
-    width: 84%;
-}
-
-
 
 
