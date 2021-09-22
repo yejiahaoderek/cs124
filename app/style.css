@@ -2,14 +2,14 @@ input {
     border-radius: 20px;
     background-color: white;
     border-style: none;
-    border-bottom: 0.3rem solid transparent;
-    transition: all 0.3s;
+    height: 25px;
 }
 
 button {
     border-radius: 20px;
-    background: #F1F6F9;
+    background: #F7F6F2;
     border-color: #14274E;
+
 }
 
 .warning{
