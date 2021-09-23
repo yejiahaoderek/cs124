@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="outlier">
+    <div class="taskList">
+        <h1>To-Do</h1>
+
+        <div class="taskItems">
+
+            <div class="listItem">
+                <div class="item"> Buy new John Grisham book </div>
+                <div class="buttonGroup">
+                    <button>Rename</button>
+                    <button class="confirm">Done</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="hide">Hide Completed</button>
+
+    <div class="completeList">
+        <div id="headerButton">
+            <h1>Completed </h1>
+            <div class="buttonGroup">
+                <!--                <button class="warning">Confirm</button>-->
+                <!--                <button class="confirm">Cancel</button>-->
+            </div>
+        </div>
+
+        <div class="completedTaskItems">
+            <div class="completeItem">
+                <div class="item">
+                    You don't have any completed tasks
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="addList">
+        <input type="text" name="task" placeholder="Eat Lunch"/>
+        <button>
+            Add
+        </button>
+    </form>
+</div>
+</body>
+</html>
