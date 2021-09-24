@@ -26,6 +26,7 @@ Overall, we are very pleased with our design. We think the colors went nicely to
 
 
 ### User Testing
+<img width="446" alt="intermediate-design" src="https://user-images.githubusercontent.com/65286218/134623725-97cc161a-59a6-4beb-8929-b591b8dc38bf.png">
 We did 2 rounds of user testing. During the first round, we asked 2 participants to interact with our app. 
 We first began by asking them what they would do given this task manager app. Our first participant was able to use and understand all the functions without any help. Our second participant was hesitant at what the done button would do, so we changed our format to a checklist, which we thought would be more intuitive. The participants mentioned that they liked having a confirm or cancel option after clicking delete all. They both wondered why there was no delete button for uncompleted tasks, which we took into consideration and later added to our functionality. One participant mentioned wanting a button to hide the To-Do Items in addition to the hide Completed Items button. She also mentioned an archive button, so that completed items would disappear from the list, but would still be accessible to view later. We had previously discussed having an archive button during our design phase and decided against having this function. We figured this was a fringe case and 80% of users would not use an archive button, and that the hide button essentially covered the desired usage of an archive button.
 
