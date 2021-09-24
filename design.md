@@ -20,7 +20,7 @@ Overall, we are very pleased with our design. We think the colors went nicely to
 <img width="767" alt="seq1" src="https://user-images.githubusercontent.com/65286218/134622165-d5d1ba58-9cd9-4c39-a1d7-87d4a4364931.png">
 <img width="817" alt="seq2" src="https://user-images.githubusercontent.com/65286218/134622234-f1f2a53f-39f2-4ae5-915c-19ed5944c371.png">
 <img width="815" alt="seq3" src="https://user-images.githubusercontent.com/65286218/134622243-d6cf07a1-81ce-4bbf-b338-2d79eee41a6b.png">
-<img width="843" alt="seq4" src="https://user-images.githubusercontent.com/65286218/134622250-2e2e44cb-8ede-4847-96a9-594bad87c67e.png">
+<img width="753" alt="seq4" src="https://user-images.githubusercontent.com/65286218/134624442-8517dd12-7f5f-44f6-8e91-3f62664f473e.png">
 <img width="887" alt="seq5" src="https://user-images.githubusercontent.com/65286218/134622256-496291a9-951b-416f-a935-e61d1f8e4d60.png">
 <img width="878" alt="seq6" src="https://user-images.githubusercontent.com/65286218/134622266-af7b881f-1634-46e6-95df-0ab4493c9267.png">
 
