@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="outlier">
-    <div class="taskList">
+    <div>
         <h1>To-Do</h1>
 
         <div class="taskItems">
@@ -22,14 +22,12 @@
     </div>
 
 
-    <button id="hide" >Hide Completed</button>
+    <button id="hideButton" >Hide Completed</button>
 
-    <div class="completeList">
-        <div id="headerButton">
+    <div>
+        <div class="headerButton">
             <h1>Completed </h1>
             <div class="buttonGroup">
-                <!--                <button class="warning">Confirm</button>-->
-                <!--                <button class="confirm">Cancel</button>-->
             </div>
         </div>
 
@@ -43,9 +41,9 @@
     </div>
 
     <form class="addList">
-        <input type="text" name="task" placeholder="Enter new task here"/>
-        <button>
-            Add
+        <input type="text" name="task" class="taskInputBox" placeholder="Enter new task here"/>
+        <button class="addButton">
+            +
         </button>
     </form>
 </div>

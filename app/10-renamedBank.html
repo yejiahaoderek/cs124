@@ -7,51 +7,61 @@
 </head>
 <body>
 <div id="outlier">
-    <div class="taskList">
+    <div>
         <h1>To-Do</h1>
 
         <div class="taskItems">
 
             <div class="listItem">
-                <div class="item"> Buy new John Grisham book </div>
+                <input type="checkbox">
+                <div class="item"> Buy new John Grisham book</div>
                 <div class="buttonGroup">
-                    <button>Rename</button>
-                    <button class="confirm">Done</button>
+                    <button class="deleteButton"> X </button>
                 </div>
             </div>
 
             <div class="listItem">
+                <input type="checkbox">
                 <div class="item"> Eat lunch </div>
                 <div class="buttonGroup">
-                    <button>Rename</button>
-                    <button class="confirm">Done</button>
+                    <button class="deleteButton"> X </button>
                 </div>
             </div>
 
 
             <div class="listItem">
-                <div class="item"> Text John about bank statements </div>
+                <input type="checkbox">
+                <div class="item"> Text John about bank statements</div>
                 <div class="buttonGroup">
-                    <button>Rename</button>
-                    <button class="confirm">Done</button>
+                    <button class="deleteButton"> X </button>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <button id="hide">Show Completed</button>
+    <button id="hideButton">Hide Completed</button>
 
-    <div class="completeList">
-        <div id="headerButton">
+    <div>
+        <div class="headerButton">
             <h1>Completed </h1>
             <button class="warning">Delete All</button>
         </div>
 
         <div class="completedTaskItems">
             <div class="completeItem">
-                <div class="item">
-                    You don't have any completed tasks
+                <input type="checkbox" name="butBook" checked=True>
+                <div class="item"> Submit Lab1 </div>
+                <div class="buttonGroup">
+                    <button class="deleteButton"> X </button>
+                </div>
+            </div>
+
+            <div class="completeItem">
+                <input type="checkbox" name="callMom" checked=True>
+                <div class="item"> Call Mom </div>
+                <div class="buttonGroup">
+                    <button class="deleteButton"> X </button>
                 </div>
             </div>
         </div>
@@ -59,9 +69,9 @@
 
 
     <form class="addList">
-        <input type="text" name="task" placeholder="Enter new task here"/>
-        <button>
-            Add
+        <input type="text" class="taskInputBox" name="task" placeholder="Enter new task here"/>
+        <button class="addButton">
+            +
         </button>
     </form>
 </div>
