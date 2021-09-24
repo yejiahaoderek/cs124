@@ -3,10 +3,11 @@
 ### Design Process
 During our initial design phase, we drew out what our desired layout was.
 
-We wanted to have our To-Do items at the top because we thought it was the most important. We put the Completed items underneath and put the add items at the bottom. We considered putting the add items at the top of our page, but decided that it did not look as nice, and could be confused for a search bar initially. We originally designed the items to be in a checklist. As we were coding, we ran into formatting issues with checkboxes and therefore opted to have a ‘done’ button instead.
-
 <img width="447" alt="compare_initialDesigns" src="https://user-images.githubusercontent.com/65286218/134622509-326f28b1-4be9-495e-84bf-032a18f5544c.png">
 
+We wanted to have our To-Do items at the top because we thought it was the most important. We put the Completed items underneath and put the add items at the bottom. We considered putting the add items at the top of our page, but decided that it did not look as nice, and could be confused for a search bar initially. We originally designed the items to be in a checklist. As we were coding, we ran into formatting issues with checkboxes and therefore opted to have a ‘done’ button instead.
+
+<img width="446" alt="intermediate-design" src="https://user-images.githubusercontent.com/65286218/134623725-97cc161a-59a6-4beb-8929-b591b8dc38bf.png">
 
 However, after user testing, we decided to use the checkboxes and fix the formatting issue we had run into. We also had a ‘rename’ button for each To-Do item, which added clutter to the page, so we removed the button and opted to click on the item to rename instead. We had considered using an ‘edit’ button at the top of the To-Do list next to the heading instead, but decided that tapping on the item was sufficient. We also added a delete button to the To-Do items. Throughout the process, we were adjusting the formatting and layout of our page. While we were coding the html pages, we tried our best to keep in mind how to best label classes and IDs to make coding the css file easier, however, it took a lot of our time trying to adjust the layout.
 
@@ -20,7 +21,7 @@ Overall, we are very pleased with our design. We think the colors went nicely to
 <img width="767" alt="seq1" src="https://user-images.githubusercontent.com/65286218/134622165-d5d1ba58-9cd9-4c39-a1d7-87d4a4364931.png">
 <img width="817" alt="seq2" src="https://user-images.githubusercontent.com/65286218/134622234-f1f2a53f-39f2-4ae5-915c-19ed5944c371.png">
 <img width="815" alt="seq3" src="https://user-images.githubusercontent.com/65286218/134622243-d6cf07a1-81ce-4bbf-b338-2d79eee41a6b.png">
-<img width="843" alt="seq4" src="https://user-images.githubusercontent.com/65286218/134622250-2e2e44cb-8ede-4847-96a9-594bad87c67e.png">
+<img width="753" alt="seq4" src="https://user-images.githubusercontent.com/65286218/134624442-8517dd12-7f5f-44f6-8e91-3f62664f473e.png">
 <img width="887" alt="seq5" src="https://user-images.githubusercontent.com/65286218/134622256-496291a9-951b-416f-a935-e61d1f8e4d60.png">
 <img width="878" alt="seq6" src="https://user-images.githubusercontent.com/65286218/134622266-af7b881f-1634-46e6-95df-0ab4493c9267.png">
 
