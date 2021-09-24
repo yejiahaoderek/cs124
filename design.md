@@ -3,11 +3,10 @@
 ### Design Process
 During our initial design phase, we drew out what our desired layout was.
 
-![CS124-lab1-veryInitialDraft](https://user-images.githubusercontent.com/65286218/134621891-ef841446-d6a4-4175-8d06-3fb8a804b4c6.JPG)
-
 We wanted to have our To-Do items at the top because we thought it was the most important. We put the Completed items underneath and put the add items at the bottom. We considered putting the add items at the top of our page, but decided that it did not look as nice, and could be confused for a search bar initially. We originally designed the items to be in a checklist. As we were coding, we ran into formatting issues with checkboxes and therefore opted to have a ‘done’ button instead.
 
-![CS123-lab1-initialDesign](https://user-images.githubusercontent.com/65286218/134621900-af8fbaab-811e-4d5f-837e-2e2db8360cc5.png)
+<img width="447" alt="compare_initialDesigns" src="https://user-images.githubusercontent.com/65286218/134622509-326f28b1-4be9-495e-84bf-032a18f5544c.png">
+
 
 However, after user testing, we decided to use the checkboxes and fix the formatting issue we had run into. We also had a ‘rename’ button for each To-Do item, which added clutter to the page, so we removed the button and opted to click on the item to rename instead. We had considered using an ‘edit’ button at the top of the To-Do list next to the heading instead, but decided that tapping on the item was sufficient. We also added a delete button to the To-Do items. Throughout the process, we were adjusting the formatting and layout of our page. While we were coding the html pages, we tried our best to keep in mind how to best label classes and IDs to make coding the css file easier, however, it took a lot of our time trying to adjust the layout.
 
