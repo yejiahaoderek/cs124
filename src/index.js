@@ -2,16 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './reportWebVitals'
+import InMemoryApp from "./InMemoryApp";
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+    <InMemoryApp initialData={[
+        // {
+        //     id: 0,
+        //     text: "Buy new John Grisham book",
+        //     isCompleted: false,
+        //     isSelected: false,
+        // },
+        // {
+        //     id: 1,
+        //     text: "Eat Lunch",
+        //     isCompleted: false,
+        //     isSelected: false,
+        // },
+        // {
+        //     id: 2,
+        //     text: "Call Mom",
+        //     isCompleted: true,
+        //     isSelected: false,
+        // },
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    ]}/>,
+    document.getElementById('root')
+);

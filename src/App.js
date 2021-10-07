@@ -1,24 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import './style.css';
+import TaskManager from "./components/TaskManager";
+import {useState} from 'react'
+import InMemoryApp from "./InMemoryApp";
 
-function App() {
+function App(props) {
+
+  const [tasks, setTasks] = useState(props.data)
+
+  function addHandler(props) {
+    setTasks([...tasks, {
+      id: 10,
+      text: "fake data",
+      isSelected: false,
+      isCompleted: false,
+    }])
+  }
+
+  function handleAddFieldChanged(props) {
+
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <TaskManager tasks={tasks} onAddTask={addHandler} onAddFieldChanged={handleAddFieldChanged}/>
   );
 }
 
