@@ -11,7 +11,6 @@ function App(props) {
                   onAddTask={props.handleAddTask}
                   onTaskFieldChanged={props.handleTaskFieldChanged}
                   handleItemDeleted={props.handleItemDeleted}
-                  onAddChange={props.onAddChange}
                   onToggleCompletedItems={props.handleToggleCompletedItems}
      />
   );

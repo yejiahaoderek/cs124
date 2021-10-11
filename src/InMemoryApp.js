@@ -4,15 +4,13 @@ import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 
 function InMemoryApp(props) {
     const [tasks, setTasks] = useState(props.initialData)
-    const [text, setText] = useState("")
     const [showCompletedItems, setShowCompletedItems] = useState(true)
 
     const handleToggleCompletedItems= () => {
         setShowCompletedItems(!showCompletedItems)
     }
 
-    const handleAddTask = (e) =>{
-        e.preventDefault();
+    const handleAddTask = (text) =>{
         setTasks([...tasks, {
                 id: generateUniqueID(),
                 text: text,
@@ -20,10 +18,6 @@ function InMemoryApp(props) {
                 isSelected: false,
             }]
         );
-    }
-
-    function onAddChange(e) {
-        setText(e.target.value);
     }
 
     function handleTaskFieldChanged(itemID, field, value) {
@@ -41,7 +35,6 @@ function InMemoryApp(props) {
                 handleAddTask={handleAddTask}
                 handleTaskFieldChanged={handleTaskFieldChanged}
                 handleItemDeleted={handleItemDeleted}
-                onAddChange={onAddChange}
                 handleToggleCompletedItems={handleToggleCompletedItems}
     />
 }

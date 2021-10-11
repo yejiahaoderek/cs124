@@ -10,12 +10,23 @@ function CompletedSection(props) {
             </div>
 
             <div className="completedTaskItems">
-                <ItemList
-                className="completeItem"
-                tasks={props.tasks.filter((item)=> item.isCompleted === true)}
-                onDelete={props.onDelete}
-                onChange={props.onChange}
-                />
+                {props.tasks.filter((item) => item.isCompleted === true).length !== 0 ?
+                    <ItemList
+                        className="completeItem"
+                        tasks={props.tasks.filter((item) => item.isCompleted === true)}
+                        onDelete={props.onDelete}
+                        onChange={props.onChange}
+                        onClick={props.onClick}
+                    />
+                    :
+                    <div className="completeItem">
+                        <div className="item">
+                            You don't have any completed tasks
+                        </div>
+                    </div>
+                }
+
+
             </div>
         </div>
         }

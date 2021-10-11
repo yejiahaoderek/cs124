@@ -9,6 +9,8 @@ function ItemList(props) {
                 text = {task.text}
                 isSelected = {task.isSelected}
                 isCompleted = {task.isCompleted}
+                editID = {props.editID}
+                onClick={props.onClick}
                 onDelete = {props.onDelete}
                 onChange = {props.onChange}
             />)

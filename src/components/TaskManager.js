@@ -1,7 +1,20 @@
 import IncompleteSection from "./IncompleteSection";
 import CompletedSection from "./CompletedSection";
+import {useState} from "react";
 
 function TaskManager(props) {
+    const [editID, setEditID] = useState(false)
+    const [text, setText] = useState("")
+
+    function onAddChange(e) {
+        setText(e.target.value);
+    }
+
+    function handleItemClick(itemID) {
+        if (!props.tasks.filter((item) => item.id === itemID)[0].isCompleted)
+            setEditID(itemID)
+    }
+
     return <div>
         <title>Task Tracker</title>
         <div id="outlier">
@@ -9,6 +22,8 @@ function TaskManager(props) {
                 tasks={props.tasks}
                 onDelete={props.handleItemDeleted}
                 onChange={props.onTaskFieldChanged}
+                editID={editID}
+                onClick={handleItemClick}
             />
 
             <button id="hideButton"
@@ -22,22 +37,26 @@ function TaskManager(props) {
                 showCompletedItems={props.showCompletedItems}
                 onDelete={props.handleItemDeleted}
                 onChange={props.onTaskFieldChanged}
+                onClick={handleItemClick}
             />
 
 
-            <form className="addList" onSubmit={props.onAddTask}>
+            <div className="addList">
                 <input
                     type="text"
                     className="taskInputBox"
                     name="task"
                     placeholder="Enter new task here"
-                    onChange = {props.onAddChange}
+                    onChange = {onAddChange}
                 />
-                <button type="submit"
-                        className="addButton">
+                <button type="button"
+                        className="addButton"
+                        onClick={()=>props.onAddTask(text)}
+
+                >
                     +
                 </button>
-            </form>
+            </div>
 
         </div>
     </div>
