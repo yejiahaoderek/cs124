@@ -5,12 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InMemoryApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/InMemoryApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CompletedSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompletedSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/IncompleteSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IncompleteSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Item.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ItemList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItemList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TaskManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +78,7 @@
       <updated>1633537061691</updated>
       <workItem from="1633537063372" duration="992000" />
       <workItem from="1633622052477" duration="8889000" />
-      <workItem from="1633924104300" duration="5367000" />
+      <workItem from="1633924104300" duration="8530000" />
     </task>
     <servers />
   </component>

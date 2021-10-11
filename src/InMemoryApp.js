@@ -4,15 +4,21 @@ import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 
 function InMemoryApp(props) {
     const [tasks, setTasks] = useState(props.initialData)
+    const [text, setText] = useState("")
 
-    function handleAddTask() {
+    const handleAddTask = (e) =>{
+        e.preventDefault();
         setTasks([...tasks, {
                 id: generateUniqueID(),
-                text: "fake data",
-                isSelected: false,
+                text: text,
                 isCompleted: false,
+                isSelected: false,
             }]
         );
+    }
+
+    function onAddChange(e) {
+        setText(e.target.value);
     }
 
     function handleTaskFieldChanged(id, field, value) {
@@ -21,7 +27,6 @@ function InMemoryApp(props) {
     }
 
     function handleItemDeleted(itemID) {
-        // setTasks(tasks.map(task => task.id !== itemID));
         setTasks(tasks.filter((item) => item.id !== itemID));
     }
 
@@ -30,6 +35,7 @@ function InMemoryApp(props) {
                 handleAddTask={handleAddTask}
                 handleTaskFieldChanged={handleTaskFieldChanged}
                 handleItemDeleted={handleItemDeleted}
+                onAddChange={onAddChange}
     />
 }
 
