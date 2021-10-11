@@ -52,7 +52,6 @@ function TaskManager(props) {
                 <button type="button"
                         className="addButton"
                         onClick={()=>props.onAddTask(text)}
-
                 >
                     +
                 </button>

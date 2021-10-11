@@ -1,8 +1,9 @@
 function Item(props) {
     return (
-    <div className="listItem" onClick={()=>props.onClick(props.id)}>
+    <div className={!props.isCompleted? `listItem` : `completeItem` } onClick={()=>props.onClick(props.id)}>
         <input type="checkbox" name="buyBook"
                checked={props.isCompleted}
+               onClick={(e)=>e.stopPropagation()}
                onChange={()=>props.onChange(props.id, "isCompleted", !props.isCompleted)}
         />
         {   props.editID === props.id ?
@@ -10,7 +11,7 @@ function Item(props) {
             :
             <div className="item"> {props.text} </div>
         }
-        <div className="buttonGroup">
+        <div className="buttonGroup" onClick={(e)=>e.stopPropagation()}>
             <button
                 className="deleteButton"
                 onClick={()=>props.onDelete(props.id)}

@@ -14,7 +14,7 @@ function IncompleteSection(props) {
                 }
                 </div>
         <div className="taskItems">
-            {props.tasks.filter((item) => item.isCompleted === false).length != 0 ?
+            {props.tasks.filter((item) => item.isCompleted === false).length !== 0 ?
                 <ItemList tasks={props.tasks.filter((item) => item.isCompleted === false)}
                           editID={props.editID}
                           onDelete={props.onDelete}

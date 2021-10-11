@@ -11,13 +11,14 @@ function InMemoryApp(props) {
     }
 
     const handleAddTask = (text) =>{
-        setTasks([...tasks, {
-                id: generateUniqueID(),
-                text: text,
-                isCompleted: false,
-                isSelected: false,
-            }]
-        );
+        if (text !== ""){
+            setTasks([...tasks, {
+                    id: generateUniqueID(),
+                    text: text,
+                    isCompleted: false,
+                    isSelected: false,
+                }])
+        };
     }
 
     function handleTaskFieldChanged(itemID, field, value) {

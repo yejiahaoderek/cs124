@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import './style.css';
 import TaskManager from "./components/TaskManager";
