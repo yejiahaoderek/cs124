@@ -1,8 +1,5 @@
 import IncompleteSection from "./IncompleteSection";
 import CompletedSection from "./CompletedSection";
-import {useState} from "react";
-import AddItem from "./AddItem";
-
 
 function TaskManager(props) {
     return <div>
@@ -11,14 +8,22 @@ function TaskManager(props) {
             <IncompleteSection
                 tasks={props.tasks}
                 onDelete={props.handleItemDeleted}
+                onChange={props.onTaskFieldChanged}
             />
 
-            <button id="hideButton">Hide Completed</button>
+            <button id="hideButton"
+                onClick={props.onToggleCompletedItems}>
+                {props.showCompletedItems? `Hide` : `Show`} Completed
+            </button>
+
 
             <CompletedSection
                 tasks={props.tasks}
+                showCompletedItems={props.showCompletedItems}
                 onDelete={props.handleItemDeleted}
+                onChange={props.onTaskFieldChanged}
             />
+
 
             <form className="addList" onSubmit={props.onAddTask}>
                 <input

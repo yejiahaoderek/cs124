@@ -10,6 +10,7 @@ function ItemList(props) {
                 isSelected = {task.isSelected}
                 isCompleted = {task.isCompleted}
                 onDelete = {props.onDelete}
+                onChange = {props.onChange}
             />)
     );
 }
