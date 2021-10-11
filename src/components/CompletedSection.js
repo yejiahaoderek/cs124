@@ -11,7 +11,9 @@ function CompletedSection(props) {
         <div className="completedTaskItems">
             <ItemList
                 className="completeItem"
-                tasks={props.tasks.filter((item)=> item.isCompleted === true)}/>
+                tasks={props.tasks.filter((item)=> item.isCompleted === true)}
+                onDelete={props.onDelete}
+            />
         </div>
     </div>;
 }

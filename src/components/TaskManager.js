@@ -9,21 +9,33 @@ function TaskManager(props) {
             <title>Task Tracker</title>
         </head>
         <div id="outlier">
-            <IncompleteSection tasks={props.tasks}/>
+            <IncompleteSection
+                tasks={props.tasks}
+                onDelete={props.handleItemDeleted}
+            />
 
             <button id="hideButton">Hide Completed</button>
 
-            <CompletedSection tasks={props.tasks}/>
+            <CompletedSection
+                tasks={props.tasks}
+                onDelete={props.handleItemDeleted}
+            />
 
-            <form className="addList" onSubmit={props.onAddTask}>
+            <form className="addList">
                 <input
-                    type="text" className="taskInputBox" name="task" placeholder="Enter new task here"
-                    // ref={(a) => this._inputElement = a}
+                    type="text"
+                    className="taskInputBox"
+                    name="task"
+                    placeholder="Enter new task here"
+                    field="text"
                 />
-                <button type="submit" className="addButton">
+                <button type="submit"
+                        className="addButton"
+                        onClick={props.onAddTask}
+                >
                     +
                 </button>
-            </form>;
+            </form>
 
         </div>
     </div>

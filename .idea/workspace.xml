@@ -2,31 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1638734-2b5d-4748-8d4b-bbf3986b3a56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/InMemoryApp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AddItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CompletedSection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CompletedToggle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/IncompleteSection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ItemList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TaskManager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/1-initialState.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/1-initialState.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/10-renamedBank.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/10-renamedBank.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/11-hideCompleted.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/11-hideCompleted.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/12-beginDeleteAll.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/12-beginDeleteAll.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/13-confirmDeleteAll.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/13-confirmDeleteAll.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/14-deletedAll.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/14-deletedAll.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/2-typeBook.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/2-typeBook.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/3-addedBook.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/3-addedBook.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/4-typeLunch.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/4-typeLunch.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/5-addedLunch.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/5-addedLunch.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/6-initialState2.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/6-initialState2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/7-callMomDone.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/7-callMomDone.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/9-typeRename.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/9-typeRename.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InMemoryApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/InMemoryApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CompletedSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompletedSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/IncompleteSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IncompleteSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Item.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ItemList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItemList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TaskManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskManager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +79,8 @@
       <option name="presentableId" value="Default" />
       <updated>1633537061691</updated>
       <workItem from="1633537063372" duration="992000" />
-      <workItem from="1633622052477" duration="6176000" />
+      <workItem from="1633622052477" duration="8889000" />
+      <workItem from="1633924104300" duration="5367000" />
     </task>
     <servers />
   </component>
@@ -113,5 +97,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
