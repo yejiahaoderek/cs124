@@ -5,7 +5,7 @@ import {useState} from "react";
 function TaskManager(props) {
     const [editID, setEditID] = useState(false)
     const [deleteConfirm, setDeleteConfirm] = useState(false)
-    const [text] = useState("")
+    const [text, setText] = useState("")
 
     function handleRenameConfirm(editID, field, newText) {
         props.onTaskFieldChanged(editID, [field], newText)
@@ -58,6 +58,7 @@ function TaskManager(props) {
                     type="text"
                     className="taskInputBox"
                     name="task"
+                    onChange={(e)=> setText(e.target.value)}
                     placeholder={
                         editID !== false ? `Please finish edit first`
                         :

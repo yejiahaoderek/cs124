@@ -1,5 +1,4 @@
 function Item(props) {
-    console.log(props.deleteConfirm)
     return (
         <div className={
             !props.isCompleted ?

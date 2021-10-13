@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1638734-2b5d-4748-8d4b-bbf3986b3a56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InMemoryApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/InMemoryApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CompletedSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompletedSection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ItemList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItemList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TaskManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +129,7 @@
       <workItem from="1633622052477" duration="8889000" />
       <workItem from="1633924104300" duration="17074000" />
       <workItem from="1634053398070" duration="16174000" />
-      <workItem from="1634104788765" duration="2325000" />
+      <workItem from="1634104788765" duration="2736000" />
     </task>
     <servers />
   </component>
