@@ -5,7 +5,14 @@ import {useState} from "react";
 function TaskManager(props) {
     const [editID, setEditID] = useState(false)
     const [deleteConfirm, setDeleteConfirm] = useState(false)
-    const [text, setText] = useState("")
+    const [enteredText, setEnteredText] = useState('');
+    const [newText, setNewText] = useState("")
+    console.log(newText)
+
+    function handleRename(newText) {
+        console.log("called")
+        setNewText(newText)
+    }
 
     function handleRenameConfirm(editID, field, newText) {
         props.onTaskFieldChanged(editID, [field], newText)
@@ -28,6 +35,8 @@ function TaskManager(props) {
                 tasks={props.tasks}
                 onDelete={props.handleItemDeleted}
                 onChange={props.onTaskFieldChanged}
+                onRename={handleRename}
+                newText={newText}
                 editID={editID}
                 deleteConfirm={deleteConfirm}
                 onClick={handleItemClick}
@@ -43,6 +52,8 @@ function TaskManager(props) {
             <CompletedSection
                 tasks={props.tasks}
                 editID={editID}
+                onRename={handleRename}
+                newText={newText}
                 deleteConfirm={deleteConfirm}
                 showCompletedItems={props.showCompletedItems}
                 onDeleteConfirm={handleDeleteConfirm}
@@ -58,7 +69,8 @@ function TaskManager(props) {
                     type="text"
                     className="taskInputBox"
                     name="task"
-                    onChange={(e)=> setText(e.target.value)}
+                    value={enteredText}
+                    onChange={(e)=> setEnteredText(e.target.value)}
                     placeholder={
                         editID !== false ? `Please finish edit first`
                         :
@@ -71,7 +83,8 @@ function TaskManager(props) {
                         className="addButton"
                         onClick={()=> {
                             if (editID !== false) return
-                            props.onAddTask(text)
+                            props.onAddTask(enteredText)
+                            setEnteredText("")
                         }}>+
                 </button>
             </div>

@@ -7,14 +7,14 @@ function ItemList(props) {
                 id = {task.id}
                 key = {task.id}
                 text = {task.text}
-                isSelected = {task.isSelected}
+                onRename={props.onRename}
+                newText = {task.newText}
                 isCompleted = {task.isCompleted}
                 editID = {props.editID}
                 deleteConfirm = {props.deleteConfirm}
                 onClick={props.onClick}
                 onDelete = {props.onDelete}
                 onChange = {props.onChange}
-                onRename = {props.onRename}
             />)
     );
 }

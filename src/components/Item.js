@@ -8,6 +8,7 @@ function Item(props) {
                 onClick={() => {
                     if (props.deleteConfirm) return;
                     props.onClick(props.id)
+                    props.onRename(props.text)
                 }}>
 
             {/*checkbox*/}
@@ -18,15 +19,15 @@ function Item(props) {
                        if (props.editID !== false) return
                        if (props.deleteConfirm) return;
                        props.onChange(props.id, "isCompleted", !props.isCompleted);
-                   }
+                    }
                    }
             />
 
             {props.editID === props.id ?
                 <input type="text"
                        className="rename"
-                       placeholder={props.text}
-                       onChange={props.onRename}
+                       value={props.newText}
+                       onChange={(e)=> props.onRename(e.target.value)}
                 />
                 :
                 <div className="item"> {props.text} </div>

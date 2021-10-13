@@ -1,13 +1,5 @@
 import ItemList from "./ItemList";
-import {useState} from "react";
-
 function IncompleteSection(props) {
-    const [newText, setNewText] = useState("")
-
-    function handleRenameText(e){
-        setNewText(e.target.value)
-    }
-
     return (
         <div className={"incompleteSection"}>
             <div className="headerButton">
@@ -15,7 +7,7 @@ function IncompleteSection(props) {
                 {props.editID !== false &&
                     <button
                         className="confirmButton"
-                        onClick={()=>props.onConfirm(props.editID, "text", newText)}
+                        onClick={()=>props.onConfirm(props.editID, "text", props.newText)}
                     >
                         Done
                     </button>
@@ -26,11 +18,12 @@ function IncompleteSection(props) {
             {props.tasks.filter((item) => item.isCompleted === false).length !== 0 ?
                 <ItemList tasks={props.tasks.filter((item) => item.isCompleted === false)}
                           editID={props.editID}
+                          newText={props.newText}
+                          onRename={props.onRename}
                           deleteConfirm={props.deleteConfirm}
                           onDelete={props.onDelete}
                           onChange={props.onChange}
                           onClick={props.onClick}
-                          onRename={handleRenameText}
                 /> :
                 <div className="listItem">
                     <div className="item">

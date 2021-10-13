@@ -37,6 +37,8 @@ function CompletedSection(props) {
                         className="completeItem"
                         tasks={props.tasks.filter((item) => item.isCompleted === true)}
                         editID={props.editID}
+                        newText={props.newText}
+                        onRename={props.onRename}
                         deleteConfirm={props.deleteConfirm}
                         onDelete={props.onDelete}
                         onChange={props.onChange}
