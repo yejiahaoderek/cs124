@@ -10,6 +10,7 @@ function InMemoryApp(props) {
         setShowCompletedItems(!showCompletedItems)
     }
 
+
     const handleAddTask = (text) =>{
         if (text !== ""){
             setTasks([...tasks, {

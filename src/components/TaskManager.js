@@ -4,11 +4,16 @@ import {useState} from "react";
 
 function TaskManager(props) {
     const [editID, setEditID] = useState(false)
+    const [deleteConfirm, setDeleteConfirm] = useState(false)
     const [text, setText] = useState("")
 
     function handleRenameConfirm(editID, field, newText) {
         props.onTaskFieldChanged(editID, [field], newText)
         setEditID(false)
+    }
+
+    function handleDeleteConfirm(deleteConfirm){
+        setDeleteConfirm(deleteConfirm)
     }
 
     function onAddChange(e) {
@@ -28,6 +33,7 @@ function TaskManager(props) {
                 onDelete={props.handleItemDeleted}
                 onChange={props.onTaskFieldChanged}
                 editID={editID}
+                deleteConfirm={deleteConfirm}
                 onClick={handleItemClick}
                 onConfirm={handleRenameConfirm}
             />
@@ -41,7 +47,9 @@ function TaskManager(props) {
             <CompletedSection
                 tasks={props.tasks}
                 editID={editID}
+                deleteConfirm={deleteConfirm}
                 showCompletedItems={props.showCompletedItems}
+                onDeleteConfirm={handleDeleteConfirm}
                 onDelete={props.handleItemDeleted}
                 onDeleteAll={props.onDeleteAll}
                 onChange={props.onTaskFieldChanged}
@@ -50,30 +58,24 @@ function TaskManager(props) {
 
 
             <div className="addList">
-                {editID === false ?
-                    <input
-                        type="text"
-                        className="taskInputBox"
-                        name="task"
-                        placeholder="Enter new task here"
-                        onChange = {onAddChange}
-                    />
-                    :
-                    <input
-                        type="text"
-                        className="taskInputBox"
-                        name="task"
-                        value="Finish edit first"
-                        onChange = {onAddChange}
-                    />}
+                <input
+                    type="text"
+                    className="taskInputBox"
+                    name="task"
+                    placeholder={
+                        editID !== false ? `Please finish edit first`
+                        :
+                        deleteConfirm !== false ?  `Please confirm your deleteAll action`
+                        :
+                        `Enter your new task here`
+                    }
+                />
                 <button type="button"
                         className="addButton"
                         onClick={()=> {
                             if (editID !== false) return
                             props.onAddTask(text)
-                        }}
-                >
-                    +
+                        }}>+
                 </button>
             </div>
 

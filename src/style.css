@@ -3,7 +3,6 @@
     height: 640px;
     display: grid;
     grid-template-rows: 1fr 25px 1fr 20px;
-    border-radius: 25px;
     background: #F1F6F9;
     padding: 20px;
 }
@@ -26,6 +25,7 @@ h1{
 body{
     font-family: -apple-system, Helvetica;
     color: #14274E;
+    font-size: 16px;
 }
 
 .item {
@@ -42,7 +42,7 @@ ul {
     flex-wrap: wrap;
     /*padding: 8px;*/
     border-style: none;
-    border-radius: 10px;
+    border-radius: 12px;
     border-width: 2px;
 }
 
@@ -82,7 +82,7 @@ ul {
     flex-wrap: wrap;
     /*padding: 8px;*/
     border-style: none;
-    border-radius: 10px;
+    border-radius: 12px;
     border-width: 2px;
     /*background-color: rgba(1, 50, 67, 0.02);*/
 }
@@ -106,33 +106,29 @@ ul {
 
 
 .rename {
-    border-radius: 20px;
+    border-radius: 12px;
     background-color: #F1F6F9;
     border-style: none;
-    height: 8px;
-    width: 200px;
-    padding: 0.9em;
+    height: 25px;
+    width: 250px;
+    padding-left: 10px;
+    font-size: 17px;
 }
 
 
 .taskInputBox {
-    border-radius: 20px;
+    border-radius: 12px;
     background-color: white;
     border-style: none;
     height: 8px;
     width: 300px;
     padding: 0.9em;
+    font-size: 15px;
 }
 
 
 input[type="checkbox"]{
-    border-radius: 20px;
-    border-width: 1px;
-    background-color: white;
-    border-style: none;
-    height: 8px;
-    padding: 0.9em;
-    transform : scale(2.5);
+    transform : scale(1.5);
 }
 
 
@@ -144,7 +140,8 @@ input[type="checkbox"]{
 }
 
 Button {
-    border-radius: 15px;
+    height: 22px;
+    border-radius: 12px;
     transition-duration: 0.2s;
     border-width: 1px;
 }
@@ -155,9 +152,12 @@ button:hover {
 }
 
 .addButton{
+    height: 38px;
+    font-size: 25px;
     background-color: #3D9970;
     color: #F1F6F9;
     border-style: none;
+    border-radius: 20px;
     padding-left: 12px;
     padding-right: 12px;
 }
@@ -170,9 +170,20 @@ button:hover {
     border-color: rgba(1, 50, 67, 0.7)
 }
 
-.warning{    border-style: solid;
+.confirmButton{
+    border-style: solid;
     padding-left: 6px;
-    padding-right: 6x;
+    padding-right: 6px;
+    background-color: #3D9970;
+    border-color: #3D9970;
+    margin-left: auto;
+    color: #F1F6F9;
+}
+
+.warning{
+    border-style: solid;
+    padding-left: 6px;
+    padding-right: 6px;
     background-color: hsla(0, 75%, 53%, 0.6);
     border-color: hsla(0, 75%, 53%, 0.6);
     margin-left: auto;
