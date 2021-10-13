@@ -5,12 +5,20 @@ function IncompleteSection(props) {
             <div className="headerButton">
                 <h1>To-Do</h1>
                 {props.editID !== false &&
-                    <button
-                        className="confirmButton"
-                        onClick={()=>props.onConfirm(props.editID, "text", props.newText)}
-                    >
-                        Done
-                    </button>
+                    <div>
+                        <button
+                            className="confirmButton"
+                            onClick={()=>props.onConfirm(props.editID, "text", props.newText)}
+                        >
+                            Done
+                        </button>
+
+                        <button
+                        onClick={props.onQuitEdit}
+                        >
+                        Cancel
+                        </button>
+                    </div>
                 }
                 </div>
 

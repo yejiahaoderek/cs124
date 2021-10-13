@@ -10,7 +10,6 @@ function TaskManager(props) {
     console.log(newText)
 
     function handleRename(newText) {
-        console.log("called")
         setNewText(newText)
     }
 
@@ -18,6 +17,12 @@ function TaskManager(props) {
         props.onTaskFieldChanged(editID, [field], newText)
         setEditID(false)
     }
+
+    function handleQuitEdit() {
+        setEditID(false)
+        console.log(editID)
+    }
+
 
     function handleDeleteConfirm(deleteConfirm){
         setDeleteConfirm(deleteConfirm)
@@ -41,6 +46,7 @@ function TaskManager(props) {
                 deleteConfirm={deleteConfirm}
                 onClick={handleItemClick}
                 onConfirm={handleRenameConfirm}
+                onQuitEdit={handleQuitEdit}
             />
 
             <button id="hideButton"
