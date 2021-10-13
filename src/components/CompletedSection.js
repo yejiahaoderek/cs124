@@ -1,12 +1,33 @@
 import ItemList from "./ItemList";
+import {useState} from "react";
 
 function CompletedSection(props) {
+    const [deleteConfirm, setDeleteConfirm] = useState(false)
+    const hasCompletedItem = props.tasks.filter((item) => item.isCompleted === true).length > 0
+
     return <div>
         {props.showCompletedItems &&
         <div>
             <div className="headerButton">
                 <h1>Completed </h1>
-                <button className="warning">Delete All</button>
+                {(hasCompletedItem) && (
+                    !deleteConfirm ?
+                        <button className="warning"
+                                onClick={() => setDeleteConfirm(!deleteConfirm)}>
+                            Delete All
+                        </button>
+                        :
+                        <div className="buttonGroup">
+                            <button className="warning"
+                                    onClick={() => {
+                                        props.onDeleteAll();
+                                        setDeleteConfirm(false)
+                                    }}>
+                                Delete
+                            </button>
+                            <button>Cancel</button>
+                        </div>)
+                }
             </div>
 
             <div className="completedTaskItems">

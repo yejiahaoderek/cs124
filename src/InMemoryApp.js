@@ -30,12 +30,17 @@ function InMemoryApp(props) {
         setTasks(tasks.filter((item) => item.id !== itemID));
     }
 
+    function handleDeleteAll(){
+        setTasks(tasks.filter((item) => !item.isCompleted));
+    }
+
 
     return <App data={tasks}
                 showCompletedItems={showCompletedItems}
                 handleAddTask={handleAddTask}
                 handleTaskFieldChanged={handleTaskFieldChanged}
                 handleItemDeleted={handleItemDeleted}
+                handleDeleteAll={handleDeleteAll}
                 handleToggleCompletedItems={handleToggleCompletedItems}
     />
 }

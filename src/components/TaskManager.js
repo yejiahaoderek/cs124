@@ -6,6 +6,11 @@ function TaskManager(props) {
     const [editID, setEditID] = useState(false)
     const [text, setText] = useState("")
 
+    function handleRenameConfirm(editID, field, newText) {
+        props.onTaskFieldChanged(editID, [field], newText)
+        setEditID(false)
+    }
+
     function onAddChange(e) {
         setText(e.target.value);
     }
@@ -24,6 +29,7 @@ function TaskManager(props) {
                 onChange={props.onTaskFieldChanged}
                 editID={editID}
                 onClick={handleItemClick}
+                onConfirm={handleRenameConfirm}
             />
 
             <button id="hideButton"
@@ -36,6 +42,7 @@ function TaskManager(props) {
                 tasks={props.tasks}
                 showCompletedItems={props.showCompletedItems}
                 onDelete={props.handleItemDeleted}
+                onDeleteAll={props.onDeleteAll}
                 onChange={props.onTaskFieldChanged}
                 onClick={handleItemClick}
             />

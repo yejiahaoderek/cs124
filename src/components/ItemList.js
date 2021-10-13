@@ -1,4 +1,5 @@
 import Item from "./Item";
+import {useState} from "react";
 
 function ItemList(props) {
     return (
@@ -13,6 +14,7 @@ function ItemList(props) {
                 onClick={props.onClick}
                 onDelete = {props.onDelete}
                 onChange = {props.onChange}
+                onRename = {props.onRename}
             />)
     );
 }

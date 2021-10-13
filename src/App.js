@@ -9,6 +9,7 @@ function App(props) {
                   showCompletedItems={props.showCompletedItems}
                   onAddTask={props.handleAddTask}
                   onTaskFieldChanged={props.handleTaskFieldChanged}
+                  onDeleteAll={props.handleDeleteAll}
                   handleItemDeleted={props.handleItemDeleted}
                   onToggleCompletedItems={props.handleToggleCompletedItems}
      />
