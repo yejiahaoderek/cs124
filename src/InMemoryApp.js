@@ -17,7 +17,6 @@ function InMemoryApp(props) {
                     id: generateUniqueID(),
                     text: text,
                     isCompleted: false,
-                    isSelected: false,
                 }])
         };
     }

@@ -5,7 +5,7 @@ import {useState} from "react";
 function TaskManager(props) {
     const [editID, setEditID] = useState(false)
     const [deleteConfirm, setDeleteConfirm] = useState(false)
-    const [text, setText] = useState("")
+    const [text] = useState("")
 
     function handleRenameConfirm(editID, field, newText) {
         props.onTaskFieldChanged(editID, [field], newText)
@@ -14,10 +14,6 @@ function TaskManager(props) {
 
     function handleDeleteConfirm(deleteConfirm){
         setDeleteConfirm(deleteConfirm)
-    }
-
-    function onAddChange(e) {
-        setText(e.target.value);
     }
 
     function handleItemClick(itemID) {

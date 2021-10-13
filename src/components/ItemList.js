@@ -1,5 +1,4 @@
 import Item from "./Item";
-import {useState} from "react";
 
 function ItemList(props) {
     return (

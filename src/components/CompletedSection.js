@@ -1,5 +1,4 @@
 import ItemList from "./ItemList";
-import {useState} from "react";
 
 function CompletedSection(props) {
     const hasCompletedItem = props.tasks.filter((item) => item.isCompleted === true).length > 0
@@ -37,6 +36,8 @@ function CompletedSection(props) {
                     <ItemList
                         className="completeItem"
                         tasks={props.tasks.filter((item) => item.isCompleted === true)}
+                        editID={props.editID}
+                        deleteConfirm={props.deleteConfirm}
                         onDelete={props.onDelete}
                         onChange={props.onChange}
                         onClick={props.onClick}

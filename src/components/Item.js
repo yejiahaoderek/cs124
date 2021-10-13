@@ -1,7 +1,5 @@
-import {useState} from "react";
-
 function Item(props) {
-    const [prevText, setPrevText] = useState(props.text)
+    console.log(props.deleteConfirm)
     return (
         <div className={
             !props.isCompleted ?
@@ -29,7 +27,6 @@ function Item(props) {
                 <input type="text"
                        className="rename"
                        placeholder={props.text}
-                       value={prevText}
                        onChange={props.onRename}
                 />
                 :
