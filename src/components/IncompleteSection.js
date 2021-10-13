@@ -9,7 +9,7 @@ function IncompleteSection(props) {
     }
 
     return (
-        <div>
+        <div className={"incompleteSection"}>
             <div className="headerButton">
                 <h1>To-Do</h1>
                 {props.editID !== false &&

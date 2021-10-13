@@ -40,6 +40,7 @@ function TaskManager(props) {
 
             <CompletedSection
                 tasks={props.tasks}
+                editID={editID}
                 showCompletedItems={props.showCompletedItems}
                 onDelete={props.handleItemDeleted}
                 onDeleteAll={props.onDeleteAll}
@@ -49,16 +50,28 @@ function TaskManager(props) {
 
 
             <div className="addList">
-                <input
-                    type="text"
-                    className="taskInputBox"
-                    name="task"
-                    placeholder="Enter new task here"
-                    onChange = {onAddChange}
-                />
+                {editID === false ?
+                    <input
+                        type="text"
+                        className="taskInputBox"
+                        name="task"
+                        placeholder="Enter new task here"
+                        onChange = {onAddChange}
+                    />
+                    :
+                    <input
+                        type="text"
+                        className="taskInputBox"
+                        name="task"
+                        value="Finish edit first"
+                        onChange = {onAddChange}
+                    />}
                 <button type="button"
                         className="addButton"
-                        onClick={()=>props.onAddTask(text)}
+                        onClick={()=> {
+                            if (editID !== false) return
+                            props.onAddTask(text)
+                        }}
                 >
                     +
                 </button>

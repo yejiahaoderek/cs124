@@ -11,7 +11,11 @@ function Item(props) {
             <input type="checkbox" name="buyBook"
                    checked={props.isCompleted}
                    onClick={(e) => e.stopPropagation()}
-                   onChange={() => props.onChange(props.id, "isCompleted", !props.isCompleted)}
+                   onChange={() => {
+                       if (props.editID !== false) return
+                       props.onChange(props.id, "isCompleted", !props.isCompleted);
+                   }
+                   }
             />
             {props.editID === props.id ?
                 <input type="text"
@@ -27,6 +31,7 @@ function Item(props) {
                 <button
                     className="deleteButton"
                     onClick={() => {
+                        if (props.editID !== false) return
                         props.onDelete(props.id)
                     }}
                 > X

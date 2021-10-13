@@ -5,7 +5,7 @@ function CompletedSection(props) {
     const [deleteConfirm, setDeleteConfirm] = useState(false)
     const hasCompletedItem = props.tasks.filter((item) => item.isCompleted === true).length > 0
 
-    return <div>
+    return <div className={"completedSection"}>
         {props.showCompletedItems &&
         <div>
             <div className="headerButton">
@@ -13,7 +13,10 @@ function CompletedSection(props) {
                 {(hasCompletedItem) && (
                     !deleteConfirm ?
                         <button className="warning"
-                                onClick={() => setDeleteConfirm(!deleteConfirm)}>
+                                onClick={() => {
+                                    if (props.editID !== false) return
+                                    setDeleteConfirm(!deleteConfirm)
+                                }}>
                             Delete All
                         </button>
                         :
@@ -25,7 +28,7 @@ function CompletedSection(props) {
                                     }}>
                                 Delete
                             </button>
-                            <button>Cancel</button>
+                            <button onClick={()=>setDeleteConfirm(false)}>Cancel</button>
                         </div>)
                 }
             </div>
