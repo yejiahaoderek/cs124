@@ -47,6 +47,8 @@ We kept in mind of these priniciples as we learned about them which increased ou
 - Disable disturbing actions when in `deleteAll` or `Rename` mode
 - Keep with the original to-do text available to be edit when the to-do is tapped (i.e., `Edit/Rename mode`)
 
+## React component Design
+![component_design](https://user-images.githubusercontent.com/65286218/137246133-c8fd6c32-ddb2-4790-8c51-eb070d7be3f8.jpg)
 
 
 
