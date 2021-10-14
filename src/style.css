@@ -1,6 +1,6 @@
 #outlier{
-    width: 360px;
-    height: 640px;
+    width: 330px;
+    height: 620px;
     display: grid;
     grid-template-rows: 1fr 25px 1fr 20px;
     background: #F1F6F9;
@@ -121,7 +121,7 @@ ul {
     background-color: white;
     border-style: none;
     height: 8px;
-    width: 300px;
+    width: 250px;
     padding: 0.9em;
     font-size: 15px;
 }
@@ -152,7 +152,7 @@ button:hover {
 }
 
 .addButton{
-    height: 38px;
+    height: 35px;
     font-size: 25px;
     background-color: #3D9970;
     color: #F1F6F9;
@@ -208,7 +208,7 @@ button:hover {
 
 .addList {
     position: fixed;
-    top: 630px;
+    top: 600px;
     margin-left: auto;
 }
 
