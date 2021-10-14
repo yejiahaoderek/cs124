@@ -34,7 +34,7 @@ function IncompleteSection(props) {
                           onClick={props.onClick}
                 /> :
                 <div className="listItem">
-                    <div className="item">
+                    <div className="task">
                         You don't have any To-Do now
                     </div>
                 </div>

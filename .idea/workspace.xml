@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f1638734-2b5d-4748-8d4b-bbf3986b3a56" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TaskManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CompletedSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompletedSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/IncompleteSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IncompleteSection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +138,7 @@
       <workItem from="1634180566211" duration="82000" />
       <workItem from="1634180716822" duration="1378000" />
       <workItem from="1634187048019" duration="132000" />
+      <workItem from="1634187244927" duration="1279000" />
     </task>
     <servers />
   </component>
@@ -157,5 +159,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Item.js</url>
+          <line>25</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

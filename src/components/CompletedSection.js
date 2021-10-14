@@ -46,8 +46,8 @@ function CompletedSection(props) {
                     />
                     :
                     <div className="completeItem">
-                        <div className="item">
-                            You don't have any completed tasks
+                        <div className="task">
+                            Completed tasks will appear here
                         </div>
                     </div>
                 }

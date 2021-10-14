@@ -25,7 +25,7 @@ h1{
 body{
     font-family: -apple-system, Helvetica;
     color: #14274E;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 ul {
@@ -116,8 +116,6 @@ ul {
     border-radius: 12px;
     background: transparent;
     border-style: none;
-    height: 25px;
-    width: 230px;
     padding-left: 10px;
     font-size: 17px;
 }
