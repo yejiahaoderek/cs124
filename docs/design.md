@@ -1,7 +1,7 @@
 # Design Doc for Task Manager
 
 
-**New Feature/Design Summary**
+## New Feature/Design Summary
 
 - Basic functinality: `add new task`, `check/uncheck task`, `delete task`, `hide/show completed task` are available
 - Incomplete to-dos have darker background color to **draw attention from the user** and complete to-dos have a ligher background color
@@ -17,7 +17,7 @@
 
 
 
-**New error prevention mechenisms** 
+## New error prevention mechenisms
 
 - When nothing is entered in the task input box, clicking on the add button will do nothing
 
@@ -29,7 +29,7 @@
 
   
 
-**Challenges and Takeaways**
+## Challenges and Takeaways
 
 Implementing a react app with components enclosed by one another can get really confusing and chaotic when functions, states, and props are everywhere . As we were doing the project, we learned and summarized the some principles of writing react app:
 
