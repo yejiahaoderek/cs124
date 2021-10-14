@@ -6,17 +6,17 @@ import InMemoryApp from "./InMemoryApp";
 const initialData=[
     {
         id: 0,
-        text: "Buy new John Grisham book",
+        text: "This is an example of a to-do",
         isCompleted: false,
     },
     {
         id: 1,
-        text: "Eat Lunch",
+        text: "Tap to rename and click Done to save",
         isCompleted: false,
     },
     {
         id: 2,
-        text: "Call Mom",
+        text: "This is an example of a finished to-do",
         isCompleted: true,
     },
 ]

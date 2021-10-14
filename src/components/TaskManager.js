@@ -7,7 +7,6 @@ function TaskManager(props) {
     const [deleteConfirm, setDeleteConfirm] = useState(false)
     const [enteredText, setEnteredText] = useState('');
     const [newText, setNewText] = useState("")
-    console.log(newText)
 
     function handleRename(newText) {
         setNewText(newText)

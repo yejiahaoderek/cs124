@@ -27,7 +27,6 @@ function Item(props) {
             {props.editID === props.id ?
                 <input type="text"
                        className="rename"
-                       // value={props.newText}
                        onChange={(e)=> props.onRename(e.target.value)}
                 />
                 :
