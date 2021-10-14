@@ -128,7 +128,7 @@ ul {
     background-color: white;
     border-style: none;
     height: 8px;
-    width: 250px;
+    width: 260px;
     padding: 0.9em;
     font-size: 15px;
 }
@@ -154,7 +154,7 @@ Button {
 }
 
 button:hover {
-    background-color: #14274E;
+    background: rgba(1, 50, 67, 0.8);
     color: white;
 }
 
@@ -200,7 +200,14 @@ button:hover {
 #hideButton{
     border-width: 1px;
     width: 100%;
+    background: rgba(1, 50, 67, 0.08);
 }
+
+#hideButton:hover {
+    background: rgba(1, 50, 67, 0.8);
+    color: white;
+}
+
 
 .cancel{
     background-color: #91C788;
