@@ -12,7 +12,7 @@ function Item(props) {
                 }}>
 
             {/*checkbox*/}
-            <input type="checkbox" name="buyBook"
+            <input type="checkbox" name="isCompleted"
                    checked={props.isCompleted}
                    onClick={(e) => e.stopPropagation()}
                    onChange={() => {
@@ -31,7 +31,15 @@ function Item(props) {
                        onChange={(e)=> props.onRename(e.target.value)}
                 />
                 :
-                <div className="item"> {props.text} </div>
+                (props.isCompleted === true) ?
+                    <div className={"task"}>{props.text}</div>
+                :
+                <input type="text"
+                       className="task"
+                       value={props.text}
+                       onChange={(e)=>props.onRename(e.target.value)}
+                />
+                // <div className="item"> {props.text} </div>
             }
 
             {/* Delete button */}
