@@ -7,6 +7,7 @@
       <change afterPath="$PROJECT_DIR$/src/components/ItemList.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/TaskManager.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AddItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompletedSection.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CompletedSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompletedSection.js" afterDir="false" />
@@ -17,6 +18,9 @@
       <change beforePath="$PROJECT_DIR$/src/components/TaskManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskManager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/docs/design.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/design.md" afterDir="false" />
+>>>>>>> 83c46092bc5cfcca4ecc65bf6c7c39513daf757b
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +63,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -148,8 +153,13 @@
       <workItem from="1634180566211" duration="82000" />
       <workItem from="1634180716822" duration="1378000" />
       <workItem from="1634187048019" duration="132000" />
+<<<<<<< HEAD
       <workItem from="1634187244927" duration="1315000" />
       <workItem from="1634269898896" duration="2802000" />
+=======
+      <workItem from="1634187244927" duration="1279000" />
+      <workItem from="1634269765694" duration="1998000" />
+>>>>>>> 83c46092bc5cfcca4ecc65bf6c7c39513daf757b
     </task>
     <servers />
   </component>
@@ -171,4 +181,22 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Item.js</url>
+          <line>25</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+>>>>>>> 83c46092bc5cfcca4ecc65bf6c7c39513daf757b
 </project>
