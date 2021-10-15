@@ -1,7 +1,4 @@
-import './App.css';
-import './style.css';
 import TaskManager from "./components/TaskManager";
-
 
 function App(props) {
   return (

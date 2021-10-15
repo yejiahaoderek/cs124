@@ -1,4 +1,5 @@
 import ItemList from "./ItemList";
+import './CompletedSection.css'
 
 function CompletedSection(props) {
     const hasCompletedItem = props.tasks.filter((item) => item.isCompleted === true).length > 0

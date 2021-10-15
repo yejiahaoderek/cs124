@@ -1,0 +1,75 @@
+#outlier{
+    width: 350px;
+    height: 630px;
+    display: grid;
+    grid-template-rows: 1fr 25px 1fr 20px;
+    background: #F1F6F9;
+    padding: 20px;
+}
+
+h1{
+    font-family: -apple-system, Helvetica;
+}
+
+body{
+    font-family: -apple-system, Helvetica;
+    color: #14274E;
+    font-size: 15px;
+}
+
+.taskInputBox {
+    border-radius: 12px;
+    background-color: white;
+    border-style: none;
+    height: 8px;
+    width: 260px;
+    padding: 0.9em;
+    font-size: 15px;
+}
+
+
+.addList {
+    position: fixed;
+    top: 600px;
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button {
+    height: 22px;
+    border-radius: 12px;
+    transition-duration: 0.2s;
+    border-style: none;
+}
+
+button:hover {
+    background: rgba(1, 50, 67, 0.8);
+    color: white;
+}
+
+.addButton{
+    height: 35px;
+    font-size: 25px;
+    background-color: #3D9970;
+    color: #F1F6F9;
+    border-style: none;
+    border-radius: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#hideButton{
+    border-width: 1px;
+    width: 100%;
+    background: rgba(1, 50, 67, 0.08);
+}
+
+#hideButton:hover {
+    background: rgba(1, 50, 67, 0.8);
+    color: white;
+}
+
+.buttonGroup {
+    margin-left: auto;
+}

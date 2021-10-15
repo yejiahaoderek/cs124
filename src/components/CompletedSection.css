@@ -1,0 +1,28 @@
+.headerButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.cancel{
+    background-color: #91C788;
+    border-style: none;
+}
+
+.deleteButton{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    border-color: rgba(1, 50, 67, 0.7)
+}
+
+.warning{
+    border-style: solid;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: hsla(0, 75%, 53%, 0.6);
+    border-style: none;
+    margin-left: auto;
+    color: #F1F6F9;
+}

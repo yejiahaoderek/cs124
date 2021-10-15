@@ -1,3 +1,5 @@
+import './Item.css'
+
 function Item(props) {
     return (
         <div className={

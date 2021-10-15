@@ -1,6 +1,7 @@
 import IncompleteSection from "./IncompleteSection";
 import CompletedSection from "./CompletedSection";
 import {useState} from "react";
+import './TaskManager.css';
 
 function TaskManager(props) {
     const [editID, setEditID] = useState(false)

@@ -1,4 +1,6 @@
 import ItemList from "./ItemList";
+import './IncompleteSection.css'
+
 function IncompleteSection(props) {
     return (
         <div className={"incompleteSection"}>
