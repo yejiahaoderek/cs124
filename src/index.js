@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import InMemoryApp from "./InMemoryApp";
+import App from "./App";
 
 const initialData=[
     {
@@ -11,6 +11,6 @@ const initialData=[
 ]
 
 ReactDOM.render(
-    <InMemoryApp initialData={initialData}/>,
+    <App initialData={initialData}/>,
     document.getElementById('root')
 );
