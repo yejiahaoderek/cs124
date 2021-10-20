@@ -40,11 +40,10 @@ function Item(props) {
                        value={props.text}
                        onChange={(e)=>props.onRename(e.target.value)}
                 />
-                // <div className="item"> {props.text} </div>
             }
 
             {/* Delete button */}
-            <div className="buttonGroup" onClick={(e) => e.stopPropagation()}>
+            { props.editID == false && <div className="buttonGroup" onClick={(e) => e.stopPropagation()}>
                 <button
                     className="deleteButton"
                     onClick={() => {
@@ -54,7 +53,7 @@ function Item(props) {
                     }}
                 > X
                 </button>
-            </div>
+            </div> }
         </div>
     );
 }
