@@ -40,6 +40,10 @@
     font-size: 15px;
 }
 
+.rename:focus {
+    outline: 2px solid rgba(1, 50, 67, 0.5);
+}
+
 .completeItem{
     display: flex;
     flex-wrap: wrap;
