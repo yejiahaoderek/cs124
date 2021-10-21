@@ -26,3 +26,13 @@
     margin-left: auto;
     color: #F1F6F9;
 }
+
+.disabledWarning{
+    background-color: lightgrey;
+    color: #F1F6F9;
+}
+
+.disabledWarning:hover{
+    background-color: lightgrey;
+    color: #F1F6F9;
+}

@@ -11,7 +11,7 @@ function CompletedSection(props) {
                 <h1>Completed </h1>
                 {(hasCompletedItem) && (
                     !props.deleteConfirm ?
-                        <button className="warning"
+                        <button className={props.editID == false? "warning" : "disabledWarning"}
                                 onClick={() => {
                                     if (props.editID !== false) return
                                     props.onDeleteConfirm(!props.deleteConfirm)

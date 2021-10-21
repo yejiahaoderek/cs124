@@ -5496,7 +5496,7 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
-firebase@^9.1.2:
+firebase@^9.1.3:
   version "9.1.3"
   resolved "https://registry.npmmirror.com/firebase/download/firebase-9.1.3.tgz#11557f812f53edab5053ed0bd4dd344f2ae7fb5f"
   integrity sha1-EVV/gS9T7atQU+0L1N00Tyrn+18=

@@ -85,8 +85,10 @@ function TaskManager(props) {
                         `Enter your new task here`
                     }
                 />
+
+
                 <button type="button"
-                        className="addButton"
+                        className={editID == false && deleteConfirm == false ? "addButton" : "disabledAddButton"}
                         onClick={()=> {
                             if (editID !== false) return
                             props.onAddTask(enteredText)

@@ -59,6 +59,17 @@ button:hover {
     padding-right: 12px;
 }
 
+.disabledAddButton{
+    height: 35px;
+    font-size: 25px;
+    background-color: lightgrey;
+    color: #F1F6F9;
+    border-style: none;
+    border-radius: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
 #hideButton{
     border-width: 1px;
     width: 100%;
@@ -72,4 +83,9 @@ button:hover {
 
 .buttonGroup {
     margin-left: auto;
+}
+
+.disabledAddButton:hover {
+    background: lightgrey;
+    color: whitesmoke;
 }
