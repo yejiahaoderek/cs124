@@ -74,13 +74,31 @@ button:hover {
     padding-right: 12px;
 }
 
-#hideButton{
+.disabledAddButton:hover {
+    background: lightgrey;
+    color: whitesmoke;
+}
+
+.disabledHideButton{
+    background-color: lightgrey;
+    color: #F1F6F9;
+    border-width: 1px;
+    width: 100%;
+}
+
+.disabledHideButton:hover {
+    background: lightgrey;
+    color: whitesmoke;
+}
+
+
+.hideButton{
     border-width: 1px;
     width: 100%;
     background: rgba(1, 50, 67, 0.08);
 }
 
-#hideButton:hover {
+.hideButton:hover {
     background: rgba(1, 50, 67, 0.8);
     color: white;
 }
@@ -89,7 +107,3 @@ button:hover {
     margin-left: auto;
 }
 
-.disabledAddButton:hover {
-    background: lightgrey;
-    color: whitesmoke;
-}

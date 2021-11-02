@@ -8,6 +8,7 @@ function ItemList(props) {
                 id = {task.id}
                 key = {task.id}
                 text = {task.text}
+                priority={task.priority}
                 onRename={props.onRename}
                 newText = {task.newText}
                 isCompleted = {task.isCompleted}

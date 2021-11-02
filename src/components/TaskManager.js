@@ -49,8 +49,15 @@ function TaskManager(props) {
                 onQuitEdit={handleQuitEdit}
             />
 
-            <button id="hideButton"
-                onClick={props.onToggleCompletedItems}>
+            <button
+                id="hideButton"
+                className={!editID && !deleteConfirm ? "hideButton" : "disabledHideButton"}
+                onClick={()=> {
+                    if (editID) return
+                    if (deleteConfirm) return
+                    console.log("ddd")
+                    props.onToggleCompletedItems()}
+                }>
                 {props.showCompletedItems? `Hide` : `Show`} Completed
             </button>
 
@@ -88,9 +95,9 @@ function TaskManager(props) {
 
 
                 <button type="button"
-                        className={editID == false && deleteConfirm == false ? "addButton" : "disabledAddButton"}
+                        className={!editID && !deleteConfirm ? "addButton" : "disabledAddButton"}
                         onClick={()=> {
-                            if (editID !== false) return
+                            if (editID) return
                             props.onAddTask(enteredText)
                             setEnteredText("")
                         }}>+

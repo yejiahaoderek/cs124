@@ -42,7 +42,8 @@ function App(props) {
             docRef.set({
                 id: itemID,
                 text: text,
-                isCompleted: false
+                isCompleted: false,
+                priority: 2
             })
             // setTasks([...tasks, {
             //     id: taskID,

@@ -1,6 +1,7 @@
 import './Item.css'
 
 function Item(props) {
+    console.log(props.priority)
     return (
         <div className={
             !props.isCompleted ?
@@ -25,6 +26,10 @@ function Item(props) {
                    }
             />
 
+            {!props.editID && props.priority !== 0 && <text className={"priorityStatus"}>
+                {props.priority === 1 ? "!" : props.priority === 2 ? "!!" : "!!!"}
+            </text>}
+
             {/*Todo text*/}
             {props.editID === props.id ?
                 <input type="text"
@@ -40,6 +45,22 @@ function Item(props) {
                        value={props.text}
                        onChange={(e)=>props.onRename(e.target.value)}
                 />
+            }
+
+            {props.editID &&
+                <div className={"prorityGroup"}>
+                    <div className={props.priority === 1 ? "prioritySelected" : "priorityDisplay"}                        className={"priorityDisplay"}
+                        onClick={""}
+                    >
+                        !
+                    </div>
+                    <div className={props.priority === 2 ? "prioritySelected" : "priorityDisplay"}>
+                        !!
+                    </div>
+                    <div className={props.priority === 3 ? "prioritySelected" : "priorityDisplay"}>
+                        !!!
+                    </div>
+                </div>
             }
 
             {/* Delete button */}

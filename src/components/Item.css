@@ -65,6 +65,76 @@
     font-size: 15px;
 }
 
+.prorityGroup{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    margin-left: auto;
+}
+
+
+.priorityStatus{
+    display: flex;
+    width: 21px;
+    justify-content: center;
+    align-items: center;
+    font-family: "Adobe Fan Heiti Std";
+    padding-left: 7px;
+    color: red;
+    /*font-weight: bold;*/
+    font-size: 17px;
+}
+
+
+.priorityDisplay{
+    display: flex;
+    width: 21px;
+    justify-content: center;
+    align-items: center;
+    font-family: "Adobe Fan Heiti Std";
+    /*padding-left: 7px;*/
+    color: red;
+    /*font-weight: bold;*/
+    font-size: 17px;
+    background-color: lightsteelblue;
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: rgba(1, 50, 67, 0.3);
+}
+
+.priorityDisplay:hover{
+    display: flex;
+    width: 21px;
+    justify-content: center;
+    align-items: center;
+    font-family: "Adobe Fan Heiti Std";
+    /*padding-left: 7px;*/
+    color: red;
+    /*font-weight: bold;*/
+    font-size: 17px;
+    background-color: rgba(1, 50, 67, 0.5);
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: rgba(1, 50, 67, 0.8);
+}
+
+.prioritySelected{
+    display: flex;
+    width: 21px;
+    justify-content: center;
+    align-items: center;
+    font-family: "Adobe Fan Heiti Std";
+    /*padding-left: 7px;*/
+    color: red;
+    /*font-weight: bold;*/
+    font-size: 17px;
+    background-color: rgba(1, 50, 67, 0.8);
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: rgba(1, 50, 67, 0.3);
+    color: whitesmoke;
+}
+
 input[type="checkbox"]{
     transform : scale(1.5);
 }
