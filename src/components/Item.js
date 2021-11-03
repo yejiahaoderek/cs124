@@ -27,9 +27,9 @@ function Item(props) {
                    }
             />
 
-            {!props.editID && props.priority !== 0 && <text className={"priorityStatus"}>
+            {!props.editID && props.priority !== 0 && <div className={"priorityStatus"}>
                 {props.priority === 1 ? "!" : props.priority === 2 ? "!!" : "!!!"}
-            </text>}
+            </div>}
 
             {/*Todo text*/}
             {props.editID === props.id ?

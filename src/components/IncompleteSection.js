@@ -6,7 +6,19 @@ function IncompleteSection(props) {
         <div className={"incompleteSection"}>
             <div className="headerButton">
                 <h1>To-Do</h1>
-                {props.editID !== false &&
+
+                {!props.editID &&
+                    <div>
+                        <label htmlFor="cars">Sort by:</label>
+                        <select name="category" id="category">
+                            <option value="priority">priority</option>
+                            <option value="name">name</option>
+                            <option value="date">date created</option>
+                        </select>
+                    </div>
+                }
+
+                {props.editID &&
                     <div>
                         <button
                             className="confirmButton"

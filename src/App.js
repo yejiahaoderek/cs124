@@ -43,7 +43,7 @@ function App(props) {
                 id: itemID,
                 text: text,
                 isCompleted: false,
-                priority: 2
+                priority: 0
             })
             // setTasks([...tasks, {
             //     id: taskID,

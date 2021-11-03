@@ -15,7 +15,6 @@ function TaskManager(props) {
     }
 
     function handlePriority(newPriority){
-        console.log(newPriority)
         setNewPriority(newPriority)
     }
 
