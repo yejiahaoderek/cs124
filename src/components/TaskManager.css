@@ -28,9 +28,10 @@ body{
 }
 
 
-.taskInputBox:focus {
-    outline: 2px solid rgba(1, 50, 67, 0.5);
-}
+/*.taskInputBox:focus {*/
+/*    outline: 2px solid rgba(1, 50, 67, 0.5);*/
+/*    -moz-outline-radius: 12px;*/
+/*}*/
 
 .addList {
     position: fixed;

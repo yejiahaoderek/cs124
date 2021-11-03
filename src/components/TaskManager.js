@@ -7,20 +7,27 @@ function TaskManager(props) {
     const [editID, setEditID] = useState(false)
     const [deleteConfirm, setDeleteConfirm] = useState(false)
     const [enteredText, setEnteredText] = useState('');
+    const [newPriority, setNewPriority] = useState('');
     const [newText, setNewText] = useState("")
 
     function handleRename(newText) {
         setNewText(newText)
     }
 
-    function handleRenameConfirm(editID, field, newText) {
-        props.onTaskFieldChanged(editID, [field], newText)
+    function handlePriority(newPriority){
+        console.log(newPriority)
+        setNewPriority(newPriority)
+    }
+
+    function handleRenameConfirm(editID, newText, newPriority) {
+        console.log(newPriority)
+        props.onTaskFieldChanged(editID, "text", newText)
+        props.onTaskFieldChanged(editID, "priority", newPriority)
         setEditID(false)
     }
 
     function handleQuitEdit() {
         setEditID(false)
-        console.log(editID)
     }
 
 
@@ -41,7 +48,9 @@ function TaskManager(props) {
                 onDelete={props.handleItemDeleted}
                 onChange={props.onTaskFieldChanged}
                 onRename={handleRename}
+                onPriority={handlePriority}
                 newText={newText}
+                newPriority={newPriority}
                 editID={editID}
                 deleteConfirm={deleteConfirm}
                 onClick={handleItemClick}

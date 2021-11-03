@@ -1,7 +1,8 @@
 import './Item.css'
+import {useState} from "react";
 
 function Item(props) {
-    console.log(props.priority)
+    const [selectedID, setSelectedID] = useState(props.priority)
     return (
         <div className={
             !props.isCompleted ?
@@ -47,29 +48,45 @@ function Item(props) {
                 />
             }
 
-            {props.editID &&
-                <div className={"prorityGroup"}>
-                    <div className={props.priority === 1 ? "prioritySelected" : "priorityDisplay"}                        className={"priorityDisplay"}
-                        onClick={""}
+            {props.editID == props.id &&
+                <div className={"priorityGroup"}>
+                    <div className={selectedID === 1 ? "prioritySelected" : "priorityDisplay" }
+                         onClick={()=> {
+                             selectedID === 1 ? setSelectedID(0) : setSelectedID(1)
+                             props.priority === 1 ? props.onPriority(0) : props.onPriority(1)
+                         }}
                     >
                         !
                     </div>
-                    <div className={props.priority === 2 ? "prioritySelected" : "priorityDisplay"}>
+
+                    <div className={selectedID === 2 ? "prioritySelected" : "priorityDisplay"}
+                         onClick={()=> {
+                             selectedID === 2 ? setSelectedID(0) : setSelectedID(2)
+                             props.priority === 2 ? props.onPriority(0) : props.onPriority(2)
+                         }}
+                    >
                         !!
                     </div>
-                    <div className={props.priority === 3 ? "prioritySelected" : "priorityDisplay"}>
+
+                    <div className={selectedID === 3 ? "prioritySelected" : "priorityDisplay"}
+                         onClick={()=> {
+                             selectedID === 3 ? setSelectedID(0) : setSelectedID(3)
+                             props.priority === 3 ? props.onPriority(0) : props.onPriority(3)
+                             // props.priority === 3 ? props.onChange(props.editID, "priority", 0) : props.onChange(props.editID, "priority", 3)
+                         }}
+                    >
                         !!!
                     </div>
                 </div>
             }
 
             {/* Delete button */}
-            { props.editID == false && <div className="buttonGroup" onClick={(e) => e.stopPropagation()}>
+            { !props.editID && <div className="buttonGroup" onClick={(e) => e.stopPropagation()}>
                 <button
                     className="deleteButton"
                     onClick={() => {
                         if (props.editID !== false) return
-                        if (props.deleteConfirm) return;
+                        if (props.deleteConfirm) return
                         props.onDelete(props.id)
                     }}
                 > X

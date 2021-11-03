@@ -65,7 +65,7 @@
     font-size: 15px;
 }
 
-.prorityGroup{
+.priorityGroup{
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
@@ -87,20 +87,22 @@
 
 
 .priorityDisplay{
+    transition-duration: 0.2s;
     display: flex;
     width: 21px;
     justify-content: center;
     align-items: center;
     font-family: "Adobe Fan Heiti Std";
-    /*padding-left: 7px;*/
-    color: red;
-    /*font-weight: bold;*/
     font-size: 17px;
-    background-color: lightsteelblue;
     border-style: solid;
-    border-width: 0.1em;
-    border-color: rgba(1, 50, 67, 0.3);
+    border-width: 0.01em;
+    color: rgb(255, 99, 71);
+    background-color: whitesmoke;
+    border-color: rgb(255, 99, 71);
+    border-radius: 2px;
+    border-width: 0.5px;
 }
+
 
 .priorityDisplay:hover{
     display: flex;
@@ -109,13 +111,15 @@
     align-items: center;
     font-family: "Adobe Fan Heiti Std";
     /*padding-left: 7px;*/
-    color: red;
+    color: whitesmoke;
     /*font-weight: bold;*/
     font-size: 17px;
-    background-color: rgba(1, 50, 67, 0.5);
+    background-color: rgb(255, 99, 71);
     border-style: solid;
-    border-width: 0.1em;
-    border-color: rgba(1, 50, 67, 0.8);
+    border-width: 0.01em;
+    border-color: rgb(255, 99, 71);
+    border-radius: 2px;
+    border-width: 0.5px;
 }
 
 .prioritySelected{
@@ -128,11 +132,13 @@
     color: red;
     /*font-weight: bold;*/
     font-size: 17px;
-    background-color: rgba(1, 50, 67, 0.8);
+    background-color: rgb(255, 99, 71);
     border-style: solid;
-    border-width: 0.1em;
-    border-color: rgba(1, 50, 67, 0.3);
+    border-width: 0.01em;
+    border-color: rgb(255, 99, 71);
     color: whitesmoke;
+    border-radius: 2px;
+    border-width: 0.5px;
 }
 
 input[type="checkbox"]{

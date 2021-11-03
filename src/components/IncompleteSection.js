@@ -10,13 +10,15 @@ function IncompleteSection(props) {
                     <div>
                         <button
                             className="confirmButton"
-                            onClick={()=>props.onConfirm(props.editID, "text", props.newText)}
+                            onClick={()=>{
+                                props.onConfirm(props.editID, props.newText, props.newPriority)
+                            }}
                         >
                             Done
                         </button>
 
                         <button
-                        onClick={props.onQuitEdit}
+                            onClick={props.onQuitEdit}
                         >
                         Cancel
                         </button>
@@ -29,7 +31,9 @@ function IncompleteSection(props) {
                 <ItemList tasks={props.tasks.filter((item) => item.isCompleted === false)}
                           editID={props.editID}
                           newText={props.newText}
+                          newPriority={props.newPriority}
                           onRename={props.onRename}
+                          onPriority={props.onPriority}
                           deleteConfirm={props.deleteConfirm}
                           onDelete={props.onDelete}
                           onChange={props.onChange}
