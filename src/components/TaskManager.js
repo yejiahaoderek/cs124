@@ -19,7 +19,6 @@ function TaskManager(props) {
     }
 
     function handleRenameConfirm(editID, newText, newPriority) {
-        console.log(newPriority)
         props.onTaskFieldChanged(editID, "text", newText)
         props.onTaskFieldChanged(editID, "priority", newPriority)
         setEditID(false)
@@ -93,9 +92,9 @@ function TaskManager(props) {
                     value={enteredText}
                     onChange={(e)=> setEnteredText(e.target.value)}
                     placeholder={
-                        editID !== false ? `Please finish edit first`
+                        editID ? `Please finish edit first`
                         :
-                        deleteConfirm !== false ?  `Please confirm your deleteAll action`
+                        deleteConfirm ?  `Please confirm your deleteAll action`
                         :
                         `Enter your new task here`
                     }

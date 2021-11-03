@@ -20,7 +20,7 @@ function Item(props) {
                    checked={props.isCompleted}
                    onClick={(e) => e.stopPropagation()}
                    onChange={() => {
-                       if (props.editID !== false) return
+                       if (props.editID) return
                        if (props.deleteConfirm) return;
                        props.onChange(props.id, "isCompleted", !props.isCompleted);
                     }
@@ -38,7 +38,7 @@ function Item(props) {
                        onChange={(e)=> props.onRename(e.target.value)}
                 />
                 :
-                (props.isCompleted === true) ?
+                (props.isCompleted) ?
                     <div className={"task"}>{props.text}</div>
                 :
                 <input type="text"
@@ -48,7 +48,7 @@ function Item(props) {
                 />
             }
 
-            {props.editID == props.id &&
+            {props.editID === props.id &&
                 <div className={"priorityGroup"}>
                     <div className={selectedID === 1 ? "prioritySelected" : "priorityDisplay" }
                          onClick={()=> {
@@ -85,7 +85,7 @@ function Item(props) {
                 <button
                     className="deleteButton"
                     onClick={() => {
-                        if (props.editID !== false) return
+                        if (props.editID) return
                         if (props.deleteConfirm) return
                         props.onDelete(props.id)
                     }}

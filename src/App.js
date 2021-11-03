@@ -70,7 +70,7 @@ function App(props) {
 
     function handleDeleteAll(){
         tasks.forEach(item => {
-            if (item.isCompleted == true) {
+            if (item.isCompleted) {
                 const docRef = db.collection(collectionName).doc(item.id);
                 docRef.delete(item.id)
             }

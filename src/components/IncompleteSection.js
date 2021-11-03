@@ -9,11 +9,10 @@ function IncompleteSection(props) {
 
                 {!props.editID &&
                     <div>
-                        <label htmlFor="cars">Sort by:</label>
                         <select name="category" id="category">
-                            <option value="priority">priority</option>
-                            <option value="name">name</option>
-                            <option value="date">date created</option>
+                            <option value="priority">By Priority</option>
+                            <option value="name">By Name</option>
+                            <option value="date">By Date</option>
                         </select>
                     </div>
                 }
@@ -30,7 +29,9 @@ function IncompleteSection(props) {
                         </button>
 
                         <button
-                            onClick={props.onQuitEdit}
+                            onClick={() => {
+                                props.onQuitEdit();
+                            }}
                         >
                         Cancel
                         </button>
@@ -39,8 +40,8 @@ function IncompleteSection(props) {
                 </div>
 
         <div className="taskItems">
-            {props.tasks.filter((item) => item.isCompleted === false).length !== 0 ?
-                <ItemList tasks={props.tasks.filter((item) => item.isCompleted === false)}
+            {props.tasks.filter((item) => !item.isCompleted).length !== 0 ?
+                <ItemList tasks={props.tasks.filter((item) => !item.isCompleted)}
                           editID={props.editID}
                           newText={props.newText}
                           newPriority={props.newPriority}
