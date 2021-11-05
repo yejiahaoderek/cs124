@@ -1,16 +1,15 @@
 .sortSelect{
     display: flex;
-    padding-left: 3px;
+    padding-left: 2px;
     border: 1px solid rgba(1, 50, 67, 0.4);
-    width: 85px;
-    border-radius: 3px;
+    width: 90px;
     color: #14274E;
-    font-family: -apple-system, Helvetica;
     border-radius: 12px;
     height: 24px;
     font-size: 12px;
     justify-content: center;
     align-content: center;
+    background: rgba(1, 50, 67, 0.02);
 }
 
 .sortSelect select {
