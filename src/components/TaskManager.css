@@ -1,5 +1,5 @@
 #outlier{
-    width: 320px;
+    width: 360px;
     height: 640px;
     display: grid;
     grid-template-rows: 1fr 25px 1fr 20px;
