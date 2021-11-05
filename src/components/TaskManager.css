@@ -56,6 +56,8 @@ button:hover {
     height: 35px;
     font-size: 25px;
     background-color: #3D9970;
+    justify-content: center;
+    align-content: center;
     color: #F1F6F9;
     border-style: none;
     border-radius: 20px;
