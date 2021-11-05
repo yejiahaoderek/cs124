@@ -9,10 +9,21 @@ function IncompleteSection(props) {
 
                 {!props.editID &&
                     <div>
-                        <select name="category" id="category">
-                            <option value="priority">By Priority</option>
-                            <option value="name">By Name</option>
-                            <option value="date">By Date</option>
+                        <select name="category"
+                                id="category"
+                                onChange={(e)=>{
+                                    props.onSort(e.target.value)
+                                }}
+                        >
+                            <option value="priority">
+                                By Priority
+                            </option>
+                            <option value="text">
+                                By Name
+                            </option>
+                            <option value="created">
+                                By Date
+                            </option>
                         </select>
                     </div>
                 }
@@ -54,7 +65,8 @@ function IncompleteSection(props) {
                 /> :
                 <div className="listItem">
                     <div className="task">
-                        You don't have any To-Do now
+                        {props.isLoading ?
+                            `Loading...` :  `You don't have any To-Do now`}
                     </div>
                 </div>
             }

@@ -43,8 +43,10 @@ function TaskManager(props) {
         <div id="outlier">
             <IncompleteSection
                 tasks={props.tasks}
+                isLoading={props.isLoading}
                 onDelete={props.handleItemDeleted}
                 onChange={props.onTaskFieldChanged}
+                onSort={props.onSort}
                 onRename={handleRename}
                 onPriority={handlePriority}
                 newText={newText}
@@ -62,7 +64,6 @@ function TaskManager(props) {
                 onClick={()=> {
                     if (editID) return
                     if (deleteConfirm) return
-                    console.log("ddd")
                     props.onToggleCompletedItems()}
                 }>
                 {props.showCompletedItems? `Hide` : `Show`} Completed
@@ -85,26 +86,37 @@ function TaskManager(props) {
 
 
             <div className="addList">
-                <input
-                    type="text"
-                    className="taskInputBox"
-                    name="task"
-                    value={enteredText}
-                    onChange={(e)=> setEnteredText(e.target.value)}
-                    placeholder={
-                        editID ? `Please finish edit first`
-                        :
-                        deleteConfirm ?  `Please confirm your deleteAll action`
-                        :
-                        `Enter your new task here`
-                    }
-                />
+                {editID || deleteConfirm ?
+                    <input
+                        type="text"
+                        className="taskInputBox"
+                        name="taskDisabled"
+                        placeholder={editID ? `Please finish edit first` : `Please confirm your deleteAll action`}
+                    disabled>
+                    </input>
+                    :
+                    <input
+                        type="text"
+                        className="taskInputBox"
+                        name="task"
+                        value={enteredText}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                props.onAddTask(enteredText)
+                                setEnteredText("")
+                            }
+                        }}
+                        onChange={(e) => setEnteredText(e.target.value)}
+                        placeholder={`Enter your new task here`}
+                    />
+                }
 
 
                 <button type="button"
                         className={!editID && !deleteConfirm ? "addButton" : "disabledAddButton"}
                         onClick={()=> {
                             if (editID) return
+                            if (deleteConfirm) return
                             props.onAddTask(enteredText)
                             setEnteredText("")
                         }}>+

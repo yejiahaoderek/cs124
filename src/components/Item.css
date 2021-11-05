@@ -93,11 +93,10 @@
     align-items: center;
     font-family: "sans-serif";
     font-size: 17px;
-    border-style: solid;
-    border-width: 0.01em;
-    color: rgb(255, 99, 71);
     background-color: whitesmoke;
-    border-color: rgb(255, 99, 71);
+    color: hsla(0, 75%, 53%, 0.6);
+    border-style: solid;
+    /*border-width: 0.01em;*/
     border-radius: 2px;
     border-width: 0.5px;
 }
@@ -113,10 +112,10 @@
     color: whitesmoke;
     /*font-weight: bold;*/
     font-size: 17px;
-    background-color: rgb(255, 99, 71);
+    background-color: hsla(0, 75%, 53%, 0.6);
     border-style: solid;
-    border-width: 0.01em;
-    border-color: rgb(255, 99, 71);
+    /*border-width: 0.01em;*/
+    border-color: hsla(0, 75%, 53%, 0.6);
     border-radius: 2px;
     border-width: 0.5px;
 }
@@ -128,13 +127,13 @@
     align-items: center;
     font-family: "sans-serif";
     /*padding-left: 7px;*/
-    color: red;
+    color: hsla(0, 75%, 53%, 0.6);
     /*font-weight: bold;*/
     font-size: 17px;
-    background-color: rgb(255, 99, 71);
+    background-color: hsla(0, 75%, 53%, 0.6);
     border-style: solid;
-    border-width: 0.01em;
-    border-color: rgb(255, 99, 71);
+    /*border-width: 0.01em;*/
+    border-color: hsla(0, 75%, 53%, 0.6);
     color: whitesmoke;
     border-radius: 2px;
     border-width: 0.5px;

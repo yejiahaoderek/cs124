@@ -16,23 +16,29 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const collectionName = "Tasks";
+const collectionName = "yejiahaoderek-tasks";
 
 
 function App(props) {
-    const query = db.collection(collectionName);
+    const [sortChoice , setSortChoice] = useState("priority");
+    const [showCompletedItems, setShowCompletedItems] = useState(true)
+    let tasks = [];
+    let query = db.collection(collectionName)
+
+    query = sortChoice === "priority" ?
+        query.orderBy(sortChoice, "desc") : query = query.orderBy(sortChoice)
     const [value, loading, error] = useCollection(query);
 
-    // const [tasks, setTasks] = useState(props.initialData)
-    const [showCompletedItems, setShowCompletedItems] = useState(true)
-
-    let tasks = [];
     if (value) {
-        tasks = value.docs.map(doc => doc.data());
+        tasks = value.docs.map(doc => doc.data())
     }
 
     const handleToggleCompletedItems= () => {
         setShowCompletedItems(!showCompletedItems)
+    }
+
+    function handleSort(newSortChoice) {
+        setSortChoice(newSortChoice)
     }
 
     const handleAddTask = (text) =>{
@@ -43,7 +49,8 @@ function App(props) {
                 id: itemID,
                 text: text,
                 isCompleted: false,
-                priority: 0
+                priority: 0,
+                created: firebase.database.ServerValue.TIMESTAMP,
             })
             // setTasks([...tasks, {
             //     id: taskID,
@@ -80,8 +87,10 @@ function App(props) {
 
     return (
      <TaskManager tasks={tasks}
+                  isLoading={loading}
                   showCompletedItems={showCompletedItems}
                   onAddTask={handleAddTask}
+                  onSort = {handleSort}
                   onTaskFieldChanged={handleTaskFieldChanged}
                   onDeleteAll={handleDeleteAll}
                   handleItemDeleted={handleItemDeleted}
