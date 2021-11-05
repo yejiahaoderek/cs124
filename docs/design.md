@@ -114,6 +114,7 @@ One participant mentioned that they couldn't edit tasks after they've been marke
 
 
 ## Third Iteration Design Process
+![Untitled-2021-10-25-1254](https://user-images.githubusercontent.com/65286218/140454613-1dfb1a27-8b26-4823-ac97-98b63e63e940.png)
 When deciding where to put the buttons to set priority level, we thought it was best to only show them during edit mode. Originally, we had kept the delete button next to each task even during edit mode even though their functionality was disabled. We realized that it looked too cluttered and keeping the delete button was pointless, so we replaced the delete button with the priority levels. When displaying the priority level in non-edit mode, we thought about keeping it on the right hand side for consistency, but thought it looked out of place. We moved it to the left of the text, which we thought looked better and was easier to understand what the symbols meant. We used exclamation marks to signify priority level since this seemed pretty common and universally understood. We decided to have 4 priority levels - 0, 1, 2, and 3 - with 0 being the default value of not being a priority. Based on our own interactions with other task managers or applications that had priority levels, this seemed like a good number.
 
 While we were designing how to implement the sorting functionality, we considered adding a creation date stamp to each task, but decided against it because it would look too cluttered and did not think most users would feel a need for it.
