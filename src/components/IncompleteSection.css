@@ -18,15 +18,16 @@
 
 .confirmButton{
     border-style: none;
-    /*padding-left: 6px;*/
-    /*padding-right: 6px;*/
+    border-radius: 12px;
     background-color: #3D9970;
     border-color: #3D9970;
-    /*margin-left: auto;*/
     color: #F1F6F9;
 }
 
 .cancel{
-    background-color: #91C788;
-    border-style: none;
+    background: rgba(1, 50, 67, 0.08);
+    border-radius: 12px;
+}
+.cancel:hover{
+    border-radius: 12px;
 }

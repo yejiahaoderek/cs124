@@ -42,8 +42,6 @@ body{
 }
 
 button {
-    height: 19px;
-    border-radius: 12px;
     transition-duration: 0.2s;
     border-style: none;
 }
@@ -51,6 +49,7 @@ button {
 button:hover {
     background: rgba(1, 50, 67, 0.8);
     color: white;
+    border-style: none;
 }
 
 .addButton{
@@ -85,18 +84,22 @@ button:hover {
     color: #F1F6F9;
     border-width: 1px;
     width: 100%;
+    border-radius: 12px;
 }
 
 .disabledHideButton:hover {
     background: lightgrey;
     color: whitesmoke;
+    border-radius: 12px;
 }
 
 
 .hideButton{
     border-width: 1px;
+    height: 25px;
     width: 100%;
     background: rgba(1, 50, 67, 0.08);
+    border-radius: 12px;
 }
 
 .hideButton:hover {

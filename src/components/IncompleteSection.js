@@ -40,6 +40,7 @@ function IncompleteSection(props) {
                         </button>
 
                         <button
+                            className={"cancel"}
                             onClick={() => {
                                 props.onQuitEdit();
                             }}

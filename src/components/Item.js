@@ -81,7 +81,8 @@ function Item(props) {
             }
 
             {/* Delete button */}
-            { !props.editID && <div className="buttonGroup" onClick={(e) => e.stopPropagation()}>
+            { !props.editID &&
+            <div className="buttonGroup" onClick={(e) => e.stopPropagation()}>
                 <button
                     className="deleteButton"
                     onClick={() => {
@@ -89,7 +90,7 @@ function Item(props) {
                         if (props.deleteConfirm) return
                         props.onDelete(props.id)
                     }}
-                > X
+                ><img src="https://img.icons8.com/material-outlined/30/000000/delete-sign.png" width="12" height="12"/>
                 </button>
             </div> }
         </div>

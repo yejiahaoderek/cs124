@@ -102,22 +102,36 @@
 }
 
 
-.priorityDisplay:hover{
+/*.priorityDisplay:hover{*/
+/*    display: flex;*/
+/*    width: 21px;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    font-family: "sans-serif";*/
+/*    !*padding-left: 7px;*!*/
+/*    color: whitesmoke;*/
+/*    !*font-weight: bold;*!*/
+/*    font-size: 17px;*/
+/*    background-color: hsla(0, 75%, 53%, 0.3);*/
+/*    border-style: solid;*/
+/*    !*border-width: 0.01em;*!*/
+/*    border-color: hsla(0, 75%, 53%, 0.3);*/
+/*    border-radius: 2px;*/
+/*    border-width: 0.5px;*/
+/*}*/
+
+.deleteButton{
     display: flex;
-    width: 21px;
     justify-content: center;
-    align-items: center;
-    font-family: "sans-serif";
-    /*padding-left: 7px;*/
-    color: whitesmoke;
-    /*font-weight: bold;*/
-    font-size: 17px;
-    background-color: hsla(0, 75%, 53%, 0.6);
-    border-style: solid;
-    /*border-width: 0.01em;*/
-    border-color: hsla(0, 75%, 53%, 0.6);
-    border-radius: 2px;
-    border-width: 0.5px;
+    align-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+
+}
+.deleteButton:hover {
+    color:white;
 }
 
 .prioritySelected{

@@ -27,7 +27,9 @@ function CompletedSection(props) {
                                     }}>
                                 Delete
                             </button>
-                            <button onClick={()=>props.onDeleteConfirm(false)}>Cancel</button>
+                            <button
+                                className={"cancel"}
+                                onClick={()=>props.onDeleteConfirm(false)}>Cancel</button>
                         </div>)
                 }
             </div>
