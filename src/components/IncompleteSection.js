@@ -9,7 +9,9 @@ function IncompleteSection(props) {
 
                 {!props.editID &&
                     <div>
-                        <select name="category"
+                        <select
+                                className={"sortSelect"}
+                                name="category"
                                 id="category"
                                 onChange={(e)=>{
                                     props.onSort(e.target.value)

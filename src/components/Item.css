@@ -1,3 +1,11 @@
+input[type="checkbox"]{
+    transform : scale(1.5);
+}
+
+input[type="checkbox"]{
+    filter: hue-rotate(295deg)
+}
+
 .listItem {
     display: flex;
     flex-wrap: wrap;
@@ -151,8 +159,4 @@
     color: whitesmoke;
     border-radius: 2px;
     border-width: 0.5px;
-}
-
-input[type="checkbox"]{
-    transform : scale(1.5);
 }
