@@ -27,7 +27,7 @@ function Item(props) {
                    }
             />
 
-            {!props.editID && props.priority !== 0 && <div className={"priorityStatus"}>
+            {props.editID !== props.id && props.priority !== 0 && <div className={"priorityStatus"}>
                 {props.priority === 1 ? "!" : props.priority === 2 ? "!!" : "!!!"}
             </div>}
 
@@ -90,7 +90,7 @@ function Item(props) {
                         if (props.deleteConfirm) return
                         props.onDelete(props.id)
                     }}
-                ><img src="https://img.icons8.com/material-outlined/30/000000/delete-sign.png" width="12" height="12"/>
+                ><img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/ffffff/external-delete-miscellaneous-kiranshastry-lineal-kiranshastry.png" width="15" height="15"/>
                 </button>
             </div> }
         </div>

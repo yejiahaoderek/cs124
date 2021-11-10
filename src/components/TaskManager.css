@@ -87,12 +87,14 @@ button:hover {
     border-width: 1px;
     width: 100%;
     border-radius: 12px;
+    height: 25px;
 }
 
 .disabledHideButton:hover {
     background: lightgrey;
     color: whitesmoke;
     border-radius: 12px;
+    height: 25px;
 }
 
 
@@ -107,6 +109,7 @@ button:hover {
 .hideButton:hover {
     background: rgba(1, 50, 67, 0.8);
     color: white;
+    height: 25px;
 }
 
 .buttonGroup {

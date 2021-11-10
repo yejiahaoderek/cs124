@@ -9,7 +9,7 @@
     font-size: 12px;
     justify-content: center;
     align-content: center;
-    background: rgba(1, 50, 67, 0.02);
+    background-color: rgba(1, 50, 67, 0.02);
 }
 
 .sortSelect select:focus {

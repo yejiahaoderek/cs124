@@ -83,24 +83,24 @@ input[type="checkbox"]{
 
 .priorityStatus{
     display: flex;
-    width: 21px;
+    width: 18px;
     justify-content: center;
     align-items: center;
     font-family: "sans-serif";
     padding-left: 7px;
     color: rgb(255, 99, 71);
-    font-size: 17px;
+    font-size: 15px;
 }
 
 
 .priorityDisplay{
     transition-duration: 0.1s;
     display: flex;
-    width: 21px;
+    width: 18px;
     justify-content: center;
     align-items: center;
     font-family: "sans-serif";
-    font-size: 17px;
+    font-size: 15px;
     background-color: whitesmoke;
     color: hsla(0, 75%, 53%, 0.6);
     border-style: solid;
@@ -132,26 +132,27 @@ input[type="checkbox"]{
     display: flex;
     justify-content: center;
     align-content: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: whitesmoke;
-    border-radius: 10px;
-
+    /*padding-top: 2px;*/
+    /*padding-bottom: 2px;*/
+    border-radius: 12px;
+    width: 20px;
+    background: rgba(1, 50, 67, 0.4);
 }
 .deleteButton:hover {
-    color:white;
+    border-radius: 12px;
+    color: white
 }
 
 .prioritySelected{
     display: flex;
-    width: 21px;
+    width: 18px;
     justify-content: center;
     align-items: center;
     font-family: "sans-serif";
     /*padding-left: 7px;*/
     color: hsla(0, 75%, 53%, 0.6);
     /*font-weight: bold;*/
-    font-size: 17px;
+    font-size: 15px;
     background-color: hsla(0, 75%, 53%, 0.6);
     border-style: solid;
     /*border-width: 0.01em;*/
