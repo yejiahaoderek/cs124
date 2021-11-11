@@ -2,6 +2,7 @@ import IncompleteSection from "./IncompleteSection";
 import CompletedSection from "./CompletedSection";
 import {useState} from "react";
 import './TaskManager.css';
+import { useMediaQuery } from 'react-responsive'
 
 
 function TaskManager(props) {
@@ -10,6 +11,7 @@ function TaskManager(props) {
     const [enteredText, setEnteredText] = useState('');
     const [newPriority, setNewPriority] = useState('');
     const [newText, setNewText] = useState("")
+    const isMobile = useMediaQuery({maxWidth: 600})
 
     function handleRename(newText) {
         setNewText(newText)

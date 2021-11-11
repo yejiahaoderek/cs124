@@ -1,5 +1,5 @@
 #outlier{
-    width: 360px;
+    width: 96%;
     height: 640px;
     display: grid;
     grid-template-rows: 1fr 25px 1fr 20px;
@@ -22,7 +22,7 @@ body{
     background-color: white;
     border-style: none;
     height: 8px;
-    width: 260px;
+    width: 93%;
     padding: 0.9em;
     font-size: 15px;
 }
@@ -33,13 +33,35 @@ body{
 /*    -moz-outline-radius: 12px;*/
 /*}*/
 
+@media screen and (max-width: 1000px) {
+    /*.addList {*/
+    /*    position: fixed;*/
+    /*    top: 600px;*/
+    /*    width: 100px;*/
+    /*    margin-left: auto;*/
+    /*    display: flex;*/
+    /*    flex-wrap: wrap;*/
+    /*}*/
+    .taskInputBox {
+        border-radius: 12px;
+        background-color: white;
+        border-style: none;
+        height: 8px;
+        width: 80%;
+        padding: 0.9em;
+        font-size: 15px;
+    }
+}
+
 .addList {
     position: fixed;
     top: 600px;
+    width: 96%;
     margin-left: auto;
     display: flex;
     flex-wrap: wrap;
 }
+
 
 button {
     transition-duration: 0.2s;
