@@ -31,7 +31,7 @@ function IncompleteSection(props) {
                 }
 
                 {props.editID &&
-                    <div>
+                    <div className={"buttonGroup"}>
                         <button
                             className="confirmButton"
                             onClick={()=>{

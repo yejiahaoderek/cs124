@@ -1,7 +1,12 @@
+.completedSection {
+    grid-row: 3;
+}
+
 .headerButton {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+
 }
 
 .cancel{
@@ -16,6 +21,9 @@
 
 
 .warning{
+    position: relative;
+    right: 10px;
+    /*display: flex;*/
     padding-left: 6px;
     padding-right: 6px;
     background-color: hsla(0, 75%, 53%, 0.6);
@@ -27,6 +35,11 @@
 }
 
 .disabledWarning{
+    position: relative;
+    right: 10px;
+    /*display: flex;*/
+    padding-left: 6px;
+    padding-right: 6px;
     background-color: lightgrey;
     color: #F1F6F9;
     border-radius: 12px;

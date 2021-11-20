@@ -1,8 +1,9 @@
+
 #outlier{
-    width: 96%;
-    height: 640px;
+    width: 100vw;
+    height: 100vh;
     display: grid;
-    grid-template-rows: 1fr 25px 1fr 20px;
+    grid-template-rows: 50% 5% 35% 10%;
     background: #F1F6F9;
     padding: 20px;
 }
@@ -17,49 +18,82 @@ body{
     font-size: 15px;
 }
 
-.taskInputBox {
-    border-radius: 12px;
-    background-color: white;
-    border-style: none;
-    height: 8px;
-    width: 93%;
-    padding: 0.9em;
-    font-size: 15px;
-}
+@media screen and (orientation:landscape) {
+    #outlier{
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 80% 1% 15%;
+        grid-template-columns: 50% 50%;
+        background: #F1F6F9;
+        /*padding: 20px;*/
+    }
 
+    .incompleteSection {
+        grid-column: 1;
+        grid-row: 1;
+    }
 
-/*.taskInputBox:focus {*/
-/*    outline: 2px solid rgba(1, 50, 67, 0.5);*/
-/*    -moz-outline-radius: 12px;*/
-/*}*/
+    .completedSection {
+        grid-column: 2;
+        grid-row: 1;
+    }
 
-@media screen and (max-width: 1000px) {
-    /*.addList {*/
-    /*    position: fixed;*/
-    /*    top: 600px;*/
-    /*    width: 100px;*/
-    /*    margin-left: auto;*/
-    /*    display: flex;*/
-    /*    flex-wrap: wrap;*/
-    /*}*/
+    .hideButton {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+    }
+
+    .disabledHideButton{
+        grid-column: 1 / span 2;
+        grid-row: 2;
+    }
+
+    .addList {
+        grid-row: 3;
+        grid-column: 1 / span 2;
+        margin-left: auto;
+        width: 100vw;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        /*flex-wrap: wrap;*/
+    }
+
     .taskInputBox {
         border-radius: 12px;
         background-color: white;
         border-style: none;
         height: 8px;
-        width: 80%;
+        width: 100%;
         padding: 0.9em;
         font-size: 15px;
     }
+
+    /*.listItem{*/
+    /*    width: 10%;*/
+    /*}*/
 }
 
 .addList {
-    position: fixed;
-    top: 600px;
-    width: 96%;
+    grid-row: 4;
+    width: 100vw;
     margin-left: auto;
+    align-items: center;
+    justify-content: center;
     display: flex;
-    flex-wrap: wrap;
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+}
+
+.taskInputBox {
+    border-radius: 12px;
+    background-color: white;
+    border-style: none;
+    height: 8px;
+    width: 100%;
+    padding: 0.9em;
+    font-size: 15px;
 }
 
 
@@ -121,6 +155,7 @@ button:hover {
 
 
 .hideButton{
+    grid-row: 2;
     border-width: 1px;
     height: 25px;
     width: 100%;
@@ -136,5 +171,7 @@ button:hover {
 
 .buttonGroup {
     margin-left: auto;
+    position: relative;
+    padding-right: 10px;
+    display: flex;
 }
-
