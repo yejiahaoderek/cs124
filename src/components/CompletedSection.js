@@ -5,7 +5,6 @@ function CompletedSection(props) {
     const hasCompletedItem = props.tasks.filter((item) => item.isCompleted).length > 0
 
     return <div className={"completedSection"}>
-        {props.showCompletedItems &&
         <div>
             <div className="headerButton">
                 <h1>Completed </h1>
@@ -58,7 +57,6 @@ function CompletedSection(props) {
 
             </div>
         </div>
-        }
     </div>;
 }
 

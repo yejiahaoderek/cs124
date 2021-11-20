@@ -1,5 +1,7 @@
 .completedSection {
     grid-row: 3;
+    max-width: 90vw;
+
 }
 
 .headerButton {

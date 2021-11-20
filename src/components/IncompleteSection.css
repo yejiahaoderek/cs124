@@ -1,5 +1,6 @@
 .incompleteSection {
     grid-row: 1;
+    max-width: 90vw;
 }
 
 .sortSelect{

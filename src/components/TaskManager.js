@@ -2,7 +2,7 @@ import IncompleteSection from "./IncompleteSection";
 import CompletedSection from "./CompletedSection";
 import {useState} from "react";
 import './TaskManager.css';
-import { useMediaQuery } from 'react-responsive'
+// import { useMediaQuery } from 'react-responsive'
 
 
 function TaskManager(props) {
@@ -11,7 +11,7 @@ function TaskManager(props) {
     const [enteredText, setEnteredText] = useState('');
     const [newPriority, setNewPriority] = useState('');
     const [newText, setNewText] = useState("")
-    const isMobile = useMediaQuery({maxWidth: 600})
+    // const isMobile = useMediaQuery({maxWidth: 600})
 
     function handleRename(newText) {
         setNewText(newText)
@@ -44,35 +44,39 @@ function TaskManager(props) {
     return <div>
         <title>Task Tracker</title>
         <div id="outlier">
-            <IncompleteSection
-                tasks={props.tasks}
-                isLoading={props.isLoading}
-                onDelete={props.handleItemDeleted}
-                onChange={props.onTaskFieldChanged}
-                onSort={props.onSort}
-                onRename={handleRename}
-                onPriority={handlePriority}
-                newText={newText}
-                newPriority={newPriority}
-                editID={editID}
-                deleteConfirm={deleteConfirm}
-                onClick={handleItemClick}
-                onConfirm={handleRenameConfirm}
-                onQuitEdit={handleQuitEdit}
-            />
 
-            <button
-                id="hideButton"
-                className={!editID && !deleteConfirm ? "hideButton" : "disabledHideButton"}
-                onClick={()=> {
-                    if (editID) return
-                    if (deleteConfirm) return
-                    props.onToggleCompletedItems()}
-                }>
-                {props.showCompletedItems? `Hide` : `Show`} Completed
-            </button>
+            <div className={"sectionWrapper"}>
+            <div className={"incompleteWrapper"}>
+                <IncompleteSection
+                    tasks={props.tasks}
+                    isLoading={props.isLoading}
+                    onDelete={props.handleItemDeleted}
+                    onChange={props.onTaskFieldChanged}
+                    onSort={props.onSort}
+                    onRename={handleRename}
+                    onPriority={handlePriority}
+                    newText={newText}
+                    newPriority={newPriority}
+                    editID={editID}
+                    deleteConfirm={deleteConfirm}
+                    onClick={handleItemClick}
+                    onConfirm={handleRenameConfirm}
+                    onQuitEdit={handleQuitEdit}
+                />
 
+                <button
+                    id="hideButton"
+                    className={!editID && !deleteConfirm ? "hideButton" : "disabledHideButton"}
+                    onClick={()=> {
+                        if (editID) return
+                        if (deleteConfirm) return
+                        props.onToggleCompletedItems()}
+                    }>
+                    {props.showCompletedItems? `Hide` : `Show`} Completed
+                </button>
+            </div>
 
+        {props.showCompletedItems &&
             <CompletedSection
                 tasks={props.tasks}
                 editID={editID}
@@ -86,7 +90,8 @@ function TaskManager(props) {
                 onChange={props.onTaskFieldChanged}
                 onClick={handleItemClick}
             />
-
+        }
+        </div>
 
             <div className="addList">
                 {editID || deleteConfirm ?
