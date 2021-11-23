@@ -41,8 +41,8 @@ body{
         display: flex;
         flex-direction: row;
         width: 90vw;
-        align-content: center;
-        justify-content: center;
+        align-content: space-evenly;
+        justify-content: space-evenly;
     }
 
     .incompleteWrapper {
@@ -65,13 +65,11 @@ body{
 
     .addList {
         grid-row: 3;
-        /*grid-column: 1 / span 2;*/
         margin-left: auto;
         width: 100vw;
         align-items: center;
         justify-content: center;
         display: flex;
-        /*flex-wrap: wrap;*/
     }
 
     .taskInputBox {

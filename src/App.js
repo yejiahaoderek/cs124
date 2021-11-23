@@ -52,7 +52,7 @@ function App(props) {
     }
 
     return (
-        currList.length == 0 ?
+        currList.length === 0 ?
             <TaskList
                 lists={lists}
                 isLoading={loading}

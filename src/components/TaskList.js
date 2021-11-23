@@ -7,7 +7,8 @@ function TaskList(props) {
     const [enteredText, setEnteredText] = useState('');
     const [selectMode, setSelectMode] = useState(false)
     const [selectedID, setSelectedID] = useState([])
-    const [showAlert, setShowAlert] = useState(false);
+    const [showAlert, setShowAlert] = useState(false)
+    const [tabIdx, setTabIdx] = useState("")
 
     const handleSelect = (id) => {
         if (selectedID.includes(id)) {
@@ -22,10 +23,12 @@ function TaskList(props) {
         setSelectedID([])
         setSelectMode(false)
         setShowAlert(false)
+        setTabIdx("")
     }
 
     const onShowAlert = () => {
         setShowAlert(true)
+        setTabIdx(-1)
     }
 
     function handleAlertOK() {
@@ -41,8 +44,7 @@ function TaskList(props) {
 
 
     return <div id="listOutlier">
-
-        {showAlert && <Alert onClose={toggleModal} onOK={handleAlertOK}>
+        {showAlert && <Alert role="alert" onClose={toggleModal} onOK={handleAlertOK}>
             <div className={"message"} aria-label="You're about to delete the selected lists">
                 You're about to delete the selected lists
             </div>
@@ -50,31 +52,44 @@ function TaskList(props) {
 
         <div className="headerButton"
              role="heading"
+             aria-level="1"
              aria-label="Your Lists">
             <h1>Your Lists</h1>
 
-            {!selectMode ?
-                <div className={"buttonGroup"}>
-                    <button className={"select"}
-                            aria-label="enter list selection mode"
-                            onClick={()=>setSelectMode(true)} >
-                        Select</button>
-                </div>
-                :
-                <div className={"buttonGroup"}>
-                    <button className={"warningConfirm"}
-                            onClick={onShowAlert}
-                    >
-                        Delete selected
-                    </button>
-                    <button className={"cancel"} onClick={handleExitSelectMode} >Cancel</button>
-                </div>
-                }
+            { props.lists.length !== 0 &&
+                (!selectMode ?
+                    <div className={"buttonGroup"}>
+                        <button className={"select"}
+                                aria-label="enter list selection mode"
+                                onClick={()=>setSelectMode(true)} >
+                            Select</button>
+                    </div>
+                    :
+                    <div className={"buttonGroup"}>
+                        <button className={"warningConfirm"}
+                                onClick={onShowAlert}
+                                tabIndex={tabIdx}
+                        >
+                            Delete selected
+                        </button>
+                        <button className={"cancel"}
+                                tabIndex={tabIdx}
+                                onClick={handleExitSelectMode}>
+                            Cancel</button>
+                    </div>)
+            }
 
         </div>
 
         <div className={"taskItems"}>
-            {props.lists.length === 0 ?
+            {props.isLoading ?
+                <div className="completeItem">
+                    <div className="task">
+                        Loading...
+                    </div>
+                </div>
+                :
+                (props.lists.length === 0 ?
                 <div className="completeItem">
                     <div className="task">
                         Create your 1st Task List using the input box below : )
@@ -92,7 +107,8 @@ function TaskList(props) {
                     onListChange={props.onListChange}
                     onSelect={handleSelect}
                     onExit={handleExitSelectMode}
-                />
+                    tabIdx={tabIdx}
+                />)
             )}
         </div>
 
