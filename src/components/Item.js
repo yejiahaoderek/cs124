@@ -72,7 +72,6 @@ function Item(props) {
                          onClick={()=> {
                              selectedID === 3 ? setSelectedID(0) : setSelectedID(3)
                              props.priority === 3 ? props.onPriority(0) : props.onPriority(3)
-                             // props.priority === 3 ? props.onChange(props.editID, "priority", 0) : props.onChange(props.editID, "priority", 3)
                          }}
                     >
                         !!!
@@ -90,9 +89,10 @@ function Item(props) {
                         if (props.deleteConfirm) return
                         props.onDelete(props.id)
                     }}
-                ><img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/ffffff/external-delete-miscellaneous-kiranshastry-lineal-kiranshastry.png" width="15" height="15"/>
+                >
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAAfElEQVQ4jc2TYQqAIAxGPZ0HCDpJZoLdy+O9/ihITJ0F0f65fbx9bsyY3wVgAafUOsC2CgBhAAhZJzcEtiw4Ow4A4siqCFIDWqBpQAUqf0+aWfVABZCeAo5XTqqZxNtb3NoQIOT7oBZADaoE+6BR2ZqXiuvE7Xhg0Wi/jQtDPPm8/HEN3gAAAABJRU5ErkJggg=="/>
                 </button>
-            </div> }
+                </div> }
         </div>
     );
 }

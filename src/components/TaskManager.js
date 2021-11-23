@@ -42,10 +42,10 @@ function TaskManager(props) {
     }
 
     return <div>
-        <title>Task Tracker</title>
+        {/*<title>Task Tracker</title>*/}
         <div id="outlier">
-
             <div className={"sectionWrapper"}>
+
             <div className={"incompleteWrapper"}>
                 <IncompleteSection
                     tasks={props.tasks}
@@ -62,7 +62,11 @@ function TaskManager(props) {
                     onClick={handleItemClick}
                     onConfirm={handleRenameConfirm}
                     onQuitEdit={handleQuitEdit}
+                    currList={props.currList}
+                    onCurrList={props.onCurrList}
                 />
+
+                <div className={"placeholder"}></div>
 
                 <button
                     id="hideButton"
@@ -92,36 +96,25 @@ function TaskManager(props) {
             />
         }
         </div>
-
+            {!editID && !deleteConfirm &&
             <div className="addList">
-                {editID || deleteConfirm ?
-                    <input
-                        type="text"
-                        className="taskInputBox"
-                        name="taskDisabled"
-                        placeholder={editID ? `Please finish edit first` : `Please confirm your deleteAll action`}
-                    disabled>
-                    </input>
-                    :
-                    <input
-                        type="text"
-                        className="taskInputBox"
-                        name="task"
-                        value={enteredText}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                                props.onAddTask(enteredText)
-                                setEnteredText("")
-                            }
-                        }}
-                        onChange={(e) => setEnteredText(e.target.value)}
-                        placeholder={`Enter your new task here`}
-                    />
-                }
-
+                <input
+                    type="text"
+                    className="taskInputBox"
+                    name="task"
+                    value={enteredText}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            props.onAddTask(enteredText)
+                            setEnteredText("")
+                        }
+                    }}
+                    onChange={(e) => setEnteredText(e.target.value)}
+                    placeholder={`Enter your new task here`}
+                />
 
                 <button type="button"
-                        className={!editID && !deleteConfirm ? "addButton" : "disabledAddButton"}
+                        className={"addButton"}
                         onClick={()=> {
                             if (editID) return
                             if (deleteConfirm) return
@@ -129,7 +122,7 @@ function TaskManager(props) {
                             setEnteredText("")
                         }}>+
                 </button>
-            </div>
+            </div>}
 
         </div>
     </div>

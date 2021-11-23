@@ -4,9 +4,9 @@
 }
 
 .sortSelect{
-    display: flex;
-    position: relative;
-    right: 10px;
+    /*display: flex;*/
+    /*position: relative;*/
+    /*right: 10px;*/
     padding-left: 2px;
     border: 1px solid rgba(1, 50, 67, 0.4);
     width: 90px;
@@ -23,11 +23,6 @@
     outline: none;
 }
 
-.headerButton {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
 
 
 .confirmButton{
@@ -35,8 +30,7 @@
     border-color: #3D9970;
     color: #F1F6F9;
     position: relative;
-    right: 10px;
-    /*display: flex;*/
+    right: 5px;
     padding-left: 6px;
     padding-right: 6px;
     border-style: none;
