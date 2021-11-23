@@ -1,7 +1,6 @@
 # Design Doc for Task Manager
 
 
-
 ## New Features/Updates
 - Support for multiple lists
   - New landing page where users can see their lists
@@ -72,6 +71,8 @@ We kept in mind of these principles as we learned about them which increased our
 
 
 ## Fourth Iteration Design Process
+![listWorkFlow](https://user-images.githubusercontent.com/65286218/142994932-448d42ba-6d1b-4be4-85cb-fc89a504e82d.png)
+![portraitMode](https://user-images.githubusercontent.com/65286218/142994962-cb213919-8e65-4c5a-80e3-2087a19b4852.png)
 For our process, we first went back to the drawing board to design a mockup of what we wanted our app to look like and function with multiple lists. We decided that to have a “landing page” where users can see all of their lists at once. Here, users can add, delete, and rename lists.
 
 One of the decisions we had to consider was where to put the delete button for these lists. We considered putting it to the right of each list name, similar to our tasks, but realized that it is more intuitive to have an arrow button that takes us to see the list items, rather than a delete button. We decided to have a select button that would allow users to delete lists by checking on which ones to delete.
