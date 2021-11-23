@@ -44,12 +44,6 @@ function TaskList(props) {
 
 
     return <div id="listOutlier">
-        {showAlert && <Alert role="alert" onClose={toggleModal} onOK={handleAlertOK}>
-            <div className={"message"} aria-label="You're about to delete the selected lists">
-                You're about to delete the selected lists
-            </div>
-        </Alert>}
-
         <div className="headerButton"
              role="heading"
              aria-level="1"
@@ -65,17 +59,18 @@ function TaskList(props) {
                             Select</button>
                     </div>
                     :
-                    <div className={"buttonGroup"}>
-                        <button className={"warningConfirm"}
+                     <div className={"buttonGroup"}>
+                         {selectedID.length > 0 && <button className={"warningConfirm"}
                                 onClick={onShowAlert}
                                 tabIndex={tabIdx}
                         >
                             Delete selected
-                        </button>
+                        </button>}
                         <button className={"cancel"}
                                 tabIndex={tabIdx}
                                 onClick={handleExitSelectMode}>
-                            Cancel</button>
+                            Cancel
+                        </button>
                     </div>)
             }
 
@@ -136,7 +131,14 @@ function TaskList(props) {
                         setEnteredText("")
                     }}>+
             </button>
+
         </div>}
+
+        {showAlert && <Alert role="alert" onClose={toggleModal} onOK={handleAlertOK}>
+            <div className={"message"} aria-label="You're about to delete the selected lists">
+                You're about to delete the selected lists
+            </div>
+        </Alert>}
 
     </div>
 }

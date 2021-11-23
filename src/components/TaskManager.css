@@ -41,15 +41,14 @@ body{
         display: flex;
         flex-direction: row;
         width: 90vw;
-        align-content: space-evenly;
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
 
     .incompleteWrapper {
         flex-grow: 1;
     }
 
-    .completedSection {
+    .completeWrapper {
         flex-grow: 1;
     }
 
@@ -147,6 +146,7 @@ button:hover {
 }
 
 .disabledHideButton{
+    font-family: -apple-system, Helvetica;
     background-color: lightgrey;
     color: #F1F6F9;
     border-width: 1px;
@@ -164,6 +164,7 @@ button:hover {
 
 
 .hideButton{
+    font-family: -apple-system, Helvetica;
     grid-row: 2;
     border-width: 1px;
     height: 25px;
@@ -205,9 +206,10 @@ button:hover {
     display: flex;
     border-radius: 8px;
     background-color: transparent;
-    width:33px;
+    width:26px;
     align-content: center;
     justify-content: center;
+    position: relative;
 }
 
 .goToButton:hover{

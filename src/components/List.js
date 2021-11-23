@@ -20,7 +20,10 @@ function List(props) {
                className={"listInput"}
                tabIndex={props.tabIdx}
                value={props.text}
-               onChange={(e)=>props.onListChange(props.id, "text", e.target.value)}
+               onChange={(e)=>{
+                   if (props.selectMode) return
+                   props.onListChange(props.id, "text", e.target.value)
+               }}
         />
 
         <div className={"buttonGroup"}>

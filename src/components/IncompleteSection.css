@@ -3,10 +3,27 @@
     max-width: 90vw;
 }
 
+.backGroup {
+    display: flex;
+    width: 20vw;
+    align-items: center;
+    padding-right: 5px;
+    border-radius: 12px;
+}
+
+.backGroup:hover {
+    background: white;
+}
+
+.backLabel{
+    padding-left: 5px;
+    font-weight: bolder;
+    font-size: small;
+}
+
+
 .sortSelect{
-    /*display: flex;*/
-    /*position: relative;*/
-    /*right: 10px;*/
+    font-family: -apple-system, Helvetica;
     padding-left: 2px;
     border: 1px solid rgba(1, 50, 67, 0.4);
     width: 90px;

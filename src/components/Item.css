@@ -6,6 +6,10 @@ input[type="checkbox"]{
     filter: hue-rotate(295deg)
 }
 
+input[type="text"]{
+    font-family: -apple-system, Helvetica;
+}
+
 .listItem {
     display: flex;
     flex-wrap: wrap;
@@ -38,6 +42,7 @@ input[type="checkbox"]{
 }
 
 .rename {
+    font-family: -apple-system, Helvetica;
     border-radius: 12px;
     background-color: white;
     color: gray;
@@ -45,6 +50,12 @@ input[type="checkbox"]{
     padding-left: 10px;
     font-size: 15px;
     width: 70%;
+}
+
+@media screen and (max-width:400px) {
+    .rename {
+        width: 20vw;
+    }
 }
 
 .rename:focus {
@@ -70,6 +81,7 @@ input[type="checkbox"]{
     border-style: none;
     padding-left: 8px;
     font-size: 15px;
+    font-family: -apple-system, Helvetica;
 }
 
 .priorityGroup{

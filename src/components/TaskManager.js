@@ -79,22 +79,22 @@ function TaskManager(props) {
                 </button>
             </div>
 
-        {props.showCompletedItems &&
-            <CompletedSection
-                tasks={props.tasks}
-                editID={editID}
-                onRename={handleRename}
-                newText={newText}
-                deleteConfirm={deleteConfirm}
-                showCompletedItems={props.showCompletedItems}
-                onDeleteConfirm={handleDeleteConfirm}
-                onDelete={props.handleItemDeleted}
-                onDeleteAll={props.onDeleteAll}
-                onChange={props.onTaskFieldChanged}
-                onClick={handleItemClick}
-            />
-        }
-        </div>
+            {props.showCompletedItems && <div className={"completeWrapper"}>
+                <CompletedSection
+                    tasks={props.tasks}
+                    editID={editID}
+                    onRename={handleRename}
+                    newText={newText}
+                    deleteConfirm={deleteConfirm}
+                    showCompletedItems={props.showCompletedItems}
+                    onDeleteConfirm={handleDeleteConfirm}
+                    onDelete={props.handleItemDeleted}
+                    onDeleteAll={props.onDeleteAll}
+                    onChange={props.onTaskFieldChanged}
+                    onClick={handleItemClick}
+                /></div>
+            }
+            </div>
             {!editID && !deleteConfirm &&
             <div className="addList">
                 <input
