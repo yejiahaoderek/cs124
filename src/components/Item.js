@@ -84,6 +84,8 @@ function Item(props) {
             <div className="buttonGroup" onClick={(e) => e.stopPropagation()}>
                 <button
                     className="deleteButton"
+                    role="button"
+                    aria-label="delete to do item"
                     onClick={() => {
                         if (props.editID) return
                         if (props.deleteConfirm) return

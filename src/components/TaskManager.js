@@ -11,7 +11,6 @@ function TaskManager(props) {
     const [enteredText, setEnteredText] = useState('');
     const [newPriority, setNewPriority] = useState('');
     const [newText, setNewText] = useState("")
-    // const isMobile = useMediaQuery({maxWidth: 600})
 
     function handleRename(newText) {
         setNewText(newText)
@@ -115,6 +114,7 @@ function TaskManager(props) {
 
                 <button type="button"
                         className={"addButton"}
+                        aria-label="add this new task to current list"
                         onClick={()=> {
                             if (editID) return
                             if (deleteConfirm) return

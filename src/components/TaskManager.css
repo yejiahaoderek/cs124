@@ -27,14 +27,14 @@ body{
     font-size: 15px;
 }
 
-@media screen and (orientation:landscape) {
+
+@media screen and (orientation:landscape) and (min-width:732px) {
     #outlier{
         width: 90vw;
         height: 90vh;
         display: grid;
         grid-template-rows: 80% 1% 7%;
         background: #F1F6F9;
-        /*padding: 20px;*/
     }
 
     .sectionWrapper{
@@ -47,7 +47,6 @@ body{
 
     .incompleteWrapper {
         flex-grow: 1;
-        /*width: 100%;*/
     }
 
     .completedSection {

@@ -43,15 +43,23 @@ function TaskList(props) {
     return <div id="listOutlier">
 
         {showAlert && <Alert onClose={toggleModal} onOK={handleAlertOK}>
-            <div className={"message"}>
+            <div className={"message"} aria-label="You're about to delete the selected lists">
                 You're about to delete the selected lists
             </div>
         </Alert>}
 
-        <div className="headerButton">
+        <div className="headerButton"
+             role="heading"
+             aria-label="Your Lists">
             <h1>Your Lists</h1>
 
-            {!selectMode ? <div className={"buttonGroup"}> <button className={"select"} onClick={()=>setSelectMode(true)} >Select</button> </div>
+            {!selectMode ?
+                <div className={"buttonGroup"}>
+                    <button className={"select"}
+                            aria-label="enter list selection mode"
+                            onClick={()=>setSelectMode(true)} >
+                        Select</button>
+                </div>
                 :
                 <div className={"buttonGroup"}>
                     <button className={"warningConfirm"}
@@ -67,7 +75,7 @@ function TaskList(props) {
 
         <div className={"taskItems"}>
             {props.lists.length === 0 ?
-                <div className="listItem">
+                <div className="completeItem">
                     <div className="task">
                         Create your 1st Task List using the input box below : )
                     </div>
@@ -106,6 +114,7 @@ function TaskList(props) {
             />
             <button type="button"
                     className={selectMode ? "disabledAddButton" : "addButton"}
+                    aria-label="add this new list"
                     onClick={()=> {
                         props.onAddList(enteredText)
                         setEnteredText("")

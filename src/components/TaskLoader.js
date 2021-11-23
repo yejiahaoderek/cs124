@@ -10,7 +10,7 @@ function TaskLoader(props) {
     let tasks = [];
 
     let taskQuery = props.db.collection(props.collectionName).doc(props.currListID).collection(props.currList)
-    taskQuery = taskQuery.orderBy(sortChoice, sortChoice === "prioirity" ? "desc": "asc")
+    taskQuery = taskQuery.orderBy(sortChoice, sortChoice === "priority" ? "desc": "asc")
     const [value, loading, error] = useCollection(taskQuery);
 
     if (value) {
