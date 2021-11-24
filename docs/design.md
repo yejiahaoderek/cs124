@@ -1,12 +1,12 @@
 # Design Doc for Task Manager
 
 
-
 ## New Features/Updates
 - Support for multiple lists
   - New landing page where users can see their lists
 - Support for users with accessibility needs
   - Application is now compatible with **keyboard usage**, **screenreaders**, and **adjustable text size**
+  - [Video](https://drive.google.com/file/d/11EV_aHVqizo7BIzOjjEsrVK27lU-5_CG/view?usp=sharing) of accessibility features 
 - Display
   - Responsive to screen size; display will adjust to screen/window size and font size
   - Two column display for wide screens or landscape mode for better display
@@ -40,6 +40,7 @@
 ## New Error Prevention Mechanisms
 - Once entered  `"Edit/Rename" mode` for tasks that requires further action: `Add new Task` input box disappears
 - Once entered `"Select" mode` for lists that requires further action: `Add new Task` input box disappears
+- `Select` and `Delete` buttons do not appear until a list is created
 - Pop up alert appears when deleting lists
 
 
@@ -72,6 +73,8 @@ We kept in mind of these principles as we learned about them which increased our
 
 
 ## Fourth Iteration Design Process
+![listWorkFlow](https://user-images.githubusercontent.com/65286218/142994932-448d42ba-6d1b-4be4-85cb-fc89a504e82d.png)
+![portraitMode](https://user-images.githubusercontent.com/65286218/142994962-cb213919-8e65-4c5a-80e3-2087a19b4852.png)
 For our process, we first went back to the drawing board to design a mockup of what we wanted our app to look like and function with multiple lists. We decided that to have a “landing page” where users can see all of their lists at once. Here, users can add, delete, and rename lists.
 
 One of the decisions we had to consider was where to put the delete button for these lists. We considered putting it to the right of each list name, similar to our tasks, but realized that it is more intuitive to have an arrow button that takes us to see the list items, rather than a delete button. We decided to have a select button that would allow users to delete lists by checking on which ones to delete.
@@ -81,6 +84,8 @@ To rename a list, we decided to have the user tap on a list name, which would ta
 When selecting the lists, we thought of a few options for displaying which lists were selected. At first, when the user clicks on a list, the list would darken. This worked well for users with a mouse or touch screen. However, when we tested this with a keyboard, it was complicated because of how we implemented rename. When tabbing through buttons on the keyboard, the user was automatically taken to rename the list, rather than select it. Our solution was to use checkboxes in select mode, to avoid this confusion when on keyboard. When something is checked in select mode, the checkmark appears in addition to darkening the list when selected.
 
 Another design decision we considered was how we wanted our app to look on different screen sizes. We decided that when the screen was wide enough comparatively to the height (landscape mode), the display would change to having two columns: one for the incomplete tasks and one for the completed tasks. However, even in landscape modes, if the text size is too large, the display will revert to the normal layout so that the text is not squished. We considered where to put the hide/show button in the two column layout.  In our normal layout, the hide/show button acted as the divider between the To-Do and Completed sections. We decided to put it underneath the To-Do section, similar to the normal layout. When the Completed section is hidden, the To-Do section spans the entire width of the screen. We kept the add new task bar pinned at the bottom of the screen so that it was consistent with the vertical layout, users wouldn’t have to scroll, and it spanned the length of the screen longer text can still be seen while typing.
+
+We also went through our color scheme to ensure that there was enough contrast between the foreground and text colors.
 
 
 ## Fourth Iteration User testing
