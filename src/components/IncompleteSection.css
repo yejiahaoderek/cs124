@@ -1,3 +1,21 @@
+.sortSelect{
+    display: flex;
+    padding-left: 2px;
+    border: 1px solid rgba(1, 50, 67, 0.4);
+    width: 90px;
+    color: #14274E;
+    border-radius: 12px;
+    height: 24px;
+    font-size: 12px;
+    justify-content: center;
+    align-content: center;
+    background: rgba(1, 50, 67, 0.02);
+}
+
+.sortSelect select:focus {
+    outline: none;
+}
+
 .headerButton {
     display: flex;
     justify-content: space-between;
@@ -17,16 +35,20 @@
 }
 
 .confirmButton{
-    border-style: solid;
-    padding-left: 6px;
-    padding-right: 6px;
+    border-style: none;
+    border-radius: 12px;
     background-color: #3D9970;
     border-color: #3D9970;
-    margin-left: auto;
     color: #F1F6F9;
+    height: 22px;
 }
 
 .cancel{
-    background-color: #91C788;
-    border-style: none;
+    background: rgba(1, 50, 67, 0.08);
+    border-radius: 12px;
+    height: 22px;
+}
+.cancel:hover{
+    border-radius: 12px;
+    height: 22px;
 }

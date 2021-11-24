@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import InMemoryApp from "./InMemoryApp";
+import App from "./App";
 
-const initialData=[
-    {
-        id: 0,
-        text: "Tap to rename",
-        isCompleted: false,
-    }
-]
+// const initialData=[
+//     {
+//         id: 0,
+//         text: "Tap to rename",
+//         isCompleted: false,
+//         priority: 3,
+//     }
+// ]
 
 ReactDOM.render(
-    <InMemoryApp initialData={initialData}/>,
+    <App />,
     document.getElementById('root')
 );
