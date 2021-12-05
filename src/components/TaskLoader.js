@@ -9,8 +9,11 @@ function TaskLoader(props) {
     const [showCompletedItems, setShowCompletedItems] = useState(true)
     let tasks = [];
 
-    let taskQuery = props.db.collection(props.collectionName).doc(props.currListID).collection(props.currList)
-    taskQuery = taskQuery.orderBy(sortChoice, sortChoice === "priority" ? "desc": "asc")
+    let taskQuery = props.db.collection(props.collectionName).doc(props.currListID).collection(props.currList).where('owner', "==", props.user.uid);
+    // taskQuery = taskQuery.orderBy(sortChoice, sortChoice === "priority" ? "desc": "asc")
+
+    // SORT NO LONGER WORKING
+
     const [value, loading, error] = useCollection(taskQuery);
 
     if (value) {
@@ -34,6 +37,7 @@ function TaskLoader(props) {
                 text: text,
                 isCompleted: false,
                 priority: 0,
+                owner: props.user.uid,
                 created: firebase.database.ServerValue.TIMESTAMP,
             })
         }
