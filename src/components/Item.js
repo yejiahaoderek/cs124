@@ -40,7 +40,9 @@ function Item(props) {
             {props.editID !== props.id && props.priority !== 0 &&
             <div className={"priorityStatus"} aria-label={props.priority}>
                 {props.priority === 1 ? "!" : props.priority === 2 ? "!!" : "!!!"}
-            </div>}
+            </div>
+            }
+
 
             {/*Todo text*/}
             {props.editID === props.id ?

@@ -9,7 +9,7 @@ function TaskManager(props) {
     const [editID, setEditID] = useState(false)
     const [deleteConfirm, setDeleteConfirm] = useState(false)
     const [enteredText, setEnteredText] = useState('');
-    const [newPriority, setNewPriority] = useState('');
+    const [newPriority, setNewPriority] = useState(0);
     const [newText, setNewText] = useState("")
 
     function handleRename(newText) {
