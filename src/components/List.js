@@ -1,7 +1,12 @@
 import './List.css';
 import './Item.css';
+import {useState} from "react";
+import Item from "./Item";
 
 function List(props) {
+    const [email, setEmail] = useState("")
+    const [shareMode, setShareMode] = useState(false)
+
     return <div className={"buttonGroup"}>
         <div className={props.selectedID.includes(props.id) ? "selectedListItem" : "listItem"}
              aria-label="press control + shift + space to select if in select mode; or type to rename"
@@ -15,6 +20,54 @@ function List(props) {
             <input type={"checkbox"} tabIndex={props.tabIdx} role="checkbox" aria-checked="true" checked aria-label={props.text}></input>
             :
             <input type={"checkbox"} tabIndex={props.tabIdx} role="checkbox" aria-checked="false" aria-label={props.text}></input>)}
+
+
+        <button onClick={()=>setShareMode(true)}>Share ICON</button>
+            {shareMode &&
+            <div className={"backdrop"}>
+                <div className="modal">
+                    <div className="buttonGroup">
+                        <input type="text"
+                               placeholder="Enter email here"
+                               onChange={(e)=>setEmail(e.target.value)}/>
+                        <button
+                            className="confirmButton"
+                            onClick={()=>{
+                            const docRef = props.db.collection(props.collectionName).doc(props.id)
+                            docRef.update({
+                                "isSharedWith": [...props.isSharedWith, email]
+                            })
+                        }}>Share</button>
+                    </div>
+                    <div>
+                        <div className="taskItems">
+                            {props.isSharedWith.map(content =>
+                                <div>
+                                <li>{content}</li>
+                                <button
+                                    className="deleteButton"
+                                    role="button"
+                                    aria-label="delete to do item"
+                                    onClick={() => {
+                                        const docRef = props.db.collection(props.collectionName).doc(props.id)
+                                        let newShareList = props.isSharedWith.filter((email) => email !== content)
+                                        docRef.update({"isSharedWith": newShareList})
+                                    }}>
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAAfElEQVQ4jc2TYQqAIAxGPZ0HCDpJZoLdy+O9/ihITJ0F0f65fbx9bsyY3wVgAafUOsC2CgBhAAhZJzcEtiw4Ow4A4siqCFIDWqBpQAUqf0+aWfVABZCeAo5XTqqZxNtb3NoQIOT7oBZADaoE+6BR2ZqXiuvE7Xhg0Wi/jQtDPPm8/HEN3gAAAABJRU5ErkJggg=="/>
+                                </button>
+                                </div>
+                            )}
+                        </div>
+
+                    </div>
+                    <div className="alertButtonGroup">
+                        <button className={"warningConfirm"} onClick={()=>setShareMode(false)} type={"button"}>
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>}
+
 
         <input type="text"
                className={"listInput"}

@@ -38,6 +38,7 @@ function TaskLoader(props) {
                 isCompleted: false,
                 priority: 0,
                 owner: props.user.uid,
+                isSharedWith: [],
                 created: firebase.database.ServerValue.TIMESTAMP,
             })
         }

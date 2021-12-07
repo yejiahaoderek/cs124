@@ -107,6 +107,7 @@ function TaskList(props) {
                     id={list.id}
                     key={list.id}
                     text={list.text}
+                    isSharedWith={list.isSharedWith}
                     selectMode={selectMode}
                     selectedID={selectedID}
                     onCurrList={props.onCurrList}
@@ -114,6 +115,7 @@ function TaskList(props) {
                     onSelect={handleSelect}
                     onExit={handleExitSelectMode}
                     tabIdx={tabIdx}
+                    {...props}
                 />)
             )}
         </div>

@@ -149,11 +149,14 @@ function SignUp(props) {
 function SignedInApp(props) {
     let lists = [];
     let query = db.collection(collectionName).where('owner', "==", props.user.uid);
+    // add query to sharedList
     const [value, loading, error] = useCollection(query);
     const [currList, setCurrList] = useState([]);
     if (value) {
         lists = value.docs.map(doc => doc.data())
     }
+
+
 
     const handleAddList = (text) =>{
         if (text !== ""){
@@ -162,7 +165,8 @@ function SignedInApp(props) {
             docRef.set({
                 id: listID,
                 text: text,
-                owner: props.user.uid
+                owner: props.user.uid,
+                isSharedWith: []
             }).catch((error) => {
                 console.error("Error deleting document: ", error);
             });
