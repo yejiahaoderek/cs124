@@ -9,7 +9,6 @@
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@mui/material": "^5.0.6",
-    "react-responsive": ">=8.0.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -18,9 +17,12 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-firebase-hooks": "^3.0.4",
+    "react-google-button": "^0.7.2",
+    "react-responsive": ">=8.0.0",
     "react-scripts": "4.0.3",
     "react-transition-group": "^4.4.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "react-google-button": "^8.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

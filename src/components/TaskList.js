@@ -48,8 +48,15 @@ function TaskList(props) {
              role="heading"
              aria-level="1"
              aria-label="Your Lists">
-            <h1>Your Lists</h1>
+            <h1>Your task lists</h1>
 
+            { props.lists.length === 0 &&
+            <div className={"buttonGroup"}>
+            <button className={"warning"}
+                    aria-label="enter list selection mode"
+                    onClick={()=>props.auth.signOut()} >
+                Logout
+            </button></div>}
             { props.lists.length !== 0 &&
                 (!selectMode ?
                     <div className={"buttonGroup"}>
@@ -57,6 +64,10 @@ function TaskList(props) {
                                 aria-label="enter list selection mode"
                                 onClick={()=>setSelectMode(true)} >
                             Select</button>
+                        <button className={"warning"}
+                                aria-label="enter list selection mode"
+                                onClick={()=>props.auth.signOut()} >
+                            Logout</button>
                     </div>
                     :
                      <div className={"buttonGroup"}>

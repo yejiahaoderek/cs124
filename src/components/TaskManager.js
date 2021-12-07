@@ -41,13 +41,13 @@ function TaskManager(props) {
     }
 
     return <div>
-        {/*<title>Task Tracker</title>*/}
         <div id="outlier">
             <div className={"sectionWrapper"}>
 
             <div className={"incompleteWrapper"}>
                 <IncompleteSection
                     tasks={props.tasks}
+                    user={props.user}
                     isLoading={props.isLoading}
                     onDelete={props.handleItemDeleted}
                     onChange={props.onTaskFieldChanged}

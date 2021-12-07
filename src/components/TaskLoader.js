@@ -77,6 +77,7 @@ function TaskLoader(props) {
              onCurrList={props.onCurrList}
              currList={props.currList}
              currListID={props.currListID}
+             user={props.user}
     />)
 }
 
