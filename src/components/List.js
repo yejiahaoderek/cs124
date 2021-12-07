@@ -7,6 +7,10 @@ function List(props) {
     const [email, setEmail] = useState("")
     const [shareMode, setShareMode] = useState(false)
 
+    function clearInput() {
+        setEmail("")
+    }
+
     return <div className={"buttonGroup"}>
         <div className={props.selectedID.includes(props.id) ? "selectedListItem" : "listItem"}
              aria-label="press control + shift + space to select if in select mode; or type to rename"
@@ -37,6 +41,7 @@ function List(props) {
                             docRef.update({
                                 "isSharedWith": [...props.isSharedWith, email]
                             })
+                            clearInput()
                         }}>Share</button>
                     </div>
                     <div>
