@@ -152,16 +152,21 @@ function SignUp(props) {
 }
 
 function SignedInApp(props) {
-    let lists = [];
+    let lists = []
+    let sharedLists = []
     let query = db.collection(collectionName).where('owner', "==", props.user.uid);
     // add query to sharedList
     // let sharedQuery =
+    let shareQuery = db.collection(collectionName).where('isSharedWith', "array-contains", props.user.email);
     const [value, loading, error] = useCollection(query);
+    const [shareValue, shhareloading, shareError] = useCollection(shareQuery);
     const [currList, setCurrList] = useState([]);
-    if (value) {
+    console.log(value)
+    if (value && shareValue) {
         lists = value.docs.map(doc => doc.data())
+        sharedLists = shareValue.docs.map(doc => doc.data())
+        if (shareValue.size > 0) lists=[...lists, ...sharedLists]
     }
-
 
 
     const handleAddList = (text) =>{
