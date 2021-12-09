@@ -318,6 +318,21 @@ button:hover {
     position: relative;
 }
 
+.share{
+    display: flex;
+    border-radius: 8px;
+    background-color: transparent;
+    width:26px;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+}
+
+.share:hover {
+    background-color: white;
+}
+
+
 .goToButton:hover{
     background-color: white;
 }

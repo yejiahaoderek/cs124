@@ -107,6 +107,8 @@ function TaskList(props) {
                     id={list.id}
                     key={list.id}
                     text={list.text}
+                    owner={list.owner}
+                    user={props.user}
                     isSharedWith={list.isSharedWith}
                     selectMode={selectMode}
                     selectedID={selectedID}

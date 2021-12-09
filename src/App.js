@@ -115,7 +115,7 @@ function SignIn(props) {
         props.onError()
     }
     return <div id="signIn">
-        <button class="homeButton" onClick={() =>
+        <button className="homeButton" onClick={() =>
         {
             signInWithEmailAndPassword(props.email, props.password)
             props.clearInput()
@@ -142,7 +142,7 @@ function SignUp(props) {
     }
     return <div id="signUp">
         {error && alert(error.message)}
-        <button class="homeButton" onClick={() => {
+        <button className="homeButton" onClick={() => {
             createUserWithEmailAndPassword(props.email, props.password)
             props.clearInput()
         }}>
@@ -155,17 +155,16 @@ function SignedInApp(props) {
     let lists = []
     let sharedLists = []
     let query = db.collection(collectionName).where('owner', "==", props.user.uid);
-    // add query to sharedList
-    // let sharedQuery =
+
     let shareQuery = db.collection(collectionName).where('isSharedWith', "array-contains", props.user.email);
     const [value, loading, error] = useCollection(query);
-    const [shareValue, shhareloading, shareError] = useCollection(shareQuery);
+    const [sharedValue, sharedLoading, sharedError] = useCollection(shareQuery);
     const [currList, setCurrList] = useState([]);
     console.log(value)
-    if (value && shareValue) {
+    if (value && sharedValue) {
         lists = value.docs.map(doc => doc.data())
-        sharedLists = shareValue.docs.map(doc => doc.data())
-        if (shareValue.size > 0) lists=[...lists, ...sharedLists]
+        sharedLists = sharedValue.docs.map(doc => doc.data())
+        if (sharedValue.size > 0) lists=[...lists, ...sharedLists]
     }
 
 
@@ -212,6 +211,7 @@ function SignedInApp(props) {
             currList={currList[1]}
             collectionName={collectionName}
             db={db}
+            lists={lists}
             onCurrList={handleCurrList}
             user={props.user}
             query={query}
