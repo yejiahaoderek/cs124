@@ -9,10 +9,8 @@ function TaskLoader(props) {
     const [showCompletedItems, setShowCompletedItems] = useState(true)
     let tasks = [];
 
-    let taskQuery = props.db.collection(props.collectionName).doc(props.currListID).collection(props.currList).where('owner', "==", props.user.uid);
-    // taskQuery = taskQuery.orderBy(sortChoice, sortChoice === "priority" ? "desc": "asc")
-
-    // SORT NO LONGER WORKING
+    let taskQuery = props.db.collection(props.collectionName).doc(props.currListID).collection("Tasks")
+    taskQuery = taskQuery.orderBy(sortChoice, sortChoice === "priority" ? "desc": "asc").where('owner', "==", props.user.uid)
 
     const [value, loading, error] = useCollection(taskQuery);
 
@@ -31,7 +29,7 @@ function TaskLoader(props) {
     const handleAddTask = (text) =>{
         if (text !== ""){
             const itemID = generateUniqueID();
-            const docRef = props.db.collection(props.collectionName).doc(props.currListID).collection(props.currList).doc(itemID);
+            const docRef = props.db.collection(props.collectionName).doc(props.currListID).collection("Tasks").doc(itemID);
             docRef.set({
                 id: itemID,
                 text: text,
@@ -45,21 +43,21 @@ function TaskLoader(props) {
     }
 
     function handleTaskFieldChanged(itemID, field, value) {
-        const docRef = props.db.collection(props.collectionName).doc(props.currListID).collection(props.currList).doc(itemID);
+        const docRef = props.db.collection(props.collectionName).doc(props.currListID).collection("Tasks").doc(itemID);
         docRef.update({
             [field]: value
         })
     }
 
     function handleItemDeleted(itemID) {
-        const docRef = props.db.collection(props.collectionName).doc(props.currListID).collection(props.currList).doc(itemID);
+        const docRef = props.db.collection(props.collectionName).doc(props.currListID).collection("Tasks").doc(itemID);
         docRef.delete(itemID)
     }
 
     function handleDeleteAll(){
         tasks.forEach(item => {
             if (item.isCompleted) {
-                const docRef = props.db.collection(props.collectionName).doc(props.currListID).collection(props.currList).doc(item.id);
+                const docRef = props.db.collection(props.collectionName).doc(props.currListID).collection("Tasks").doc(item.id);
                 docRef.delete(item.id)
             }
         })

@@ -26,7 +26,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const auth = firebase.auth();
-const collectionName = "yejiahaoderek-taskList-withAuth";
+const collectionName = "jiahao-lists";
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 
@@ -34,6 +34,7 @@ function App(props) {
     const [user, loading, error] = useAuthState(auth)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [isErrorShown, setIsErrorShown] = useState(false)
 
     function verifyEmail() {
         auth.currentUser.sendEmailVerification();
@@ -42,6 +43,10 @@ function App(props) {
     function clearInput() {
         setEmail("")
         setPassword("")
+    }
+
+    function handleErrorShown() {
+        setIsErrorShown(true)
     }
 
     if (loading) {
@@ -75,8 +80,8 @@ function App(props) {
                         />
                     </div>
                     <div className="typeInfo">
-                        <SignUp key="Sign Up" id="signUp" email={email} password={password} clearInput={clearInput} />
-                        <SignIn key="Sign In" id="signIn" email={email} password={password} clearInput={clearInput} />
+                        <SignUp key="Sign Up" id="signUp" email={email} password={password} clearInput={clearInput} isErrorShown={isErrorShown} onError={handleErrorShown}/>
+                        <SignIn key="Sign In" id="signIn" email={email} password={password} clearInput={clearInput} isErrorShown={isErrorShown} onError={handleErrorShown}/>
                     </div>
                     <div className="3PSignIn">
                         <GoogleButton
@@ -99,17 +104,17 @@ function SignIn(props) {
         userCredential, loading, error
     ] = useSignInWithEmailAndPassword(auth);
 
-    if (userCredential) {
-        // Shouldn't happen because App should see that
-        // we are signed in.
-        return <div>Unexpectedly signed in already</div>
-    } else if (loading) {
+    if (loading) {
         return <div id="signIn">
             <button className="loadingHomeButton">Log in</button>
         </div>
     }
+
+    if (error && props.isErrorShown) {
+        alert(error.message)
+        props.onError()
+    }
     return <div id="signIn">
-        {error && alert(error.message)}
         <button class="homeButton" onClick={() =>
         {
             signInWithEmailAndPassword(props.email, props.password)
@@ -150,6 +155,7 @@ function SignedInApp(props) {
     let lists = [];
     let query = db.collection(collectionName).where('owner', "==", props.user.uid);
     // add query to sharedList
+    // let sharedQuery =
     const [value, loading, error] = useCollection(query);
     const [currList, setCurrList] = useState([]);
     if (value) {
