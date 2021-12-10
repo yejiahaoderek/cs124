@@ -83,8 +83,8 @@ input[type="text"]{
     border-style: none;
     padding-left: 8px;
     font-size: 15px;
-    width: 50vw;
     font-family: -apple-system, Helvetica;
+    /*width: 50vw;*/
 }
 
 .priorityGroup{

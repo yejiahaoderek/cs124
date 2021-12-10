@@ -25,7 +25,78 @@ function List(props) {
         else return true
     }
 
-    return <div className={"buttonGroup"}>
+    return <>
+        {/*SHARE WINDOW*/}
+        {shareMode && !isShared &&
+        <div className={"shareBackdrop"}>
+            <div className="shareModal">
+                <div className="taskItems">
+                    <h3>You're sharing「{props.text}」with</h3>
+                    {props.isSharedWith.length === 0 &&
+                    <div className="completeItem">Add email address below to share</div>}
+                    {props.isSharedWith.map(content =>
+                        <div className="listItem">
+                            <div className="emailAddress">{content}</div>
+                            <div className="buttonGroup">
+                                <button
+                                    className="deleteButton"
+                                    role="button"
+                                    aria-label="delete to do item"
+                                    onClick={() => {
+                                        const docRef = props.db.collection(props.collectionName).doc(props.id)
+                                        let newShareList = props.isSharedWith.filter((email) => email !== content)
+                                        docRef.update({"isSharedWith": newShareList})
+                                    }}>
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAAfElEQVQ4jc2TYQqAIAxGPZ0HCDpJZoLdy+O9/ihITJ0F0f65fbx9bsyY3wVgAafUOsC2CgBhAAhZJzcEtiw4Ow4A4siqCFIDWqBpQAUqf0+aWfVABZCeAo5XTqqZxNtb3NoQIOT7oBZADaoE+6BR2ZqXiuvE7Xhg0Wi/jQtDPPm8/HEN3gAAAABJRU5ErkJggg=="/>
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                </div>
+                <div className="shareButtonGroup">
+                    <input type="text"
+                           className="emailInput"
+                           placeholder="Enter email address here"
+                           value={email}
+                           onChange={(e)=>setEmail(e.target.value)}/>
+                    <div></div>
+                    <button
+                        className="shareButton"
+                        onClick={()=>{
+                            if (isValidEmail(email)) {
+                                const docRef = props.db.collection(props.collectionName).doc(props.id)
+                                docRef.update({
+                                    "isSharedWith": [...props.isSharedWith, email]
+                                })
+                            }
+                            clearInput()
+                        }}>Share</button>
+                </div>
+                <div id="closeShare">
+                    <button className={"closeConfirm"} onClick={()=>setShareMode(false)} type={"button"}>
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+        }
+
+    {isShared && shareMode && <div className={"shareBackdrop"}>
+        <div className="infoModal">
+            <div className="taskItems">
+                <h3>List Owner</h3>
+                <div className="completeItem"><p>{props.ownerEmail}</p></div>
+            </div>
+            <div id="closeShare">
+                <button className={"closeConfirm"} onClick={()=>setShareMode(false)} type={"button"}>
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+    <div className={"buttonGroup"}>
         <div className={props.selectedID.includes(props.id) ? "selectedListItem" : "listItem"}
              aria-label="press control + shift + space to select if in select mode; or type to rename"
              tabIndex={props.tabIdx}
@@ -44,76 +115,6 @@ function List(props) {
             {isSharing && <img alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjAiIGhlaWdodD0iMjAiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iIzFhYmM5YyI+PHBhdGggZD0iTTEzMS44NjY2NywxNy4yYy0xMi42NjU3MywwIC0yMi45MzMzMywxMC4yNjc2IC0yMi45MzMzMywyMi45MzMzM2MwLjAxMDIyLDEuNjEyMDIgMC4xOTAzOCwzLjIxODQ3IDAuNTM3NSw0Ljc5MjcxbC01Mi4wNzAzMSwyNi4wMzUxNmMtNC4zNDUwMiwtNS4wMDIzOCAtMTAuNjQxMjcsLTcuODgxMDEgLTE3LjI2NzE5LC03Ljg5NDUzYy0xMi42NjU3MywwIC0yMi45MzMzMywxMC4yNjc2IC0yMi45MzMzMywyMi45MzMzM2MwLDEyLjY2NTczIDEwLjI2NzYsMjIuOTMzMzMgMjIuOTMzMzMsMjIuOTMzMzNjNi42MjgwNSwtMC4wMDc0NiAxMi45Mjg3MywtMi44ODIxNyAxNy4yNzgzOSwtNy44ODMzM2w1Mi4wMzY3MiwyNi4wMjM5NmMtMC4zMzk1OSwxLjU3NTA0IC0wLjUxMjI0LDMuMTgxNDggLTAuNTE1MTEsNC43OTI3MWMwLDEyLjY2NTczIDEwLjI2NzYsMjIuOTMzMzMgMjIuOTMzMzMsMjIuOTMzMzNjMTIuNjY1NzMsMCAyMi45MzMzMywtMTAuMjY3NiAyMi45MzMzMywtMjIuOTMzMzNjMCwtMTIuNjY1NzMgLTEwLjI2NzYsLTIyLjkzMzMzIC0yMi45MzMzMywtMjIuOTMzMzNjLTYuNjI4MDUsMC4wMDc0NiAtMTIuOTI4NzMsMi44ODIxNyAtMTcuMjc4MzksNy44ODMzM2wtNTIuMDM2NzIsLTI2LjAyMzk2YzAuMzM5NTksLTEuNTc1MDQgMC41MTIyNCwtMy4xODE0OCAwLjUxNTExLC00Ljc5MjcxYy0wLjAxMTAxLC0xLjYwODI3IC0wLjE5MTE3LC0zLjIxMDkzIC0wLjUzNzUsLTQuNzgxNTFsNTIuMDcwMzEsLTI2LjAzNTE2YzQuMzQ3MDksNC45OTgyMiAxMC42NDMwNSw3Ljg3MjY0IDE3LjI2NzE5LDcuODgzMzNjMTIuNjY1NzMsMCAyMi45MzMzMywtMTAuMjY3NiAyMi45MzMzMywtMjIuOTMzMzNjMCwtMTIuNjY1NzMgLTEwLjI2NzYsLTIyLjkzMzMzIC0yMi45MzMzMywtMjIuOTMzMzN6Ij48L3BhdGg+PC9nPjwvZz48L3N2Zz4="/>}
             {!isShared && !isSharing && <img alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjAiIGhlaWdodD0iMjAiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iIzM0NDk1ZSI+PHBhdGggZD0iTTEzMS44NjY2NywxNy4yYy0xMi42NjU3MywwIC0yMi45MzMzMywxMC4yNjc2IC0yMi45MzMzMywyMi45MzMzM2MwLjAxMDIyLDEuNjEyMDIgMC4xOTAzOCwzLjIxODQ3IDAuNTM3NSw0Ljc5MjcxbC01Mi4wNzAzMSwyNi4wMzUxNmMtNC4zNDUwMiwtNS4wMDIzOCAtMTAuNjQxMjcsLTcuODgxMDEgLTE3LjI2NzE5LC03Ljg5NDUzYy0xMi42NjU3MywwIC0yMi45MzMzMywxMC4yNjc2IC0yMi45MzMzMywyMi45MzMzM2MwLDEyLjY2NTczIDEwLjI2NzYsMjIuOTMzMzMgMjIuOTMzMzMsMjIuOTMzMzNjNi42MjgwNSwtMC4wMDc0NiAxMi45Mjg3MywtMi44ODIxNyAxNy4yNzgzOSwtNy44ODMzM2w1Mi4wMzY3MiwyNi4wMjM5NmMtMC4zMzk1OSwxLjU3NTA0IC0wLjUxMjI0LDMuMTgxNDggLTAuNTE1MTEsNC43OTI3MWMwLDEyLjY2NTczIDEwLjI2NzYsMjIuOTMzMzMgMjIuOTMzMzMsMjIuOTMzMzNjMTIuNjY1NzMsMCAyMi45MzMzMywtMTAuMjY3NiAyMi45MzMzMywtMjIuOTMzMzNjMCwtMTIuNjY1NzMgLTEwLjI2NzYsLTIyLjkzMzMzIC0yMi45MzMzMywtMjIuOTMzMzNjLTYuNjI4MDUsMC4wMDc0NiAtMTIuOTI4NzMsMi44ODIxNyAtMTcuMjc4MzksNy44ODMzM2wtNTIuMDM2NzIsLTI2LjAyMzk2YzAuMzM5NTksLTEuNTc1MDQgMC41MTIyNCwtMy4xODE0OCAwLjUxNTExLC00Ljc5MjcxYy0wLjAxMTAxLC0xLjYwODI3IC0wLjE5MTE3LC0zLjIxMDkzIC0wLjUzNzUsLTQuNzgxNTFsNTIuMDcwMzEsLTI2LjAzNTE2YzQuMzQ3MDksNC45OTgyMiAxMC42NDMwNSw3Ljg3MjY0IDE3LjI2NzE5LDcuODgzMzNjMTIuNjY1NzMsMCAyMi45MzMzMywtMTAuMjY3NiAyMi45MzMzMywtMjIuOTMzMzNjMCwtMTIuNjY1NzMgLTEwLjI2NzYsLTIyLjkzMzMzIC0yMi45MzMzMywtMjIuOTMzMzN6Ij48L3BhdGg+PC9nPjwvZz48L3N2Zz4="/>}
         </button>
-
-        {/*SHARE WINDOW*/}
-        {shareMode && !isShared &&
-            <div className={"shareBackdrop"}>
-                <div className="shareModal">
-                    <div className="taskItems">
-                        <h3>Sharing with</h3>
-                        {props.isSharedWith.length === 0 &&
-                            <div className="completeItem">Add email address below to share</div>}
-                        {props.isSharedWith.map(content =>
-                            <div className="listItem">
-                                <div className="emailAddress">{content}</div>
-                                <div className="buttonGroup">
-                                    <button
-                                        className="deleteButton"
-                                        role="button"
-                                        aria-label="delete to do item"
-                                        onClick={() => {
-                                            const docRef = props.db.collection(props.collectionName).doc(props.id)
-                                            let newShareList = props.isSharedWith.filter((email) => email !== content)
-                                            docRef.update({"isSharedWith": newShareList})
-                                        }}>
-                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAAfElEQVQ4jc2TYQqAIAxGPZ0HCDpJZoLdy+O9/ihITJ0F0f65fbx9bsyY3wVgAafUOsC2CgBhAAhZJzcEtiw4Ow4A4siqCFIDWqBpQAUqf0+aWfVABZCeAo5XTqqZxNtb3NoQIOT7oBZADaoE+6BR2ZqXiuvE7Xhg0Wi/jQtDPPm8/HEN3gAAAABJRU5ErkJggg=="/>
-                                    </button>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                    <div className="shareButtonGroup">
-                        <input type="text"
-                               className="emailInput"
-                               placeholder="Enter email address here"
-                               value={email}
-                               onChange={(e)=>setEmail(e.target.value)}/>
-                        <div></div>
-                        <button
-                            className="shareButton"
-                            onClick={()=>{
-                                if (isValidEmail(email)) {
-                                    const docRef = props.db.collection(props.collectionName).doc(props.id)
-                                    docRef.update({
-                                        "isSharedWith": [...props.isSharedWith, email]
-                                    })
-                                }
-                                clearInput()
-                            }}>Share</button>
-                    </div>
-                    <div id="closeShare">
-                        <button className={"closeConfirm"} onClick={()=>setShareMode(false)} type={"button"}>
-                            Close
-                        </button>
-                    </div>
-                </div>
-            </div>
-        }
-        {isShared && shareMode && <div className={"shareBackdrop"}>
-            <div className="infoModal">
-                <div className="taskItems">
-                    <h3>List Owner</h3>
-                    <div className="completeItem"><p>{props.ownerEmail}</p></div>
-                </div>
-                <div id="closeShare">
-                    <button className={"closeConfirm"} onClick={()=>setShareMode(false)} type={"button"}>
-                        Close
-                    </button>
-                </div>
-            </div>
-        </div>
-        }
-
 
         {props.selectMode ?
             <div className="task" tabIndex={props.tabIdx}>{props.text}</div>
@@ -138,7 +139,7 @@ function List(props) {
             </button>
         </div>
     </div>
-    </div>
+    </div></>
 
 }
 

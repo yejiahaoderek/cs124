@@ -45,10 +45,6 @@ function App(props) {
         setPassword("")
     }
 
-    function handleErrorShown() {
-        setIsErrorShown(true)
-    }
-
     if (loading) {
         return <p>Checking...</p>
     } else if (user) {
@@ -80,8 +76,8 @@ function App(props) {
                         />
                     </div>
                     <div className="typeInfo">
-                        <SignUp key="Sign Up" id="signUp" email={email} password={password} clearInput={clearInput} isErrorShown={isErrorShown} onError={handleErrorShown}/>
-                        <SignIn key="Sign In" id="signIn" email={email} password={password} clearInput={clearInput} isErrorShown={isErrorShown} onError={handleErrorShown}/>
+                        <SignUp key="Sign Up" id="signUp" email={email} password={password} clearInput={clearInput} isErrorShown={isErrorShown} setIsErrorShown={setIsErrorShown}/>
+                        <SignIn key="Sign In" id="signIn" email={email} password={password} clearInput={clearInput} isErrorShown={isErrorShown} setIsErrorShown={setIsErrorShown}/>
                     </div>
                     <div className="3PSignIn">
                         <GoogleButton
@@ -110,13 +106,14 @@ function SignIn(props) {
         </div>
     }
 
-    if (error && props.isErrorShown) {
+    if (!props.isErrorShown && error)
         alert(error.message)
-        props.onError()
-    }
+    props.setIsErrorShown(true)
+
     return <div id="signIn">
         <button className="homeLogInButton" onClick={() =>
         {
+            props.setIsErrorShown(false)
             signInWithEmailAndPassword(props.email, props.password)
             props.clearInput()
         }}>Login
@@ -131,18 +128,20 @@ function SignUp(props) {
         userCredential, loading, error
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    if (userCredential) {
-        // Shouldn't happen because App should see that
-        // we are signed in.
-        return <div>Unexpectedly signed in already</div>
-    } else if (loading) {
+    if (loading) {
         return <div id="signUp">
             <button className="loadingHomeButton">Sign up</button>
         </div>
     }
+
+    if (!props.isErrorShown && error)
+        alert(error.message)
+    props.setIsErrorShown(true)
+
+
     return <div id="signUp">
-        {error && alert(error.message)}
         <button className="homeButton" onClick={() => {
+            props.setIsErrorShown(false)
             createUserWithEmailAndPassword(props.email, props.password)
             props.clearInput()
         }}>
