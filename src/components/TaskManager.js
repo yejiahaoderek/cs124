@@ -2,6 +2,7 @@ import IncompleteSection from "./IncompleteSection";
 import CompletedSection from "./CompletedSection";
 import {useState} from "react";
 import './TaskManager.css';
+// import { useMediaQuery } from 'react-responsive'
 
 
 function TaskManager(props) {
@@ -40,81 +41,80 @@ function TaskManager(props) {
     }
 
     return <div>
-        <title>Task Tracker</title>
+        {/*<title>Task Tracker</title>*/}
         <div id="outlier">
-            <IncompleteSection
-                tasks={props.tasks}
-                isLoading={props.isLoading}
-                onDelete={props.handleItemDeleted}
-                onChange={props.onTaskFieldChanged}
-                onSort={props.onSort}
-                onRename={handleRename}
-                onPriority={handlePriority}
-                newText={newText}
-                newPriority={newPriority}
-                editID={editID}
-                deleteConfirm={deleteConfirm}
-                onClick={handleItemClick}
-                onConfirm={handleRenameConfirm}
-                onQuitEdit={handleQuitEdit}
-            />
+            <div className={"sectionWrapper"}>
 
-            <button
-                id="hideButton"
-                className={!editID && !deleteConfirm ? "hideButton" : "disabledHideButton"}
-                onClick={()=> {
-                    if (editID) return
-                    if (deleteConfirm) return
-                    props.onToggleCompletedItems()}
-                }>
-                {props.showCompletedItems? `Hide` : `Show`} Completed
-            </button>
+            <div className={"incompleteWrapper"}>
+                <IncompleteSection
+                    tasks={props.tasks}
+                    isLoading={props.isLoading}
+                    onDelete={props.handleItemDeleted}
+                    onChange={props.onTaskFieldChanged}
+                    onSort={props.onSort}
+                    onRename={handleRename}
+                    onPriority={handlePriority}
+                    newText={newText}
+                    newPriority={newPriority}
+                    editID={editID}
+                    deleteConfirm={deleteConfirm}
+                    onClick={handleItemClick}
+                    onConfirm={handleRenameConfirm}
+                    onQuitEdit={handleQuitEdit}
+                    currList={props.currList}
+                    onCurrList={props.onCurrList}
+                />
 
+                <div className={"placeholder"}></div>
 
-            <CompletedSection
-                tasks={props.tasks}
-                editID={editID}
-                onRename={handleRename}
-                newText={newText}
-                deleteConfirm={deleteConfirm}
-                showCompletedItems={props.showCompletedItems}
-                onDeleteConfirm={handleDeleteConfirm}
-                onDelete={props.handleItemDeleted}
-                onDeleteAll={props.onDeleteAll}
-                onChange={props.onTaskFieldChanged}
-                onClick={handleItemClick}
-            />
+                <button
+                    id="hideButton"
+                    className={!editID && !deleteConfirm ? "hideButton" : "disabledHideButton"}
+                    onClick={()=> {
+                        if (editID) return
+                        if (deleteConfirm) return
+                        props.onToggleCompletedItems()}
+                    }>
+                    {props.showCompletedItems? `Hide` : `Show`} Completed
+                </button>
+            </div>
 
-
+            {props.showCompletedItems && <div className={"completeWrapper"}>
+                <CompletedSection
+                    tasks={props.tasks}
+                    editID={editID}
+                    onRename={handleRename}
+                    newText={newText}
+                    deleteConfirm={deleteConfirm}
+                    showCompletedItems={props.showCompletedItems}
+                    onDeleteConfirm={handleDeleteConfirm}
+                    onDelete={props.handleItemDeleted}
+                    onDeleteAll={props.onDeleteAll}
+                    onChange={props.onTaskFieldChanged}
+                    onClick={handleItemClick}
+                /></div>
+            }
+            </div>
+            {!editID && !deleteConfirm &&
             <div className="addList">
-                {editID || deleteConfirm ?
-                    <input
-                        type="text"
-                        className="taskInputBox"
-                        name="taskDisabled"
-                        placeholder={editID ? `Please finish edit first` : `Please confirm your deleteAll action`}
-                    disabled>
-                    </input>
-                    :
-                    <input
-                        type="text"
-                        className="taskInputBox"
-                        name="task"
-                        value={enteredText}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                                props.onAddTask(enteredText)
-                                setEnteredText("")
-                            }
-                        }}
-                        onChange={(e) => setEnteredText(e.target.value)}
-                        placeholder={`Enter your new task here`}
-                    />
-                }
-
+                <input
+                    type="text"
+                    className="taskInputBox"
+                    name="task"
+                    value={enteredText}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            props.onAddTask(enteredText)
+                            setEnteredText("")
+                        }
+                    }}
+                    onChange={(e) => setEnteredText(e.target.value)}
+                    placeholder={`Enter your new task here`}
+                />
 
                 <button type="button"
-                        className={!editID && !deleteConfirm ? "addButton" : "disabledAddButton"}
+                        className={"addButton"}
+                        aria-label="add this new task to current list"
                         onClick={()=> {
                             if (editID) return
                             if (deleteConfirm) return
@@ -122,7 +122,7 @@ function TaskManager(props) {
                             setEnteredText("")
                         }}>+
                 </button>
-            </div>
+            </div>}
 
         </div>
     </div>

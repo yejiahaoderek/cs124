@@ -1,0 +1,27 @@
+.listInput {
+    border-radius: 12px;
+    background: transparent;
+    border-style: none;
+    padding-left: 8px;
+    font-size: 15px;
+    width: 70vw;
+}
+
+@media screen and (max-width:400px) {
+    .listInput {
+        width: 50vw;
+    }
+}
+
+.select {
+    border-color: #3D9970;
+    background: rgba(1, 50, 67, 0.1);
+    color: #14274E;
+    position: relative;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-style: none;
+    border-radius: 12px;
+    margin-left: auto;
+    height: 22px;
+}

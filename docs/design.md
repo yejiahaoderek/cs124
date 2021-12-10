@@ -2,26 +2,22 @@
 
 
 ## New Features/Updates
-- Basic functionality: `set priority level`, `sort by` are available
-  - When in `Edit mode`, the user now has the option to set a `priority level`
-  - User has the option to sort tasks by `priority`, `name`, or `date created`
-- Task items are **saved** even when the user refreshes
-  - Application is connected to Firestore for cloud storage
-- Keyboard users can press `enter` on the keyboard to `add new task` rather than tapping on the button
-- Title of application appears at the tab bar
-- Loading screen appears while a task is being carried out
-- Display
-  - Fixed display size to fit a 360x640 pixel portrait-mode mobile display
-  - Adjusted text in `Edit mode` to remain the same size as in non-edit mode
-  - When in `Edit mode`, the add button turns grey to show that it has been **disabled**
+- Support for list sharing
+  - Must verify email address before sharing lists and seeing lists shared with you
+- Log in using email or Google
+  - Verification email
+  - Password reset option
 
 
 
 ## Design Summary
-
-- Basic functionality: `add new task`, `check/uncheck task`, `delete task`, `hide/show completed task` are available
+- Basic functionality: `add new task`, `check/uncheck task`, `delete task`, `hide/show completed task`, `set priority level`, `sort by` are available
+  - When in `Edit mode`, the user now has the option to set a `priority level` are available
+  - User has the option to sort tasks by `priority`, `name`, or `date created`
+  - Multiple lists
 - Incomplete to-dos have darker background color to **draw attention from the user** and complete to-dos have a lighter background color
-- `add new task`  will **clear the input box**  every time user clicks `"add"` button considering real-world scenario (>80% of the time user enters different task so previous task does not need to be saved in the input box)
+- `Add new task`  will **clear the input box**  every time user clicks `"add"` button considering real-world scenario (>80% of the time user enters different task so previous task does not need to be saved in the input box)
+  - Loading screen appears while a task is being carried out
 - `"Tap to Edit/Rename" Mode   `
   - User can't edit completed to-dos because it doesn't make sense in real-world scenario
   - User can tap any incomplete to-dos to rename (modify)
@@ -30,27 +26,36 @@
     - User could either `confirm rename` or `cancel/undo`
 - `"DeleteAll" mode`
   - User can delete all incomplete to-dos by clicking on `Delete All` button with further confirmation by clicking on `Delete` or revert by clicking on `Cancel`
+- Task items are **saved** even when the user refreshes
+  - Application is connected to Firestore for cloud storage
+- Support for users with accessibility needs
+  - Application is now compatible with **keyboard usage**, **screenreaders**, and **adjustable text size**
+  - [Video](https://drive.google.com/file/d/11EV_aHVqizo7BIzOjjEsrVK27lU-5_CG/view?usp=sharing) of accessibility features
+- Display
+  - Responsive to screen size; display will adjust to screen/window size and font size
+  - Two column display for wide screens or landscape mode for better display
+  - When user chooses to `Hide Completed`, To-Do section automatically expands the entire width if in 2 column mode
+  - Section header button and section items are right-justified
+  - `Add new list/task` is now centered and spans the entire row appropriately
+  - `Delete` button icon simplified, reducing visual complexity & burden
+
 
 
 ## New Error Prevention Mechanisms
-
-- Once entered `"Edit/Rename" mode` that requires further action: `Hide/Show` will be **disabled**, `Add new Task` input box does not allow the user to type in it
+- Once entered  `"Edit/Rename" mode` for tasks that requires further action: `Add new Task` input box disappears
+- Once entered `"Select" mode` for lists that requires further action: `Add new Task` input box disappears
+- `Select` and `Delete` buttons do not appear until a list is created
+- Pop up alert appears when deleting lists
 
 
 ## Error Prevention Mechanisms
-
-- When nothing is entered in the task input box, clicking on the add button will do nothing
-
-  - This design helps prevent error of creating empty to-do when user hasn't entered
-
-- Once entered `"Edit/Rename" mode` that requires further action: `Done` or `Cancel`, other disturbing operations like delete, `deleteAll`, `add new task`, `check/uncheck task` will be **disabled**
-
-- Once entered `"DeleteAll" mode` that requires further actions `Confirm deleteAll` or `Cancel`, other disturbing operations like `delete`, `add new task`, `rename/edit`, `check/uncheck task` will be **disabled**
+- Popups when user tries to share a list with:
+  - an email already shared with
+  - an invalid email
 
 
 
 ## Challenges and Takeaways
-
 Implementing a react app with components enclosed by one another can get really confusing and chaotic when functions, states, and props are everywhere . As we were doing the project, we learned and summarized the some principles of writing react app:
 
 - **React Principles**
@@ -61,18 +66,74 @@ Implementing a react app with components enclosed by one another can get really 
   - Function naming conventions
     - `handler+Action` in parent and `on+Action` when passes to child
   - `useState` should begin from hierarchy as low as possible
+  - When nothing is entered in the task input box, clicking on the add button will do nothing
+    - This design helps prevent error of creating empty to-do when user hasn't entered
+  - Once entered `"Edit/Rename" mode` that requires further action: `Done` or `Cancel`, other disturbing operations like `delete`, `deleteAll`, `add new task`, `check/uncheck task`, `Hide/Show` will be **disabled**
+  - Once entered `"DeleteAll" mode` that requires further actions `Confirm deleteAll` or `Cancel`, other disturbing operations like `delete`, `add new task`, `rename/edit`, `check/uncheck task` will be **disabled**
+
 
 We kept in mind of these principles as we learned about them which increased our productivity and debug efficiency significantly. However, there were a couple of more challenging implementations that took us a while to figure things out:
 
 - Disable disturbing actions when in `deleteAll` or `Rename` mode
 - Keep with the original to-do text available to be edit when the to-do is tapped (i.e., `Edit/Rename mode`)
+- Support for multiple lists
 
-## React component Design
-![component_design](https://user-images.githubusercontent.com/65286218/137246133-c8fd6c32-ddb2-4790-8c51-eb070d7be3f8.jpg)
+## Fifth Iteration Design Process
+We discussed how the users would be able to share lists. At first, we put the share button in 'edit mode', next to 'delete selected'. Here, the user could multi-select lists to share. One problem we discovered in user testing with this was the user couldn't see who the lists were shared with. So, we decided to put a share button next to each list. Once clicked, a popup would appear so that the user can add and remove people to share the list with. This is done via email, so when a user with a verified email address logs in, they can see any lists shared with them. 
+
+We also thought about how users would differentiate which lists were shared or not, and which lists they owned or was shared with them. We decided to have 2 icons. One icon displays which lists the user owns. If it is dark blue, the list is not shared with anyone. Once it is shared, the icon turns green. The second icon shows that a list is shared with the user. We decided to make this icon blue so that there is also color differentiation between the icons. 
+
+We also discussed the rules of sharing. We decided that if someone is not the owner (the person who created the list), they cannot delete or share the list, but they can edit its contents. We thought about how to display that the list cannot be deleted or shared. We considered not displaying such lists in 'edit mode', but thought this might confuse users. We decided that users who do not have the right permissions cannot select such lists to delete or share them.
+
+## Fifth Iteration User Testing
+We asked 2 participants to test our design of the sharing function of our app. They were able to find the share function easily and understood how it was supposed to work. However, they both commented on how they could not see who a list was shared with, nor could they remove people. We realized this was a major problem and updated our design. Afterward, we reached out to the participants again to present our new design with a share button next to each list rather than having a multi select. They recognized what the sharing button meant and used it as we intended. Afterward we asked them which design they preferred. They both preferred the share button next to each list. Then we asked whether they would use the multi-select option, even if it did not display who it was shared with (because each list might have different people it is shared with, and we felt the display would be too much to show each list's shared with emails). They both said they would not use it very often if they can tap a list and share it that way. So, we decided not to include that option in our final design.
+
+
+
+## Fourth Iteration Design Process
+![listWorkFlow](https://user-images.githubusercontent.com/65286218/142994932-448d42ba-6d1b-4be4-85cb-fc89a504e82d.png)
+![portraitMode](https://user-images.githubusercontent.com/65286218/142994962-cb213919-8e65-4c5a-80e3-2087a19b4852.png)
+For our process, we first went back to the drawing board to design a mockup of what we wanted our app to look like and function with multiple lists. We decided that to have a “landing page” where users can see all of their lists at once. Here, users can add, delete, and rename lists.
+
+One of the decisions we had to consider was where to put the delete button for these lists. We considered putting it to the right of each list name, similar to our tasks, but realized that it is more intuitive to have an arrow button that takes us to see the list items, rather than a delete button. We decided to have a select button that would allow users to delete lists by checking on which ones to delete.
+
+To rename a list, we decided to have the user tap on a list name, which would take them into edit mode. This is the same for when users rename tasks within a list. In order to see the task items in the list, the user must tap on the arrow button.
+
+When selecting the lists, we thought of a few options for displaying which lists were selected. At first, when the user clicks on a list, the list would darken. This worked well for users with a mouse or touch screen. However, when we tested this with a keyboard, it was complicated because of how we implemented rename. When tabbing through buttons on the keyboard, the user was automatically taken to rename the list, rather than select it. Our solution was to use checkboxes in select mode, to avoid this confusion when on keyboard. When something is checked in select mode, the checkmark appears in addition to darkening the list when selected.
+
+Another design decision we considered was how we wanted our app to look on different screen sizes. We decided that when the screen was wide enough comparatively to the height (landscape mode), the display would change to having two columns: one for the incomplete tasks and one for the completed tasks. However, even in landscape modes, if the text size is too large, the display will revert to the normal layout so that the text is not squished. We considered where to put the hide/show button in the two column layout.  In our normal layout, the hide/show button acted as the divider between the To-Do and Completed sections. We decided to put it underneath the To-Do section, similar to the normal layout. When the Completed section is hidden, the To-Do section spans the entire width of the screen. We kept the add new task bar pinned at the bottom of the screen so that it was consistent with the vertical layout, users wouldn’t have to scroll, and it spanned the length of the screen longer text can still be seen while typing.
+
+We also went through our color scheme to ensure that there was enough contrast between the foreground and text colors.
+
+## Fourth Iteration User testing
+We asked users to interact with our app, focusing on the new features and functionalities. The users automatically understood what to do on our new landing page. They all created a new list name, rather than typing a task item. They understood they needed to click on the arrow in order to open the list. Once in the list, one user was confused by the "You don’t have any To-Do now" notification text. They hovered over it and noticed it changed color and clicked on it, trying to add a new task. We removed the change in color when hovering to fix this problem.
+
+One user was confused by the priority levels. They clicked on a priority level, and did not understand their purpose, and so clicked the back button to the landing page. They then clicked on the list to see if anything happened, which there was not because they did not click done to save their changes, which is what we wanted. We considered whether to disable the back button when in edit mode, but decided to keep it as is because going back is an important function. We thought of the case where the user accidentally taps on a item, but needs to go back to another list. We believe that taking the time to click cancel in order to go back to the lists is more fustrating than clicking back to realize your changes were not saved. We also think that misclicking an item is more common than misclicking back while in edit mode.
+
+
+
+## Third Iteration Design Process
+![Untitled-2021-10-25-1254](https://user-images.githubusercontent.com/65286218/140454613-1dfb1a27-8b26-4823-ac97-98b63e63e940.png)
+When deciding where to put the buttons to set priority level, we thought it was best to only show them during edit mode. Originally, we had kept the delete button next to each task even during edit mode even though their functionality was disabled. We realized that it looked too cluttered and keeping the delete button was pointless, so we replaced the delete button with the priority levels. When displaying the priority level in non-edit mode, we thought about keeping it on the right hand side for consistency, but thought it looked out of place. We moved it to the left of the text, which we thought looked better and was easier to understand what the symbols meant. We used exclamation marks to signify priority level since this seemed pretty common and universally understood. We decided to have 4 priority levels - 0, 1, 2, and 3 - with 0 being the default value of not being a priority. Based on our own interactions with other task managers or applications that had priority levels, this seemed like a good number.
+
+While we were designing how to implement the sorting functionality, we considered adding a creation date stamp to each task, but decided against it because it would look too cluttered and did not think most users would feel a need for it.
+
+## Third Iteration User Testing
+During our user testing we asked our participants to interact with our new features. One thing that came up was trying to deselect a priority, or to set is back to 0. We originally had not planned for that option. Once a non-zero priority level was selected, the user had to choose between the non-zero options. We realized that this was a feature most users would want, or would get frustrated by when they can't deselect their option. We implemented a double tap feature, where if the user selects a priority level, then selects it again, it will deselect.
+
+
+
+## Second Iteration User Testing
+We asked 3 participants to interact with our app. We asked each of them to do various tasks. 2 of the participants intuitively tapped on the input box at the bottom of the screen as we had hoped. One participant tapped on the empty task list notification. When that didn't work, they tapped on the add button. When that didn't work, they tapped on the input box. Since, only one participant had trouble adding a new task and they were able to figure it out quickly, we did not think this needed changing.
+
+One participant said that the 'done' button to confirm a renaming of a task was in a weird place, and that it would make more sense to have it on the same level as the task name. We decided to keep the button position as is for now since the participant understood what the button was used for and did not inhibit their ability to interact with the app. We consider changing this in a future iteration and testing it among users, but don't think this is a pressing issue since it does not adversely affect how users are interacting with the app.
+
+One participant mentioned that they couldn't edit tasks after they've been marked as done, but said it wasn't a big deal. We considered adding this functionality to our design, before deployment, but decided that most users probably would not use this because tasks that have already been completed generally do not need renaming.
 
 
 
 ## Prototype Design Process
+
 During our initial design phase, we drew out what our desired layout was.
 
 <img width="447" alt="compare_initialDesigns" src="https://user-images.githubusercontent.com/65286218/134622509-326f28b1-4be9-495e-84bf-032a18f5544c.png">
@@ -88,6 +149,8 @@ darker shade of blue, so the items stood out more. We chose to have the ‘add�
 
 Overall, we are very pleased with our design. We think the colors went nicely together and led the eye to what we think is most important on the page. We are personally very proud that our ‘enter new task here’ input spans the length of the page because it took us a long time to figure out and we think it looks nice.
 
+## React component Design
+![component_design](https://user-images.githubusercontent.com/65286218/137246133-c8fd6c32-ddb2-4790-8c51-eb070d7be3f8.jpg)
 
 ## Prototype Task Flow
 <img width="767" alt="seq1" src="https://user-images.githubusercontent.com/65286218/134622165-d5d1ba58-9cd9-4c39-a1d7-87d4a4364931.png">
@@ -97,7 +160,6 @@ Overall, we are very pleased with our design. We think the colors went nicely to
 <img width="887" alt="seq5" src="https://user-images.githubusercontent.com/65286218/134622256-496291a9-951b-416f-a935-e61d1f8e4d60.png">
 <img width="878" alt="seq6" src="https://user-images.githubusercontent.com/65286218/134622266-af7b881f-1634-46e6-95df-0ab4493c9267.png">
 
-
 ## Prototype User Testing
 <img width="446" alt="intermediate-design" src="https://user-images.githubusercontent.com/65286218/134623725-97cc161a-59a6-4beb-8929-b591b8dc38bf.png">
 We did 2 rounds of user testing. During the first round, we asked 2 participants to interact with our app.
@@ -105,19 +167,7 @@ We first began by asking them what they would do given this task manager app. Ou
 
 During our second round of user testing, we had a participant interact with our app. We let the participant interact with the app on her own, then gave her some prompts to test some of our updated functions. We asked her to rename an item, since we removed the rename button. She instinctively went to double click the item she wanted to rename, which was what we hoped to happen.
 
-## Second Iteration User Testing
-We asked 3 participants to interact with our app. We asked each of them to do various tasks. 2 of the participants intuitively tapped on the input box at the bottom of the screen as we had hoped. One participant tapped on the empty task list notification. When that didn't work, they tapped on the add button. When that didn't work, they tapped on the input box. Since, only one participant had trouble adding a new task and they were able to figure it out quickly, we did not think this needed changing.
-
-One participant said that the 'done' button to confirm a renaming of a task was in a weird place, and that it would make more sense to have it on the same level as the task name. We decided to keep the button position as is for now since the participant understood what the button was used for and did not inhibit their ability to interact with the app. We consider changing this in a future iteration and testing it among users, but don't think this is a pressing issue since it does not adversely affect how users are interacting with the app.
-
-One participant mentioned that they couldn't edit tasks after they've been marked as done, but said it wasn't a big deal. We considered adding this functionality to our design, before deployment, but decided that most users probably would not use this because tasks that have already been completed generally do not need renaming.
 
 
-## Third Iteration Design Process
-![Untitled-2021-10-25-1254](https://user-images.githubusercontent.com/65286218/140454613-1dfb1a27-8b26-4823-ac97-98b63e63e940.png)
-When deciding where to put the buttons to set priority level, we thought it was best to only show them during edit mode. Originally, we had kept the delete button next to each task even during edit mode even though their functionality was disabled. We realized that it looked too cluttered and keeping the delete button was pointless, so we replaced the delete button with the priority levels. When displaying the priority level in non-edit mode, we thought about keeping it on the right hand side for consistency, but thought it looked out of place. We moved it to the left of the text, which we thought looked better and was easier to understand what the symbols meant. We used exclamation marks to signify priority level since this seemed pretty common and universally understood. We decided to have 4 priority levels - 0, 1, 2, and 3 - with 0 being the default value of not being a priority. Based on our own interactions with other task managers or applications that had priority levels, this seemed like a good number.
 
-While we were designing how to implement the sorting functionality, we considered adding a creation date stamp to each task, but decided against it because it would look too cluttered and did not think most users would feel a need for it.
 
-## Third Iteration User Testing
-During our user testing we asked our participants to interact with our new features. One thing that came up was trying to deselect a priority, or to set is back to 0. We originally had not planned for that option. Once a non-zero priority level was selected, the user had to choose between the non-zero options. We realized that this was a feature most users would want, or would get frustrated by when they can't deselect their option. We implemented a double tap feature, where if the user selects a priority level, then selects it again, it will deselect.

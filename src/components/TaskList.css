@@ -1,0 +1,37 @@
+.backdrop {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.message {
+    display: flex;
+    grid-row:2;
+}
+
+.alertButtonGroup {
+    grid-row:3;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+
+.modal {
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+    background-color: #fff;
+    border-radius: 8px ;
+    border-color: #14274E;
+    border-style: solid;
+    border-width: 2px;
+    margin: 0 auto;
+    top: 30%;
+    height: 100pt;
+    width: 200pt;
+    padding: 18pt;
+    position: relative;
+}

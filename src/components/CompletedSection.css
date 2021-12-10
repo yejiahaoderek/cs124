@@ -1,8 +1,9 @@
-.headerButton {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+.completedSection {
+    grid-row: 3;
+    max-width: 90vw;
+
 }
+
 
 .cancel{
     background: rgba(1, 50, 67, 0.08);
@@ -15,6 +16,19 @@
 }
 
 
+.warningConfirm{
+    position: relative;
+    right: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: hsla(0, 75%, 53%, 0.6);
+    border-style: none;
+    border-radius: 12px;
+    margin-left: auto;
+    color: #F1F6F9;
+    height: 22px;
+}
+
 .warning{
     padding-left: 6px;
     padding-right: 6px;
@@ -26,9 +40,14 @@
     height: 22px;
 }
 
+
+
 .disabledWarning{
+    padding-left: 6px;
+    padding-right: 6px;
     background-color: lightgrey;
     color: #F1F6F9;
+    margin-left: auto;
     border-radius: 12px;
     height: 22px;
 }

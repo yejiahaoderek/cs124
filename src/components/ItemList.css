@@ -1,6 +1,17 @@
+.taskItems {
+    border-style: none;
+    border-radius: 12px;
+    border-width: 2px;
+}
+
+.taskItems>div{
+    margin-bottom: 4px;
+}
+
+
 .completedTaskItems{
-    display: flex;
-    flex-wrap: wrap;
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
     border-style: none;
     border-radius: 12px;
     border-width: 2px;
@@ -9,7 +20,7 @@
 
 
 .completedTaskItems>div{
-    margin: 4px;
+    margin-bottom: 4px;
 }
 
 

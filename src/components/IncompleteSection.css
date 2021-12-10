@@ -1,5 +1,29 @@
-.sortSelect{
+.incompleteSection {
+    grid-row: 1;
+    max-width: 90vw;
+}
+
+.backGroup {
     display: flex;
+    width: 20vw;
+    align-items: center;
+    padding-right: 5px;
+    border-radius: 12px;
+}
+
+.backGroup:hover {
+    background: white;
+}
+
+.backLabel{
+    padding-left: 5px;
+    font-weight: bolder;
+    font-size: small;
+}
+
+
+.sortSelect{
+    font-family: -apple-system, Helvetica;
     padding-left: 2px;
     border: 1px solid rgba(1, 50, 67, 0.4);
     width: 90px;
@@ -9,37 +33,26 @@
     font-size: 12px;
     justify-content: center;
     align-content: center;
-    background: rgba(1, 50, 67, 0.02);
+    background-color: rgba(1, 50, 67, 0.02);
 }
 
 .sortSelect select:focus {
     outline: none;
 }
 
-.headerButton {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
 
-.taskItems {
-    display: flex;
-    flex-wrap: wrap;
-    border-style: none;
-    border-radius: 12px;
-    border-width: 2px;
-}
-
-.taskItems>div{
-    margin: 4px;
-}
 
 .confirmButton{
-    border-style: none;
-    border-radius: 12px;
     background-color: #3D9970;
     border-color: #3D9970;
     color: #F1F6F9;
+    position: relative;
+    right: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-style: none;
+    border-radius: 12px;
+    margin-left: auto;
     height: 22px;
 }
 

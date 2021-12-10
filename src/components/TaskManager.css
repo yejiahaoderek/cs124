@@ -1,8 +1,18 @@
+
 #outlier{
-    width: 360px;
-    height: 640px;
+    width: 90vw;
+    height: 90vh;
     display: grid;
-    grid-template-rows: 1fr 25px 1fr 20px;
+    grid-template-rows: 50% 5% 35% 8%;
+    background: #F1F6F9;
+    padding: 20px;
+}
+
+#listOutlier{
+    width: 90vw;
+    height: 90vh;
+    display: grid;
+    grid-template-rows: 10% 70% 8%;
     background: #F1F6F9;
     padding: 20px;
 }
@@ -17,29 +27,83 @@ body{
     font-size: 15px;
 }
 
+
+@media screen and (orientation:landscape) and (min-width:732px) {
+    #outlier{
+        width: 90vw;
+        height: 90vh;
+        display: grid;
+        grid-template-rows: 80% 1% 7%;
+        background: #F1F6F9;
+    }
+
+    .sectionWrapper{
+        display: flex;
+        flex-direction: row;
+        width: 90vw;
+        justify-content: space-around;
+    }
+
+    .incompleteWrapper {
+        flex-grow: 1;
+    }
+
+    .completeWrapper {
+        flex-grow: 1;
+    }
+
+    .hideButton {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+    }
+
+    .disabledHideButton{
+        grid-column: 1 / span 2;
+        grid-row: 2;
+    }
+
+    .addList {
+        grid-row: 3;
+        margin-left: auto;
+        width: 100vw;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .taskInputBox {
+        border-radius: 12px;
+        background-color: white;
+        border-style: none;
+        height: 8px;
+        width: 100%;
+        padding: 0.9em;
+        font-size: 15px;
+    }
+
+}
+
+.addList {
+    grid-row: 4;
+    width: 90vw;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+}
+
 .taskInputBox {
     border-radius: 12px;
     background-color: white;
     border-style: none;
     height: 8px;
-    width: 260px;
+    width: 100%;
     padding: 0.9em;
     font-size: 15px;
 }
 
-
-/*.taskInputBox:focus {*/
-/*    outline: 2px solid rgba(1, 50, 67, 0.5);*/
-/*    -moz-outline-radius: 12px;*/
-/*}*/
-
-.addList {
-    position: fixed;
-    top: 600px;
-    margin-left: auto;
-    display: flex;
-    flex-wrap: wrap;
-}
 
 button {
     transition-duration: 0.2s;
@@ -82,21 +146,26 @@ button:hover {
 }
 
 .disabledHideButton{
+    font-family: -apple-system, Helvetica;
     background-color: lightgrey;
     color: #F1F6F9;
     border-width: 1px;
     width: 100%;
     border-radius: 12px;
+    height: 25px;
 }
 
 .disabledHideButton:hover {
     background: lightgrey;
     color: whitesmoke;
     border-radius: 12px;
+    height: 25px;
 }
 
 
 .hideButton{
+    font-family: -apple-system, Helvetica;
+    grid-row: 2;
     border-width: 1px;
     height: 25px;
     width: 100%;
@@ -107,9 +176,42 @@ button:hover {
 .hideButton:hover {
     background: rgba(1, 50, 67, 0.8);
     color: white;
+    height: 25px;
+}
+
+
+.headerButton {
+    display: flex;
+    align-items: center;
+    padding-right: 5px;
 }
 
 .buttonGroup {
     margin-left: auto;
+    display: flex;
+    justify-content: right;
 }
 
+.hiddenButton {
+    display: flex;
+    border-radius: 8px;
+    background-color: transparent;
+    width:33px;
+    align-content: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.goToButton{
+    display: flex;
+    border-radius: 8px;
+    background-color: transparent;
+    width:26px;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+}
+
+.goToButton:hover{
+    background-color: white;
+}
