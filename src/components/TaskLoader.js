@@ -12,7 +12,7 @@ function TaskLoader(props) {
     let taskQuery = query.orderBy(sortChoice, sortChoice === "priority" ? "desc": "asc")
 
     const [value, loading, error] = useCollection(taskQuery);
-    console.log(value.docs.map(doc => doc.data()))
+    // console.log(error)
 
     if (value) {
         tasks = value.docs.map(doc => doc.data())

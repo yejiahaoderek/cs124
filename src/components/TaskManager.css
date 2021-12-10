@@ -302,10 +302,11 @@ button:hover {
     display: flex;
     border-radius: 8px;
     background-color: transparent;
-    width:33px;
+    width:26px;
     align-content: center;
     justify-content: center;
-    visibility: hidden;
+    position: relative;
+    visibility: hidden
 }
 
 .goToButton{

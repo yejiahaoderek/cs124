@@ -4,7 +4,8 @@
     border-style: none;
     padding-left: 8px;
     font-size: 15px;
-    width: 70vw;
+    width: 50vw;
+    margin-left: 1vh;
 }
 
 @media screen and (max-width:400px) {

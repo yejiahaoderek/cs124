@@ -72,10 +72,10 @@ function App(props) {
                             placeholder="Email"
                         />
                         <input
-                            class="homeInput"
+                            className="homeInput"
+                            type="password"
                             onChange={(e)=>setPassword(e.target.value)}
                             id="password"
-                            type="text"
                             placeholder="Pasword"
                         />
                     </div>
@@ -160,7 +160,6 @@ function SignedInApp(props) {
     const [value, loading, error] = useCollection(query);
     const [sharedValue, sharedLoading, sharedError] = useCollection(shareQuery);
     const [currList, setCurrList] = useState([]);
-    console.log(value)
     if (value && sharedValue) {
         lists = value.docs.map(doc => doc.data())
         sharedLists = sharedValue.docs.map(doc => doc.data())
