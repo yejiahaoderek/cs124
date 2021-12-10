@@ -7,7 +7,8 @@ import {useCollection} from "react-firebase-hooks/firestore";
 import {
     useAuthState,
     useCreateUserWithEmailAndPassword,
-    useSignInWithEmailAndPassword
+    useSignInWithEmailAndPassword,
+    sendPasswordResetEmail
 } from 'react-firebase-hooks/auth';
 import GoogleButton from 'react-google-button'
 import Alert from "./components/Alert";
@@ -34,6 +35,7 @@ function App(props) {
     const [user, loading, error] = useAuthState(auth)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [isReset, setIsReset] = useState(false)
     const [isErrorShown, setIsErrorShown] = useState(false)
 
     function verifyEmail() {
@@ -59,6 +61,7 @@ function App(props) {
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAIAAAD/gAIDAAAABmJLR0QA/wD/AP+gvaeTAAAFJElEQVR4nO2cW0wcVRjHz5nZZYFtYZflDrYFKdeSBqupbdVqI6ipSCKJbip9wRdNffDJO9rEh8akiUYrxDb2oTWR1Nik+KAhaaWShqgJKFRLhYCUcOuyXJbr7uzO8aGJqQi785+dpLPL93uc+fbknx8zc86e/Rg+Me1lhDakex0gliBZACQLgGQBkCwAkgVAsgBIFgDJAiBZACQLgGQBWKL6tKqKGS/zzTNnGnemGRTJvOiUJXzzwW9ag1faxczMnSNSbp7lcJ2lto5ZE4yLZy64ji0adXDAf/wd4Z3+/ympaKft+AnuchmRzXTAzywxNeV/7411TTHG1MGB1fffYn5/1MHMCHwbBk6fEvNzYQrE0KDy7QXrkaPax5yY9Jz4+AyaJHpqn3q8+tB+7fWYLOH1hrquRSwLtl20ul9iktbLdtXv7/vjJpTEEB6q2gXVY7eh2tvNhIhYJubn1JG/oZFjAkzWv3NfZGbicGsffMAnJWuttNvRKOYHkyUVFmmqs1r5th164pgbUFZxiZSbF7FM3ruPJ2u+BmMHeFEa7LoW+LAp3GPeZkv67DS/bxswphKc8t6DZ5xj61a7Hfij6lnBK1+fV86dXf+c1Wp7s0k+8Cg6ZkygRxZjLNTZETjTIjy3/zNWYVHCa6/LZRUGZTMdOmUxxpiiqL2/hfpviOVFnuqQKnfLJWXaF6KxSBSyNh/xfCEYDskCIFkAJAuAZAGQLACSBUCyAEgWAMkCIFkAJAuAZAGQLAD9XTQ3bi1c+X16YGxpxR9KscsV21OerMrMT080MJzZ0LOftaqop9qGOq+v/aAs8ecP5Bx5Il/i3KB45gL/wSKkNp3r//PWwkYFNQ9kHqstiDqYGYFvwwud42FMMcbau2/v2el4uNSpfUyfb/GHy51okuipLC8uK7lfez0my6+ol7omIpa1doxBsryzcy1ftkJJDKGxoR6Shc2GvcPzqwE1Ytnw1JJnPg5btDBZkzNaFUzObnpZ2uEsDidETFaOS+syKttpw8OYHUxW5Y6UpAQ5YllhTnJ6ahz2LGOzoc0q1e3Pbu0YC1/mPpgPDetyOl592Q19xBAqy4uhej2L0g/O37w+4tuo4JkHs145HIfNWUz3153m74av9q3t7rbIvP6RXPfBPPq6s5b+0cUfe6f/GltYXlFTt1gqtqdUV2Xkap4BYhFqDAGg/SwAkgVAsgBIFgDJAiBZACQLgGQBkCwAkgVAsgBIFgDJAiBZAPobQ7ga4OM/c08fCyyIRBfL3qNm7mY8nu3rlCUNfy//cpIvTd19UKQVh/Y1qVlVRgQzI3o2/+SeFrnn83VPCdkaeuwjtaAm6mBmBL6ypJHLck/zRmd5SLH89LbiLBKOQu1jxsq//YKyhGr59SRjYd+DEfLL3Z8GD32ifdTR8cnGY+9iSYygsaH+qPs57fXY85h7+phvNHLZ6FUWCNeWFKOAryqY6ddSxkMKnxvSlcfUgDN9cFljIQ8swllMD/p6lQyNhcKeCWcxPZisUM5epqWXKMklHEBHXawAzobJGWpBtTTcHr4qWN4ALeUTbbbKihIsiRFkZ6ZD9fCilC9OWNteZKsbvhtKuMqUZ79i8qbvz2KMiS05wae/EPas9c+m71JqmuPSFNPd68D9PqnvrDx4iS177hwRqQVq6QtqqVvIVkMTmogoG0MEX/awlVmRnM6S4vN1m3dDXTQA8bz9ZDgkC4BkAZAsAJIFQLIASBYAyQIgWQAkC4BkAZAsgH8AprKX7XH3GyUAAAAASUVORK5CYII="/>
                         <div>Task Manager</div>
                     </div>
+                    {!isReset && <>
                     <div className="inputFields">
                         <input
                             class="homeInput"
@@ -78,6 +81,10 @@ function App(props) {
                     <div className="typeInfo">
                         <SignUp key="Sign Up" id="signUp" email={email} password={password} clearInput={clearInput} isErrorShown={isErrorShown} setIsErrorShown={setIsErrorShown}/>
                         <SignIn key="Sign In" id="signIn" email={email} password={password} clearInput={clearInput} isErrorShown={isErrorShown} setIsErrorShown={setIsErrorShown}/>
+                        <div id="reset"><button className="homeButton"
+                            onClick={()=> {
+                                setIsReset(true)
+                            }}>Reset Password</button></div>
                     </div>
                     <div className="3PSignIn">
                         <GoogleButton
@@ -86,7 +93,32 @@ function App(props) {
                             onClick={() =>
                                 auth.signInWithPopup(googleProvider)}
                         />
+                    </div> </>}
+                    {isReset && <>
+                    <div className="inputFields">
+                        <input
+                            className="homeInput"
+                            onChange={(e) => setEmail(e.target.value)}
+                            id="email"
+                            type="text"
+                            placeholder="Email"
+                        />
                     </div>
+                    <div id="signIn">
+                        <button className="homeButton"
+                            onClick={()=>{
+                                auth.sendPasswordResetEmail(email).then(function() {
+                                    alert("Password reset email sent.")
+                                    setIsReset(false)
+                                })
+                                    .catch(function(error) {
+                                        alert(error);
+                                    });
+                                clearInput()
+                            }}
+                        >Send reset email</button>
+                    </div></>}
+
                 </div>
         </div>
     }
