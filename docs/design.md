@@ -2,18 +2,11 @@
 
 
 ## New Features/Updates
-- Support for multiple lists
-  - New landing page where users can see their lists
-- Support for users with accessibility needs
-  - Application is now compatible with **keyboard usage**, **screenreaders**, and **adjustable text size**
-  - [Video](https://drive.google.com/file/d/11EV_aHVqizo7BIzOjjEsrVK27lU-5_CG/view?usp=sharing) of accessibility features 
-- Display
-  - Responsive to screen size; display will adjust to screen/window size and font size
-  - Two column display for wide screens or landscape mode for better display
-  - When user chooses to `Hide Completed`, To-Do section automatically expands the entire width if in 2 column mode
-  - Section header button and section items are right-justified
-  - `Add new list/task` is now centered and spans the entire row appropriately
-  - `Delete` button icon simplified, reducing visual complexity & burden
+- Support for list sharing
+  - Must verify email address before sharing lists and seeing lists shared with you
+- Log in using email or Google
+  - Verification email
+  - Password reset option
 
 
 
@@ -21,6 +14,7 @@
 - Basic functionality: `add new task`, `check/uncheck task`, `delete task`, `hide/show completed task`, `set priority level`, `sort by` are available
   - When in `Edit mode`, the user now has the option to set a `priority level` are available
   - User has the option to sort tasks by `priority`, `name`, or `date created`
+  - Multiple lists
 - Incomplete to-dos have darker background color to **draw attention from the user** and complete to-dos have a lighter background color
 - `Add new task`  will **clear the input box**  every time user clicks `"add"` button considering real-world scenario (>80% of the time user enters different task so previous task does not need to be saved in the input box)
   - Loading screen appears while a task is being carried out
@@ -34,6 +28,16 @@
   - User can delete all incomplete to-dos by clicking on `Delete All` button with further confirmation by clicking on `Delete` or revert by clicking on `Cancel`
 - Task items are **saved** even when the user refreshes
   - Application is connected to Firestore for cloud storage
+- Support for users with accessibility needs
+  - Application is now compatible with **keyboard usage**, **screenreaders**, and **adjustable text size**
+  - [Video](https://drive.google.com/file/d/11EV_aHVqizo7BIzOjjEsrVK27lU-5_CG/view?usp=sharing) of accessibility features
+- Display
+  - Responsive to screen size; display will adjust to screen/window size and font size
+  - Two column display for wide screens or landscape mode for better display
+  - When user chooses to `Hide Completed`, To-Do section automatically expands the entire width if in 2 column mode
+  - Section header button and section items are right-justified
+  - `Add new list/task` is now centered and spans the entire row appropriately
+  - `Delete` button icon simplified, reducing visual complexity & burden
 
 
 
@@ -45,10 +49,9 @@
 
 
 ## Error Prevention Mechanisms
-- When nothing is entered in the task input box, clicking on the add button will do nothing
-  - This design helps prevent error of creating empty to-do when user hasn't entered
-- Once entered `"Edit/Rename" mode` that requires further action: `Done` or `Cancel`, other disturbing operations like `delete`, `deleteAll`, `add new task`, `check/uncheck task`, `Hide/Show` will be **disabled**
-- Once entered `"DeleteAll" mode` that requires further actions `Confirm deleteAll` or `Cancel`, other disturbing operations like `delete`, `add new task`, `rename/edit`, `check/uncheck task` will be **disabled**
+- Popups when user tries to share a list with:
+  - an email already shared with
+  - an invalid email
 
 
 
@@ -63,12 +66,27 @@ Implementing a react app with components enclosed by one another can get really 
   - Function naming conventions
     - `handler+Action` in parent and `on+Action` when passes to child
   - `useState` should begin from hierarchy as low as possible
+  - When nothing is entered in the task input box, clicking on the add button will do nothing
+    - This design helps prevent error of creating empty to-do when user hasn't entered
+  - Once entered `"Edit/Rename" mode` that requires further action: `Done` or `Cancel`, other disturbing operations like `delete`, `deleteAll`, `add new task`, `check/uncheck task`, `Hide/Show` will be **disabled**
+  - Once entered `"DeleteAll" mode` that requires further actions `Confirm deleteAll` or `Cancel`, other disturbing operations like `delete`, `add new task`, `rename/edit`, `check/uncheck task` will be **disabled**
+
 
 We kept in mind of these principles as we learned about them which increased our productivity and debug efficiency significantly. However, there were a couple of more challenging implementations that took us a while to figure things out:
 
 - Disable disturbing actions when in `deleteAll` or `Rename` mode
 - Keep with the original to-do text available to be edit when the to-do is tapped (i.e., `Edit/Rename mode`)
 - Support for multiple lists
+
+## Fifth Iteration Design Process
+We discussed how the users would be able to share lists. At first, we put the share button in 'edit mode', next to 'delete selected'. Here, the user could multi-select lists to share. One problem we discovered in user testing with this was the user couldn't see who the lists were shared with. So, we decided to put a share button next to each list. Once clicked, a popup would appear so that the user can add and remove people to share the list with. This is done via email, so when a user with a verified email address logs in, they can see any lists shared with them. 
+
+We also thought about how users would differentiate which lists were shared or not, and which lists they owned or was shared with them. We decided to have 2 icons. One icon displays which lists the user owns. If it is dark blue, the list is not shared with anyone. Once it is shared, the icon turns green. The second icon shows that a list is shared with the user. We decided to make this icon blue so that there is also color differentiation between the icons. 
+
+We also discussed the rules of sharing. We decided that if someone is not the owner (the person who created the list), they cannot delete or share the list, but they can edit its contents. We thought about how to display that the list cannot be deleted or shared. We considered not displaying such lists in 'edit mode', but thought this might confuse users. We decided that users who do not have the right permissions cannot select such lists to delete or share them.
+
+## Fifth Iteration User Testing
+We asked 2 participants to test our design of the sharing function of our app. They were able to find the share function easily and understood how it was supposed to work. However, they both commented on how they could not see who a list was shared with, nor could they remove people. We realized this was a major problem and updated our design. Afterward, we reached out to the participants again to present our new design with a share button next to each list rather than having a multi select. They recognized what the sharing button meant and used it as we intended. Afterward we asked them which design they preferred. They both preferred the share button next to each list. Then we asked whether they would use the multi-select option, even if it did not display who it was shared with (because each list might have different people it is shared with, and we felt the display would be too much to show each list's shared with emails). They both said they would not use it very often if they can tap a list and share it that way. So, we decided not to include that option in our final design.
 
 
 
@@ -86,7 +104,6 @@ When selecting the lists, we thought of a few options for displaying which lists
 Another design decision we considered was how we wanted our app to look on different screen sizes. We decided that when the screen was wide enough comparatively to the height (landscape mode), the display would change to having two columns: one for the incomplete tasks and one for the completed tasks. However, even in landscape modes, if the text size is too large, the display will revert to the normal layout so that the text is not squished. We considered where to put the hide/show button in the two column layout.  In our normal layout, the hide/show button acted as the divider between the To-Do and Completed sections. We decided to put it underneath the To-Do section, similar to the normal layout. When the Completed section is hidden, the To-Do section spans the entire width of the screen. We kept the add new task bar pinned at the bottom of the screen so that it was consistent with the vertical layout, users wouldn’t have to scroll, and it spanned the length of the screen longer text can still be seen while typing.
 
 We also went through our color scheme to ensure that there was enough contrast between the foreground and text colors.
-
 
 ## Fourth Iteration User testing
 We asked users to interact with our app, focusing on the new features and functionalities. The users automatically understood what to do on our new landing page. They all created a new list name, rather than typing a task item. They understood they needed to click on the arrow in order to open the list. Once in the list, one user was confused by the "You don’t have any To-Do now" notification text. They hovered over it and noticed it changed color and clicked on it, trying to add a new task. We removed the change in color when hovering to fix this problem.
