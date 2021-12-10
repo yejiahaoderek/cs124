@@ -2,12 +2,53 @@
 
 
 ## New Features/Updates
+### Basic Functioniality
+- Support for sign up/login/reset password 
+- Support for verification email/password reset option
 - Support for list sharing
-  - Must verify email address before sharing lists and seeing lists shared with you
-- Log in using email or Google
-  - Verification email
-  - Password reset option
+ 
+ ### Smart Display
+- Username of logged in account, is exists, will be displayed; otherwise, the email address will be displayed
+- Secure List Sharing & Display
+  - **Unverified users** do not have access to sharing feature, i.e. **cannot see** lists shared with me
+- Lists/tasks/email list are now all scrollable!
+- Password will not be shown; characters entered shown as * instead
+- Distinguishable login button color
 
+
+### Layered Permission to edit list shared with me
+- Can 
+  - add/delete/modify tasks within the lists being shared with me
+  - edit the name of the list shared with me
+  - see who's the owner of the list shared with me
+- **Can't** 
+  - delete a list that's shared with them
+  - further share with others
+
+### Mutable list display by status
+- Any list is one of three status
+  - **is not sharing** — can be shared to other [in grey]
+  - **isSharing** to other users [is green, meaning activated]
+  - **isShared** to me [in blue]
+    - The list is displayed in lighter color
+- For pop-up window after clicking the icon, if the list
+  -  **is not sharing**
+    - User can share & unshare
+  - **isSharing** to other users
+    - User can share & unshare
+  - **isShared** with me
+    - **cannot** be further shared it with others
+    - cannot be selected/renamed
+    - will show owner's email
+
+### Reliability & Error Prevention
+- User can reset password
+- Email input validation when adding to share list, will check
+  - is valid email type
+  - is not empty
+  - is not repetitive in the exisiting shared list
+  - is not the owner's email address
+- Auto clear input after action performed
 
 
 ## Design Summary
@@ -79,6 +120,7 @@ We kept in mind of these principles as we learned about them which increased our
 - Support for multiple lists
 
 ## Fifth Iteration Design Process
+![design](https://user-images.githubusercontent.com/65286218/145550688-15aaeb43-919e-480f-b167-cca50d16dd3c.png)
 We discussed how the users would be able to share lists. At first, we put the share button in 'select mode', next to 'delete selected'. Here, the user could multi-select lists to share. One problem we discovered in user testing with this was the user couldn't see who the lists were shared with. So, we decided to put a share button next to each list. Once clicked, a popup would appear so that the user can add and remove people to share the list with. This is done via email, so when a user with a verified email address logs in, they can see any lists shared with them.
 
 We also thought about how users would differentiate which lists were shared or not, and which lists they owned or was shared with them. We decided to have 2 icons. One icon displays which lists the user owns. If it is dark blue, the list is not shared with anyone. Once it is shared, the icon turns green. The second icon shows that a list is shared with the user. We decided to make this icon blue so that there is also color differentiation between the icons.
