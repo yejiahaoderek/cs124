@@ -40,6 +40,7 @@ function App(props) {
 
     function verifyEmail() {
         auth.currentUser.sendEmailVerification();
+        alert("Verification email sent. Verify your email using the link & re-login to unlock SHARING!")
     }
 
     function clearInput() {
@@ -50,10 +51,9 @@ function App(props) {
     if (loading) {
         return <p>Checking...</p>
     } else if (user) {
-        return <div>
-        <SignedInApp {...props} user={user}/>
-        {!user.emailVerified && <button type="button" onClick={verifyEmail}>Verify email</button>}
-        </div>
+        return <>
+        <SignedInApp {...props} user={user} verifyEmail={verifyEmail}/>
+        </>
     } else {
         return <div id="homeOutlier">
                 <div className="center">
@@ -90,8 +90,7 @@ function App(props) {
                         <GoogleButton
                             id="googleButton"
                             type="light"
-                            onClick={() =>
-                                auth.signInWithPopup(googleProvider)}
+                            onClick={() => auth.signInWithPopup(googleProvider)}
                         />
                     </div> </>}
                     {isReset && <>
@@ -191,11 +190,17 @@ function SignedInApp(props) {
     const [value, loading, error] = useCollection(query);
     const [sharedValue, sharedLoading, sharedError] = useCollection(shareQuery);
     const [currList, setCurrList] = useState([]);
-    if (value && sharedValue) {
+
+    console.log(sharedError)
+
+    if (value || sharedValue) {
         lists = value.docs.map(doc => doc.data())
-        sharedLists = sharedValue.docs.map(doc => doc.data())
-        if (sharedValue.size > 0) lists=[...lists, ...sharedLists]
+        if (sharedValue) {
+            sharedLists = sharedValue.docs.map(doc => doc.data())
+            if (sharedValue.size > 0) lists = [...lists, ...sharedLists]
+        }
     }
+
 
 
     const handleAddList = (text) =>{
@@ -234,6 +239,7 @@ function SignedInApp(props) {
             onListChange={handleListFieldChanged}
             collectionName={collectionName}
             db={db}
+            verifyEmail={props.verifyEmail}
             user={props.user}
             auth={auth}
         /> :

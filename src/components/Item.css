@@ -24,6 +24,20 @@ input[type="text"]{
     transition-duration: 0.2s;
 }
 
+.sharedListItem {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 12px;
+    border-width: 1px;
+    background: rgba(1, 50, 67, 0.03);
+    border-style: none;
+    padding: 8px;
+    color: #14274E;
+    flex-basis: 100%;
+    transition-duration: 0.2s;
+}
+
 .listItem:hover {
     background: rgba(1, 50, 67, 0.15);
 }

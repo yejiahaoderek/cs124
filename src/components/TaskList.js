@@ -1,4 +1,4 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import List from "./List";
 import './TaskList.css'
 import Alert from "./Alert";
@@ -10,7 +10,8 @@ function TaskList(props) {
     const [showAlert, setShowAlert] = useState(false)
     const [tabIdx, setTabIdx] = useState("")
 
-    const handleSelect = (id) => {
+    const handleSelect = (id, isShared) => {
+        if (isShared) return
         if (selectedID.includes(id)) {
             const newSelectedID = selectedID.filter(item => item !== id)
             setSelectedID(newSelectedID)
@@ -48,12 +49,16 @@ function TaskList(props) {
              role="heading"
              aria-level="1"
              aria-label="Your Lists">
-            <h1>Your task lists</h1>
+            <div className="head">
+                <h1>Your task lists</h1>
+                {!props.user.emailVerified &&
+                <button type="button" className="select" onClick={props.verifyEmail}>Verify email</button>}
+            </div>
 
             { props.lists.length === 0 &&
             <div className={"buttonGroup"}>
             <button className={"warning"}
-                    aria-label="enter list selection mode"
+                    aria-label="log out"
                     onClick={()=>props.auth.signOut()} >
                 Logout
             </button></div>}
@@ -65,7 +70,7 @@ function TaskList(props) {
                                 onClick={()=>setSelectMode(true)} >
                             Select</button>
                         <button className={"warning"}
-                                aria-label="enter list selection mode"
+                                aria-label="log out"
                                 onClick={()=>props.auth.signOut()} >
                             Logout</button>
                     </div>
@@ -96,10 +101,13 @@ function TaskList(props) {
                 </div>
                 :
                 (props.lists.length === 0 ?
-                <div className="completeItem">
-                    <div className="task">
+                <div className="taskItems">
+                    <div className="completeItem">
                         Create your 1st Task List using the input box below : )
                     </div>
+                    {!props.user.emailVerified && <div className="completeItem">
+                        Verify your email and re-login to unlock SHARING
+                    </div>}
                 </div>
                 :
                 props.lists.map(list =>

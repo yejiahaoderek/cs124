@@ -97,15 +97,15 @@ function List(props) {
 }
 
     <div className={"buttonGroup"}>
-        <div className={props.selectedID.includes(props.id) ? "selectedListItem" : "listItem"}
+        <div className={isShared? "sharedListItem" : (props.selectedID.includes(props.id) ? "selectedListItem" : "listItem")}
              aria-label="press control + shift + space to select if in select mode; or type to rename"
              tabIndex={props.tabIdx}
              onClick={()=> {
                  if (!props.selectMode) return
-                 props.onSelect(props.id)
+                 props.onSelect(props.id, isShared)
              }}
         >
-        {props.selectMode && (props.selectedID.includes(props.id) ?
+        {!isShared && props.selectMode && (props.selectedID.includes(props.id) ?
             <input type={"checkbox"} tabIndex={props.tabIdx} role="checkbox" aria-checked="true" checked aria-label={props.text}></input>
             :
             <input type={"checkbox"} tabIndex={props.tabIdx} role="checkbox" aria-checked="false" aria-label={props.text}></input>)}
