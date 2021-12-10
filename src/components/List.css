@@ -8,11 +8,6 @@
     margin-left: 1vh;
 }
 
-@media screen and (max-width:400px) {
-    .listInput {
-        width: 50vw;
-    }
-}
 
 .select {
     border-color: #3D9970;

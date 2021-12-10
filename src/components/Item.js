@@ -9,6 +9,7 @@ function Item(props) {
         props.priority === target ? props.onPriority(0) : props.onPriority(target)
     }
 
+
     return (
         <div className={
             !props.isCompleted ?

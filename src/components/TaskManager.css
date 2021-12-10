@@ -12,7 +12,7 @@
     width: 90vw;
     height: 90vh;
     display: grid;
-    grid-template-rows: 10% 70% 8%;
+    grid-template-rows: 2% 10% 70%;
     background: #F1F6F9;
     padding: 20px;
 }
@@ -171,10 +171,40 @@ body{
     align-items: baseline;
 }
 
-
-@media screen and (max-width:300px) {
+@media screen and (orientation: portrait) and (max-width:400px) {
     .task {
-        width: 50vw
+        width: 60vw
+    }
+    .rename {
+        width: 40vw
+    }
+}
+
+
+@media screen and (orientation: portrait) and (max-width:500px) and (min-width: 400px) {
+    .taskItems {
+        border-style: none;
+        border-radius: 12px;
+        border-width: 2px;
+        overflow-y: auto;
+        margin-bottom: 2vh;
+        max-height: 60vh;
+    }
+
+    .task {
+        width: 70vw
+    }
+    .rename {
+        width: 60vw
+    }
+}
+
+@media screen and (orientation: portrait) and (max-width:732px) and (min-width: 500px){
+    .task {
+        width: 60vw
+    }
+    .rename {
+        width: 60vw
     }
 }
 
@@ -346,6 +376,17 @@ button:hover {
     align-items: baseline;
     padding-right: 5px;
 }
+
+.emailDisplay {
+    margin-left: auto;
+    display: flex;
+    justify-content: right;
+    padding-right: 5px;
+    font-family: AppleGothic;
+    font-size: small;
+    color: rgba(1, 50, 67, 0.8);
+}
+
 
 .buttonGroup {
     margin-left: auto;

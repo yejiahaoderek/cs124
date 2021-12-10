@@ -1,0 +1,56 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth.uid != null && request.auth.uid != null;
+    }
+
+    function isDocOwner() {
+      return request.auth.uid == resource.data.owner;
+    }
+
+    function isEmailVerified() {
+    	return request.auth.token.email_verified;
+    }
+
+    function updatedDocHasCorrectOwner() {
+      return request.auth.uid == request.resource.data.owner;
+    }
+
+    function updatedDocHasSameOwner() {
+      return resource.data.owner == request.resource.data.owner;
+    }
+
+    function updatedDocHasSameSharing() {
+      return resource.data.isSharedWith == request.resource.data.isSharedWith;
+    }
+
+    function isSharedWithMe() {
+      return request.auth.token.email in resource.data.isSharedWith;
+    }
+
+
+    match /jiahao-lists/{listID} {
+      allow read: if (signedIn() && isDocOwner()) || (signedIn() && isSharedWithMe() && isEmailVerified());
+      allow write: if (signedIn() && isDocOwner()) || (signedIn() && isSharedWithMe());
+      allow create: if signedIn() && updatedDocHasCorrectOwner();
+      allow update: if (signedIn() && isDocOwner() &&
+        updatedDocHasCorrectOwner()) || (signedIn() && isSharedWithMe());
+      allow delete: if signedIn() && isDocOwner();
+
+      match /Tasks/{taskID} {
+        allow read, write, create, update, delete: if (signedIn() && request.auth.uid == get(/databases/$(database)/documents/jiahao-lists/$(listID)).data.owner) || (signedIn() && request.auth.token.email in get(/databases/$(database)/documents/jiahao-lists/$(listID)).data.isSharedWith) && isEmailVerified();
+			}
+    }
+
+
+    match /List-SharingAllowed {
+      allow read: if signedIn() && isSharedWithMe();
+      allow create: if signedIn() && updatedDocHasCorrectOwner();
+      allow update: if signedIn() && isSharedWithMe() &&
+        updatedDocHasSameOwner() && updateDocHasSameSharing();
+      allow delete: if signedIn() && isDocOwner();
+    }
+
+  }
+}

@@ -1,7 +1,7 @@
 import './List.css';
 import './Item.css';
 import {useState} from "react";
-import Item from "./Item";
+import SelectionMaintainingInput from "./SelectionMaintainingInput";
 
 function List(props) {
     const [email, setEmail] = useState("")
@@ -58,6 +58,17 @@ function List(props) {
                            className="emailInput"
                            placeholder="Enter email address here"
                            value={email}
+                           onKeyDown={(e) => {
+                               if (e.key === 'Enter') {
+                                   if (isValidEmail(email)) {
+                                       const docRef = props.db.collecjtion(props.collectionName).doc(props.id)
+                                       docRef.update({
+                                           "isSharedWith": [...props.isSharedWith, email]
+                                       })
+                                   }
+                                   clearInput()
+                               }
+                           }}
                            onChange={(e)=>setEmail(e.target.value)}/>
                     <div></div>
                     <button
@@ -119,13 +130,13 @@ function List(props) {
         {props.selectMode ?
             <div className="task" tabIndex={props.tabIdx}>{props.text}</div>
                 :
-            <input type="text"
+            <SelectionMaintainingInput type="text"
                 className={"listInput"}
                 tabIndex={props.tabIdx}
                 value={props.text}
                 onChange={(e) => {
-                if (props.selectMode) return
-                props.onListChange(props.id, "text", e.target.value)
+                    if (props.selectMode) return
+                    props.onListChange(props.id, "text", e.target.value)
             }}/>
         }
 

@@ -42,15 +42,20 @@ function TaskList(props) {
     function toggleModal() {
         handleExitSelectMode()
     }
+    let displayName = props.user.displayName !== null ? props.user.displayName : props.user.email
 
 
     return <div id="listOutlier">
+
+        <div className="emailDisplay">
+            Hi, {displayName}
+        </div>
         <div className="headerButton"
              role="heading"
              aria-level="1"
              aria-label="Your Lists">
             <div className="head">
-                <h1>Your task lists</h1>
+                <h1>Lists</h1>
                 {!props.user.emailVerified &&
                 <button type="button" className="select" onClick={props.verifyEmail}>Verify email</button>}
             </div>
@@ -106,7 +111,7 @@ function TaskList(props) {
                         Create your 1st Task List using the input box below : )
                     </div>
                     {!props.user.emailVerified && <div className="completeItem">
-                        Verify your email and re-login to unlock SHARING
+                        Verify your email and re-login to see lists SHARED with you
                     </div>}
                 </div>
                 :
