@@ -76,7 +76,7 @@ function App(props) {
                             type="password"
                             onChange={(e)=>setPassword(e.target.value)}
                             id="password"
-                            placeholder="Pasword"
+                            placeholder="Password"
                         />
                     </div>
                     <div className="typeInfo">
@@ -106,7 +106,7 @@ function SignIn(props) {
 
     if (loading) {
         return <div id="signIn">
-            <button className="loadingHomeButton">Log in</button>
+            <button className="loadingHomeButton">Login</button>
         </div>
     }
 
@@ -115,7 +115,7 @@ function SignIn(props) {
         props.onError()
     }
     return <div id="signIn">
-        <button className="homeButton" onClick={() =>
+        <button className="homeLogInButton" onClick={() =>
         {
             signInWithEmailAndPassword(props.email, props.password)
             props.clearInput()

@@ -80,6 +80,18 @@
     margin-bottom: 30vh;
 }
 
+.homeLogInButton {
+    width: 80%;
+    height: 4vh;
+    background-color: rgba(1, 50, 67, 0.8);
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 1.5px;
+    color: white;
+    border-color: rgba(1, 50, 67, 0.6);
+    margin-bottom: 30vh;
+}
+
 .loadingHomeButton {
     width: 80%;
     height: 4vh;
@@ -91,13 +103,24 @@
     border-color: rgba(1, 50, 67, 0.4);
 }
 
-.homeButton:hover{
+.homeButton:hover {
     background-color: white;
     color: #14274E;
     border-color: rgba(1, 50, 67, 0.2);
     border-style: solid;
 }
 
+.homeLogInButton:hover {
+    width: 80%;
+    height: 4vh;
+    background-color: rgba(1, 50, 67, 1);
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 1.5px;
+    color: white;
+    border-color: rgba(1, 50, 67, 0.6);
+    margin-bottom: 30vh;
+}
 
 #signIn{
     flex-grow: 1;
