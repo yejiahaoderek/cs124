@@ -13,8 +13,16 @@ function List(props) {
         setEmail("")
     }
 
-    function validateShare(email) {
-        return email !== props.user.email
+    function isValidEmail(email) {
+        if (email === props.user.email)
+            alert("Oops, you can't share a list with yourself!")
+        else if (email == "" || !String(email).toLowerCase().match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            ))
+            alert("Please enter a valid email address")
+        else if (props.isSharedWith.includes(email))
+            alert("The email you entered is already on the share list")
+        else return true
     }
 
     return <div className={"buttonGroup"}>
@@ -74,13 +82,13 @@ function List(props) {
                         <button
                             className="shareButton"
                             onClick={()=>{
-                                if (validateShare(email)) {
+                                if (isValidEmail(email)) {
                                     const docRef = props.db.collection(props.collectionName).doc(props.id)
                                     docRef.update({
                                         "isSharedWith": [...props.isSharedWith, email]
                                     })
-                                    clearInput()
-                                } else alert("Please enter a valid email address other than yours")
+                                }
+                                clearInput()
                             }}>Share</button>
                     </div>
                     <div id="closeShare">
