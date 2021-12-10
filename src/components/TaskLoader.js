@@ -8,12 +8,12 @@ function TaskLoader(props) {
     const [sortChoice , setSortChoice] = useState("priority");
     const [showCompletedItems, setShowCompletedItems] = useState(true)
     let tasks = [];
-    let sharedTasks = []
-
     let query = props.db.collection(props.collectionName).doc(props.currListID).collection("Tasks")
     let taskQuery = query.orderBy(sortChoice, sortChoice === "priority" ? "desc": "asc")
 
     const [value, loading, error] = useCollection(taskQuery);
+    console.log(value.docs.map(doc => doc.data()))
+
     if (value) {
         tasks = value.docs.map(doc => doc.data())
     }
@@ -36,7 +36,6 @@ function TaskLoader(props) {
                 text: text,
                 isCompleted: false,
                 priority: 0,
-                owner: props.user.uid,
                 created: firebase.database.ServerValue.TIMESTAMP,
             })
         }

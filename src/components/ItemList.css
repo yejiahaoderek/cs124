@@ -2,7 +2,9 @@
     border-style: none;
     border-radius: 12px;
     border-width: 2px;
-    overflow-y:auto
+    overflow-y:auto;
+    margin-bottom: 2vh;
+
 }
 
 .taskItems>div{

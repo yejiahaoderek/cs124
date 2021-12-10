@@ -106,3 +106,19 @@
     position: relative;
     grid-template-rows: 38vh 8vh 5vh;
 }
+
+.infoModal {
+    display: grid;
+    background-color: #fff;
+    border-radius: 8px ;
+    border-color: #14274E;
+    border-style: solid;
+    border-width: 2px;
+    margin: 0 auto;
+    top: 30%;
+    height: 25vh;
+    width: 70vw;
+    padding: 18pt;
+    position: relative;
+    grid-template-rows: 20vh 5vh;
+}

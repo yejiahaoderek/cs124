@@ -176,6 +176,7 @@ function SignedInApp(props) {
                 id: listID,
                 text: text,
                 owner: props.user.uid,
+                ownerEmail : props.user.email,
                 isSharedWith: []
             }).catch((error) => {
                 console.error("Error deleting document: ", error);

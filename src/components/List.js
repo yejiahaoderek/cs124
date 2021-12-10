@@ -8,6 +8,7 @@ function List(props) {
     const [shareMode, setShareMode] = useState(false)
     let isSharing = props.isSharedWith.length > 0 && props.owner === props.user.uid
     let isShared = props.isSharedWith.includes(props.user.email)
+    console.log(props.ownerEmail)
 
     function clearInput() {
         setEmail("")
@@ -46,7 +47,7 @@ function List(props) {
         </button>
 
         {/*SHARE WINDOW*/}
-        {shareMode &&
+        {shareMode && !isShared &&
             <div className={"shareBackdrop"}>
                 <div className="shareModal">
                     <div className="taskItems">
@@ -98,6 +99,20 @@ function List(props) {
                     </div>
                 </div>
             </div>
+        }
+        {isShared && shareMode && <div className={"shareBackdrop"}>
+            <div className="infoModal">
+                <div className="taskItems">
+                    <h3>List Owner</h3>
+                    <div className="completeItem"><p>{props.ownerEmail}</p></div>
+                </div>
+                <div id="closeShare">
+                    <button className={"closeConfirm"} onClick={()=>setShareMode(false)} type={"button"}>
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
         }
 
 
