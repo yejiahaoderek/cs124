@@ -25,3 +25,84 @@
     margin-left: auto;
     height: 22px;
 }
+
+.shareBackdrop {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.shareButtonGroup {
+    width: 70vw;
+    /*margin-left: auto;*/
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 5vh;
+}
+
+.emailInput {
+    border-radius: 12px;
+    background-color: white;
+    border-color: rgba(1, 50, 67, 0.4);
+    border-style: solid;
+    border-width: 1px;
+    width: 80vw;
+    height: 1.8vh;
+    padding: 0.5em;
+    font-size: 15px;
+}
+
+.shareButton {
+    flex-grow: 1;
+    height: 4vh;
+    background-color: #3D9970;
+    justify-content: center;
+    align-content: center;
+    color: #F1F6F9;
+    border-radius: 12px;
+}
+
+
+.shareMessage {
+    display: flex;
+    width: 20vw;
+    flex-basis: 100%;
+    flex-wrap: nowrap;
+}
+
+#closeShare{
+    display: flex;
+}
+
+.closeConfirm {
+    flex-grow: 1;
+    background: rgba(1, 50, 67, 0.08);
+    border-radius: 12px;
+
+}
+
+.closeConfirm:hover {
+    flex-grow: 1;
+    background: rgba(1, 50, 67, 0.4);
+
+}
+
+.shareModal {
+    display: grid;
+    background-color: #fff;
+    border-radius: 8px ;
+    border-color: #14274E;
+    border-style: solid;
+    border-width: 2px;
+    margin: 0 auto;
+    top: 30%;
+    height: 50vh;
+    width: 70vw;
+    padding: 18pt;
+    position: relative;
+    grid-template-rows: 38vh 8vh 5vh;
+}

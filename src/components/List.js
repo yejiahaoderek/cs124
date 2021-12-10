@@ -8,9 +8,13 @@ function List(props) {
     const [shareMode, setShareMode] = useState(false)
     let isSharing = props.isSharedWith.length > 0 && props.owner === props.user.uid
     let isShared = props.isSharedWith.includes(props.user.email)
-    console.log(props.owner)
+
     function clearInput() {
         setEmail("")
+    }
+
+    function validateShare(email) {
+        return email !== props.user.email
     }
 
     return <div className={"buttonGroup"}>
@@ -35,49 +39,52 @@ function List(props) {
 
         {/*SHARE WINDOW*/}
         {shareMode &&
-            <div className={"backdrop"}>
-                <div className="modal">
-                    <div className="buttonGroup">
-                        <input type="text"
-                               placeholder="Enter email here"
-                               onChange={(e)=>setEmail(e.target.value)}/>
-                        <button
-                            className="confirmButton"
-                            onClick={()=>{
-                                const docRef = props.db.collection(props.collectionName).doc(props.id)
-                                docRef.update({
-                                    "isSharedWith": [...props.isSharedWith, email]
-                                })
-                                clearInput()
-                        }}>Share</button>
-                    </div>
-                    <div>
-                        <div className="taskItems">
-                            {props.isSharedWith.map(content =>
-                                <div>
-                                <li>{content}</li>
-                                <button
-                                    className="deleteButton"
-                                    role="button"
-                                    aria-label="delete to do item"
-                                    onClick={() => {
-                                        // update List
-                                        const docRef = props.db.collection(props.collectionName).doc(props.id)
-                                        let newShareList = props.isSharedWith.filter((email) => email !== content)
-                                        docRef.update({"isSharedWith": newShareList})
-                                        // update Task
-
-
-                                    }}>
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAAfElEQVQ4jc2TYQqAIAxGPZ0HCDpJZoLdy+O9/ihITJ0F0f65fbx9bsyY3wVgAafUOsC2CgBhAAhZJzcEtiw4Ow4A4siqCFIDWqBpQAUqf0+aWfVABZCeAo5XTqqZxNtb3NoQIOT7oBZADaoE+6BR2ZqXiuvE7Xhg0Wi/jQtDPPm8/HEN3gAAAABJRU5ErkJggg=="/>
-                                </button>
+            <div className={"shareBackdrop"}>
+                <div className="shareModal">
+                    <div className="taskItems">
+                        <h3>Sharing with</h3>
+                        {props.isSharedWith.length === 0 &&
+                            <div className="completeItem">Add email address below to share</div>}
+                        {props.isSharedWith.map(content =>
+                            <div className="listItem">
+                                <div className="emailAddress">{content}</div>
+                                <div className="buttonGroup">
+                                    <button
+                                        className="deleteButton"
+                                        role="button"
+                                        aria-label="delete to do item"
+                                        onClick={() => {
+                                            const docRef = props.db.collection(props.collectionName).doc(props.id)
+                                            let newShareList = props.isSharedWith.filter((email) => email !== content)
+                                            docRef.update({"isSharedWith": newShareList})
+                                        }}>
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABmJLR0QA/wD/AP+gvaeTAAAAfElEQVQ4jc2TYQqAIAxGPZ0HCDpJZoLdy+O9/ihITJ0F0f65fbx9bsyY3wVgAafUOsC2CgBhAAhZJzcEtiw4Ow4A4siqCFIDWqBpQAUqf0+aWfVABZCeAo5XTqqZxNtb3NoQIOT7oBZADaoE+6BR2ZqXiuvE7Xhg0Wi/jQtDPPm8/HEN3gAAAABJRU5ErkJggg=="/>
+                                    </button>
                                 </div>
-                            )}
-                        </div>
-
+                            </div>
+                        )}
                     </div>
-                    <div className="alertButtonGroup">
-                        <button className={"warningConfirm"} onClick={()=>setShareMode(false)} type={"button"}>
+                    <div className="shareButtonGroup">
+                        <input type="text"
+                               className="emailInput"
+                               placeholder="Enter email address here"
+                               value={email}
+                               onChange={(e)=>setEmail(e.target.value)}/>
+                        <div></div>
+                        <button
+                            className="shareButton"
+                            onClick={()=>{
+                                if (validateShare(email)) {
+                                    const docRef = props.db.collection(props.collectionName).doc(props.id)
+                                    docRef.update({
+                                        "isSharedWith": [...props.isSharedWith, email]
+                                    })
+                                    clearInput()
+                                } else alert("Please enter a valid email address other than yours")
+                            }}>Share</button>
+                    </div>
+                    <div id="closeShare">
+                        <button className={"closeConfirm"} onClick={()=>setShareMode(false)} type={"button"}>
                             Close
                         </button>
                     </div>
