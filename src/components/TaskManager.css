@@ -1,5 +1,5 @@
 #outlier{
-    width: 90vw;
+    /* width: 90vw; */
     height: 90vh;
     display: grid;
     grid-template-rows: 50% 5% 35% 8%;
@@ -210,17 +210,17 @@ body{
 
 @media screen and (orientation:landscape) and (min-width:732px) {
     #outlier{
-        width: 90vw;
+        /* width: 90vw; */
         height: 90vh;
         display: grid;
         grid-template-rows: 80% 1% 7%;
-        background: #F1F6F9;
+        /* background: #F1F6F9; */
     }
 
     .sectionWrapper{
         display: flex;
         flex-direction: row;
-        width: 90vw;
+        /* width: 90vw; */
         justify-content: space-around;
     }
 
